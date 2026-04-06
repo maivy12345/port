@@ -187,4 +187,55 @@
             }
         });
     }
+
+    /* ── Project category tab filter ── */
+    var tabsNav   = document.getElementById("worksTabs");
+    var worksGrid = document.getElementById("worksGrid");
+
+    if (tabsNav && worksGrid) {
+        var tabBtns = tabsNav.querySelectorAll(".works__tab");
+        var cards   = worksGrid.querySelectorAll(".work-card");
+
+        function filterCards(filter) {
+            var delay = 0;
+            cards.forEach(function (card) {
+                var cat = card.getAttribute("data-category");
+                var show = (filter === "all" || cat === filter);
+
+                // Remove animation class before toggling visibility
+                card.classList.remove("is-visible-anim");
+
+                if (show) {
+                    card.classList.remove("is-hidden");
+                    // Stagger the reveal animation
+                    (function (el, d) {
+                        setTimeout(function () {
+                            el.classList.add("is-visible-anim");
+                        }, d);
+                    })(card, delay);
+                    delay += 60;
+                } else {
+                    card.classList.add("is-hidden");
+                }
+            });
+        }
+
+        tabBtns.forEach(function (btn) {
+            btn.addEventListener("click", function () {
+                // Update tab states
+                tabBtns.forEach(function (b) {
+                    b.classList.remove("is-active");
+                    b.setAttribute("aria-selected", "false");
+                });
+                btn.classList.add("is-active");
+                btn.setAttribute("aria-selected", "true");
+
+                filterCards(btn.getAttribute("data-filter"));
+            });
+        });
+
+        // Apply "All" on load so animation classes are primed
+        filterCards("all");
+    }
+
 })();

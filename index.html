@@ -18,12 +18,12 @@
 
   <header class="header">
     <div class="container header__container">
-      <a class="logo" href="#">rayo<span>.</span></a>
+      <a class="logo" href="#">Mei<span>.</span></a>
       <nav class="nav" id="nav">
-        <a href="#works">Works</a>
-        <a href="#services">Services</a>
-        <a href="#insights">Insights</a>
-        <a href="#contact" class="nav__cta">Contact</a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="#contact" class="nav__cta">Contact me</a>
       </nav>
       <button type="button" class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"
         aria-controls="nav">
@@ -194,7 +194,7 @@
               <p class="showcase-desc">Projects delivered successfully</p>
             </div>
             <div class="showcase-footer">
-              <a href="#works" class="showcase-btn">
+              <a href="projects.html" class="showcase-btn">
                 Works
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
                   stroke-linejoin="round">
@@ -211,49 +211,121 @@
     <section class="works reveal" id="works">
       <div class="container">
         <div class="works__filters" aria-hidden="true">
-          <span>Branding</span><span>eCommerce</span><span>Design</span><span>Development</span><span>Mobile Apps</span>
+          <span>Website</span><span>Mobile App</span><span>Portal</span><span>Landing page</span>
         </div>
         <div class="section-head">
           <h2><span class="title-anim">Featured</span> <span class="title-anim">projects</span></h2>
-          <p>Explore a selection of projects blending creativity with practical design.</p>
-          <a href="#" class="link-arrow">All Works</a>
+          <p>Explore a curated selection of projects that blend creative vision with practical design.</p>
+          <a href="projects.html" class="link-arrow">All Works</a>
         </div>
-        <div class="works__grid">
-          <article class="work-card">
-            <div class="work-card__media" style="--accent: #6c5ce7">
-              <span class="work-card__tag">UI/UX · Web design · Development</span>
+
+        <!-- Tab Navigation -->
+        <div class="works__tabs" role="tablist" aria-label="Filter projects by category" id="worksTabs">
+          <button class="works__tab is-active" role="tab" aria-selected="true" data-filter="all">All</button>
+          <button class="works__tab" role="tab" aria-selected="false" data-filter="health">Health &amp; Beauty</button>
+          <button class="works__tab" role="tab" aria-selected="false" data-filter="business">Business &amp; Professional
+            Services</button>
+          <button class="works__tab" role="tab" aria-selected="false" data-filter="travel">Travel &amp; Global
+            Mobility</button>
+          <button class="works__tab" role="tab" aria-selected="false" data-filter="community">Community, Lifestyle &amp;
+            Commerce</button>
+        </div>
+
+        <!-- Unified Project Grid (filtered by JS) -->
+        <div class="works__grid" id="worksGrid">
+
+          <!-- Health & Beauty -->
+          <article class="work-card" data-category="health">
+            <div class="work-card__media" style="--accent: #fd79a8">
+              <span class="work-card__tag">UI/UX · Web Design</span>
             </div>
-            <h3>Creative studio template for modern agencies</h3>
-            <p>Sora</p>
+            <h3>Wellness booking platform for modern clinics</h3>
+            <p>Health</p>
           </article>
-          <article class="work-card">
-            <div class="work-card__media" style="--accent: #00cec9">
-              <span class="work-card__tag">AI · Editorial</span>
+          <article class="work-card" data-category="health">
+            <div class="work-card__media" style="--accent: #e84393">
+              <span class="work-card__tag">Mobile App · Android</span>
             </div>
-            <h3>Interactive concept powered by AI</h3>
-            <p>AI</p>
+            <h3>Beauty subscription app with personalised routines</h3>
+            <p>Beauty</p>
           </article>
-          <article class="work-card">
-            <div class="work-card__media" style="--accent: #FF9DDE">
-              <span class="work-card__tag">UI/UX · Design · Android</span>
+          <article class="work-card" data-category="health">
+            <div class="work-card__media" style="--accent: #a29bfe">
+              <span class="work-card__tag">Branding · Style Guide</span>
             </div>
-            <h3>Mobile app design for a cross-platform solution</h3>
-            <p>Design</p>
-          </article>
-          <article class="work-card">
-            <div class="work-card__media" style="--accent: #e17055">
-              <span class="work-card__tag">Brand Identity · Style guides</span>
-            </div>
-            <h3>NFT project branding</h3>
+            <h3>Luxury skincare brand identity &amp; packaging system</h3>
             <p>Brand</p>
           </article>
-          <article class="work-card work-card--span">
-            <div class="work-card__media" style="--accent: #a29bfe">
-              <span class="work-card__tag">Illustrations · Design · Packaging</span>
+
+          <!-- Business & Professional Services -->
+          <article class="work-card" data-category="business">
+            <div class="work-card__media" style="--accent: #0984e3">
+              <span class="work-card__tag">SaaS · Dashboard</span>
             </div>
-            <h3>Illustrations set developed for digital and print use.</h3>
-            <p>Illustrations</p>
+            <h3>B2B analytics platform for enterprise clients</h3>
+            <p>SaaS</p>
           </article>
+          <article class="work-card" data-category="business">
+            <div class="work-card__media" style="--accent: #00b894">
+              <span class="work-card__tag">Branding · Web Design</span>
+            </div>
+            <h3>Consultancy firm rebrand and lead-gen site</h3>
+            <p>Professional</p>
+          </article>
+          <article class="work-card" data-category="business">
+            <div class="work-card__media" style="--accent: #fdcb6e">
+              <span class="work-card__tag">UI/UX · Portal</span>
+            </div>
+            <h3>HR self-service portal with role-based access</h3>
+            <p>Enterprise</p>
+          </article>
+
+          <!-- Travel & Global Mobility -->
+          <article class="work-card" data-category="travel">
+            <div class="work-card__media" style="--accent: #00cec9">
+              <span class="work-card__tag">Web Design · Booking</span>
+            </div>
+            <h3>Multi-destination travel planning platform</h3>
+            <p>Travel</p>
+          </article>
+          <article class="work-card" data-category="travel">
+            <div class="work-card__media" style="--accent: #6c5ce7">
+              <span class="work-card__tag">Mobile App · iOS</span>
+            </div>
+            <h3>Visa &amp; immigration mobile assistant for global workers</h3>
+            <p>Mobility</p>
+          </article>
+          <article class="work-card" data-category="travel">
+            <div class="work-card__media" style="--accent: #74b9ff">
+              <span class="work-card__tag">Maps · Data Viz · UX</span>
+            </div>
+            <h3>Interactive global mobility insights hub for enterprises</h3>
+            <p>Analytics</p>
+          </article>
+
+          <!-- Community, Lifestyle & Commerce -->
+          <article class="work-card" data-category="community">
+            <div class="work-card__media" style="--accent: #ff7675">
+              <span class="work-card__tag">Social Platform · UI/UX</span>
+            </div>
+            <h3>Neighbourhood community app with local marketplace</h3>
+            <p>Community</p>
+          </article>
+          <article class="work-card" data-category="community">
+            <div class="work-card__media" style="--accent: #a29bfe">
+              <span class="work-card__tag">E-commerce · Shopify</span>
+            </div>
+            <h3>Lifestyle brand online store with editorial layout</h3>
+            <p>Commerce</p>
+          </article>
+          <article class="work-card work-card--span" data-category="community">
+            <div class="work-card__media" style="--accent: #00b894">
+              <span class="work-card__tag">Marketplace · UX Research</span>
+            </div>
+            <h3>Peer-to-peer marketplace for sustainable goods &amp; services</h3>
+            <p>Marketplace</p>
+          </article>
+
         </div>
       </div>
     </section>
@@ -508,7 +580,7 @@
         <nav class="footer__nav">
           <a href="#">Home</a>
           <a href="#about">About us</a>
-          <a href="#works">Works</a>
+          <a href="projects.html">Projects</a>
           <a href="#services">Services</a>
           <a href="#insights">Insights</a>
           <a href="#contact">Contact</a>
