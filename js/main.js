@@ -1,24 +1,170 @@
 (function () {
     "use strict";
 
+    // 1. Init Lenis for smooth scrolling
+    const lenis = new Lenis({
+        lerp: 0.08,
+        smoothWheel: true,
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        touchMultiplier: 2,
+    });
+
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
+
+    // 2. Wrap text for mask animations in Hero
+    document.querySelectorAll(".hero__line").forEach((line) => {
+        const text = line.innerHTML;
+        line.innerHTML = `<span class="hero__mask"><span class="hero__text">${text}</span></span>`;
+    });
+
+    // 3. Hero GSAP Timeline
+    const heroTimeline = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+    // Initial setups for elements we will animate
+    gsap.set(".hero__text", { yPercent: 120, rotate: 2, opacity: 0 });
+    gsap.set([".hero__eyebrow", ".hero__desc", ".hero__actions", ".hero__social"], { autoAlpha: 0, y: 20 });
+
+    heroTimeline
+        .to(".hero__eyebrow", { autoAlpha: 1, y: 0, duration: 1 }, 0.2)
+        .to(".hero__text", { yPercent: 0, rotate: 0, opacity: 1, duration: 1.4, stagger: 0.15 }, "-=0.8")
+        .to(".hero__desc", { autoAlpha: 1, y: 0, duration: 1 }, "-=1")
+        .to([".hero__actions", ".hero__social"], { autoAlpha: 1, y: 0, stagger: 0.2, duration: 1 }, "-=0.8");
+
+    // 4. Scroll Reveal Animations (Replacing intersection Observer)
+    gsap.utils.toArray('.reveal').forEach((elem) => {
+        gsap.fromTo(elem,
+            { autoAlpha: 0, y: 30 },
+            {
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 80%",
+                },
+                autoAlpha: 1,
+                y: 0,
+                duration: 1.2,
+                ease: "power3.out"
+            }
+        );
+    });
+
+    // 5. Magnetic Buttons
+    const magneticBtns = document.querySelectorAll(".btn");
+    magneticBtns.forEach((btn) => {
+        btn.addEventListener("mousemove", (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            gsap.to(btn, { x: x * 0.35, y: y * 0.35, duration: 0.6, ease: "power2.out" });
+        });
+        btn.addEventListener("mouseleave", () => {
+            gsap.to(btn, { x: 0, y: 0, duration: 0.8, ease: "elastic.out(1, 0.3)" });
+        });
+    });
+
+    // 6. Section Titles Animations
+    gsap.utils.toArray('.title-anim').forEach((title) => {
+        gsap.fromTo(title,
+            { y: "1em", opacity: 0 },
+            {
+                scrollTrigger: {
+                    trigger: title.closest('.section-head') || title,
+                    start: "top 85%",
+                },
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                ease: "power4.out",
+                stagger: 0.1
+            }
+        );
+    });
+
+    // 7. Split “Who we are” into words and animate
+    var aboutSplit = document.getElementById("aboutSplit");
+    if (aboutSplit) {
+        var raw = aboutSplit.textContent.replace(/\s+/g, " ").trim();
+        aboutSplit.textContent = "";
+        
+        var words = raw.split(" ");
+        words.forEach(function (w) {
+            var span = document.createElement("span");
+            span.className = "word";
+            span.innerHTML = w + "&nbsp;";
+            aboutSplit.appendChild(span);
+        });
+
+        gsap.fromTo(aboutSplit.querySelectorAll('.word'),
+            { opacity: 0.08, y: "0.35em", rotate: 2 },
+            {
+                scrollTrigger: {
+                    trigger: aboutSplit,
+                    start: "top 80%",
+                },
+                opacity: 1,
+                y: 0,
+                rotate: 0,
+                duration: 0.8,
+                stagger: 0.04,
+                ease: "power3.out"
+            }
+        );
+    }
+
+    // 8. Stats Count-up replacing observer
+    function animateValue(el, target, duration, suffix) {
+        var start = 0;
+        var startTime = null;
+        suffix = suffix || "";
+
+        function step(ts) {
+            if (!startTime) startTime = ts;
+            var p = Math.min((ts - startTime) / duration, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            var val = Math.round(start + (target - start) * eased);
+            el.textContent = String(val) + suffix;
+            if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    }
+
+    var statsSection = document.getElementById("stats");
+    if (statsSection) {
+        ScrollTrigger.create({
+            trigger: statsSection,
+            start: "top 75%",
+            once: true,
+            onEnter: () => {
+                document.querySelectorAll(".showcase-metric[data-target]").forEach((el, idx) => {
+                    var target = parseInt(el.getAttribute("data-target"), 10);
+                    var suffix = el.getAttribute("data-suffix") || "";
+                    if (isNaN(target)) return;
+                    setTimeout(() => {
+                        animateValue(el, target, 1400, suffix);
+                    }, idx * 150);
+                });
+            }
+        });
+    }
+
+    // Header logic
     var header = document.querySelector(".header");
     var menuBtn = document.getElementById("menuBtn");
     var nav = document.getElementById("nav");
     var yearEl = document.getElementById("year");
-    var track = document.getElementById("testimonialTrack");
-    var dotsWrap = document.getElementById("testimonialDots");
-    var ctaForm = document.getElementById("ctaForm");
-    var aboutSplit = document.getElementById("aboutSplit");
 
-    if (yearEl) {
-        yearEl.textContent = String(new Date().getFullYear());
-    }
+    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
     function onScroll() {
         if (!header) return;
         header.classList.toggle("is-scrolled", window.scrollY > 40);
     }
-
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
@@ -27,114 +173,44 @@
             var open = nav.classList.toggle("is-open");
             menuBtn.classList.toggle("is-open", open);
             menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-            document.body.style.overflow = open ? "hidden" : "";
+            if(open) {
+                lenis.stop();
+            } else {
+                lenis.start();
+            }
         });
 
         nav.querySelectorAll("a").forEach(function (link) {
-            link.addEventListener("click", function () {
+            link.addEventListener("click", function (e) {
+                const target = document.querySelector(this.getAttribute("href"));
+                if(target) {
+                    e.preventDefault();
+                    lenis.scrollTo(target);
+                }
                 nav.classList.remove("is-open");
                 menuBtn.classList.remove("is-open");
                 menuBtn.setAttribute("aria-expanded", "false");
-                document.body.style.overflow = "";
+                lenis.start();
             });
         });
     }
 
-    /* Split “Who we are” into characters (demo-style) */
-    if (aboutSplit && aboutSplit.hasAttribute("data-split")) {
-        var raw = aboutSplit.textContent.trim();
-        aboutSplit.textContent = "";
-        var ci = 0;
-        for (var i = 0; i < raw.length; i++) {
-            var ch = raw[i];
-            var span = document.createElement("span");
-            span.className = "char";
-            span.style.setProperty("--ci", String(ci));
-            if (ch === " ") {
-                span.innerHTML = "&nbsp;";
-            } else {
-                span.textContent = ch;
+    // Parallax elements
+    gsap.utils.toArray('.showcase-visual').forEach(visual => {
+        gsap.to(visual, {
+            y: -40,
+            scrollTrigger: {
+                trigger: visual.closest('.showcase-card'),
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1
             }
-            aboutSplit.appendChild(span);
-            ci++;
-        }
-    }
-
-    /* Count-up with optional progress bar (synced with number) */
-    function animateValue(el, target, duration, suffix, barEl, onDone) {
-        var start = 0;
-        var startTime = null;
-        suffix = suffix || "";
-        if (typeof barEl === "function" && onDone === undefined) {
-            onDone = barEl;
-            barEl = null;
-        }
-
-        function step(ts) {
-            if (!startTime) startTime = ts;
-            var p = Math.min((ts - startTime) / duration, 1);
-            var eased = 1 - Math.pow(1 - p, 3);
-            var val = Math.round(start + (target - start) * eased);
-            el.textContent = String(val) + suffix;
-            if (barEl) {
-                var maxW = parseFloat(barEl.getAttribute("data-fill") || String(target));
-                if (!isNaN(maxW)) {
-                    barEl.style.width = (val / target) * maxW + "%";
-                }
-            }
-            if (p < 1) {
-                requestAnimationFrame(step);
-            } else if (typeof onDone === "function") {
-                onDone();
-            }
-        }
-
-        requestAnimationFrame(step);
-    }
-
-    var statsAnimated = false;
-    var statNums = document.querySelectorAll(".showcase-metric[data-target]");
-
-    var statsObserver = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry) {
-                if (!entry.isIntersecting || statsAnimated) return;
-                statsAnimated = true;
-
-                statNums.forEach(function (el, idx) {
-                    var target = parseInt(el.getAttribute("data-target"), 10);
-                    var suffix = el.getAttribute("data-suffix") || "";
-                    if (isNaN(target)) return;
-
-                    window.setTimeout(function () {
-                        animateValue(el, target, 1400, suffix, null, null);
-                    }, idx * 110);
-                });
-            });
-        },
-        { threshold: 0.25 }
-    );
-
-    var statsSection = document.getElementById("stats");
-    if (statsSection) statsObserver.observe(statsSection);
-
-    /* Scroll reveal */
-    document.querySelectorAll(".reveal").forEach(function (el) {
-        var obs = new IntersectionObserver(
-            function (entries) {
-                entries.forEach(function (e) {
-                    if (e.isIntersecting) {
-                        e.target.classList.add("is-visible");
-                        obs.unobserve(e.target);
-                    }
-                });
-            },
-            { threshold: 0.1, rootMargin: "0px 0px -10% 0px" }
-        );
-        obs.observe(el);
+        });
     });
 
-    /* Testimonial slider */
+    // Testimonial slider
+    var track = document.getElementById("testimonialTrack");
+    var dotsWrap = document.getElementById("testimonialDots");
     var testimonials = track ? track.querySelectorAll(".testimonial") : [];
     var current = 0;
     var slideCount = testimonials.length;
@@ -157,62 +233,31 @@
             dot.setAttribute("aria-label", "Slide " + (j + 1));
             if (j === 0) dot.classList.add("is-active");
             (function (idx) {
-                dot.addEventListener("click", function () {
-                    goToSlide(idx);
-                });
+                dot.addEventListener("click", function () { goToSlide(idx); });
             })(j);
             dotsWrap.appendChild(dot);
         }
-
-        var auto = setInterval(function () {
-            goToSlide(current + 1);
-        }, 5500);
-
-        track.addEventListener("mouseenter", function () {
-            clearInterval(auto);
-        });
-        track.addEventListener("mouseleave", function () {
-            auto = setInterval(function () {
-                goToSlide(current + 1);
-            }, 5500);
-        });
+        var auto = setInterval(function () { goToSlide(current + 1); }, 5500);
+        track.addEventListener("mouseenter", function () { clearInterval(auto); });
+        track.addEventListener("mouseleave", function () { auto = setInterval(function () { goToSlide(current + 1); }, 5500); });
     }
 
-    if (ctaForm) {
-        ctaForm.addEventListener("submit", function (e) {
-            e.preventDefault();
-            var input = ctaForm.querySelector('input[type="email"]');
-            if (input && input.value) {
-                alert("Thanks — this is a static demo; wire a backend to send real email.");
-            }
-        });
-    }
-
-    /* ── Project category tab filter ── */
-    var tabsNav   = document.getElementById("worksTabs");
+    // Project category filter
+    var tabsNav = document.getElementById("worksTabs");
     var worksGrid = document.getElementById("worksGrid");
-
     if (tabsNav && worksGrid) {
         var tabBtns = tabsNav.querySelectorAll(".works__tab");
-        var cards   = worksGrid.querySelectorAll(".work-card");
+        var cards = worksGrid.querySelectorAll(".work-card");
 
         function filterCards(filter) {
             var delay = 0;
             cards.forEach(function (card) {
                 var cat = card.getAttribute("data-category");
                 var show = (filter === "all" || cat === filter);
-
-                // Remove animation class before toggling visibility
                 card.classList.remove("is-visible-anim");
-
                 if (show) {
                     card.classList.remove("is-hidden");
-                    // Stagger the reveal animation
-                    (function (el, d) {
-                        setTimeout(function () {
-                            el.classList.add("is-visible-anim");
-                        }, d);
-                    })(card, delay);
+                    setTimeout(function () { card.classList.add("is-visible-anim"); }, delay);
                     delay += 60;
                 } else {
                     card.classList.add("is-hidden");
@@ -222,19 +267,15 @@
 
         tabBtns.forEach(function (btn) {
             btn.addEventListener("click", function () {
-                // Update tab states
                 tabBtns.forEach(function (b) {
                     b.classList.remove("is-active");
                     b.setAttribute("aria-selected", "false");
                 });
                 btn.classList.add("is-active");
                 btn.setAttribute("aria-selected", "true");
-
                 filterCards(btn.getAttribute("data-filter"));
             });
         });
-
-        // Apply "All" on load so animation classes are primed
         filterCards("all");
     }
 
