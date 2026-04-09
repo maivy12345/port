@@ -86,26 +86,27 @@
         );
     });
 
-    // 7. Split “Who we are” into words and animate
-    var aboutSplit = document.getElementById("aboutSplit");
-    if (aboutSplit) {
-        var raw = aboutSplit.textContent.replace(/\s+/g, " ").trim();
-        aboutSplit.textContent = "";
+    // 7. Split “Who we are” into words and animate (and any .text-split usage)
+    var splitElements = gsap.utils.toArray('#aboutSplit, .text-split');
+    
+    splitElements.forEach(function(el) {
+        var raw = el.textContent.replace(/\s+/g, " ").trim();
+        el.textContent = "";
         
         var words = raw.split(" ");
         words.forEach(function (w) {
             var span = document.createElement("span");
             span.className = "word";
             span.innerHTML = w + "&nbsp;";
-            aboutSplit.appendChild(span);
+            el.appendChild(span);
         });
 
-        gsap.fromTo(aboutSplit.querySelectorAll('.word'),
+        gsap.fromTo(el.querySelectorAll('.word'),
             { opacity: 0.08, y: "0.35em", rotate: 2 },
             {
                 scrollTrigger: {
-                    trigger: aboutSplit,
-                    start: "top 80%",
+                    trigger: el,
+                    start: "top 85%",
                 },
                 opacity: 1,
                 y: 0,
@@ -115,7 +116,7 @@
                 ease: "power3.out"
             }
         );
-    }
+    });
 
     // 8. Stats Count-up replacing observer
     function animateValue(el, target, duration, suffix) {
@@ -278,5 +279,22 @@
         });
         filterCards("all");
     }
+
+    // Mini cases scrub reveal for smooth scroll
+    gsap.utils.toArray('.mini-case').forEach((caseItem) => {
+        gsap.fromTo(caseItem,
+            { autoAlpha: 0, y: 120 },
+            {
+                scrollTrigger: {
+                    trigger: caseItem,
+                    start: "top 95%",
+                    end: "top 55%",
+                    scrub: 1.5,
+                },
+                autoAlpha: 1,
+                y: 0
+            }
+        );
+    });
 
 })();
