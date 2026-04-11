@@ -141,7 +141,7 @@
           <a class="btn btn--primary about__cta" href="#contact">Say Hello</a>
         </div>
       </div>
-      <div class="container container--full">
+      <div class="container">
         <div class="showcase-grid">
           <!-- Card 1: 46+ Star -->
           <div class="showcase-card showcase-card--highlight showcase-card--right col-5">
@@ -214,122 +214,123 @@
 
     <section class="works reveal" id="works">
       <div class="container">
-        <div class="works__filters" aria-hidden="true">
-          <span>Website</span><span>Mobile App</span><span>Portal</span><span>Landing page</span>
+        <div class="works__head">
+          <div class="works__head-left">
+            <span class="works__label">Featured Projects</span>
+            <h2><span class="title-anim">Selected</span> <span class="title-anim">works</span></h2>
+          </div>
+          <div class="works__head-right">
+            <p>Explore a curated selection of projects that blend creative vision with practical design.</p>
+            <a href="projects.html" class="link-arrow">All Works ↗</a>
+          </div>
         </div>
-        <div class="section-head">
-          <h2><span class="title-anim">Featured</span> <span class="title-anim">projects</span></h2>
-          <p>Explore a curated selection of projects that blend creative vision with practical design.</p>
-          <a href="projects.html" class="link-arrow">All Works</a>
-        </div>
+      </div>
 
-        <!-- Tab Navigation -->
-        <div class="works__tabs" role="tablist" aria-label="Filter projects by category" id="worksTabs">
-          <button class="works__tab is-active" role="tab" aria-selected="true" data-filter="all">All</button>
-          <button class="works__tab" role="tab" aria-selected="false" data-filter="health">Health &amp; Beauty</button>
-          <button class="works__tab" role="tab" aria-selected="false" data-filter="business">Business &amp; Professional
-            Services</button>
-          <button class="works__tab" role="tab" aria-selected="false" data-filter="travel">Travel &amp; Global
-            Mobility</button>
-          <button class="works__tab" role="tab" aria-selected="false" data-filter="community">Community, Lifestyle &amp;
-            Commerce</button>
-        </div>
+      <!-- Project Panels (Rayo Dark style) -->
+      <div class="proj-panels">
 
-        <!-- Unified Project Grid (filtered by JS) -->
-        <div class="works__grid" id="worksGrid">
+        <!-- Panel 1: Cream/Off-white -->
+        <article class="proj-item proj-item--cream" data-index="01">
+          <div class="proj-item__inner container">
+            <div class="proj-item__info">
+              <span class="proj-item__index">01</span>
+              <h3 class="proj-item__title">Wellness Booking Platform</h3>
+              <div class="proj-item__tags">
+                <span>UI/UX</span>
+                <span>Web Design</span>
+                <span>Health</span>
+              </div>
+            </div>
+          </div>
+          <div class="proj-item__visual">
+            <img src="img/01_star 1.png" alt="Wellness Booking Platform visual" />
+          </div>
+          <a href="projects.html" class="proj-item__arrow" aria-label="View project">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </article>
 
-          <!-- Health & Beauty -->
-          <article class="work-card" data-category="health">
-            <div class="work-card__media" style="--accent: #fd79a8">
-              <span class="work-card__tag">UI/UX · Web Design</span>
+        <!-- Panel 2: Lime Green -->
+        <article class="proj-item proj-item--lime" data-index="02">
+          <div class="proj-item__inner container">
+            <div class="proj-item__info">
+              <span class="proj-item__index">02</span>
+              <h3 class="proj-item__title">B2B Analytics Dashboard</h3>
+              <div class="proj-item__tags">
+                <span>SaaS</span>
+                <span>Dashboard</span>
+                <span>Enterprise</span>
+              </div>
             </div>
-            <h3>Wellness booking platform for modern clinics</h3>
-            <p>Health</p>
-          </article>
-          <article class="work-card" data-category="health">
-            <div class="work-card__media" style="--accent: #e84393">
-              <span class="work-card__tag">Mobile App · Android</span>
-            </div>
-            <h3>Beauty subscription app with personalised routines</h3>
-            <p>Beauty</p>
-          </article>
-          <article class="work-card" data-category="health">
-            <div class="work-card__media" style="--accent: #a29bfe">
-              <span class="work-card__tag">Branding · Style Guide</span>
-            </div>
-            <h3>Luxury skincare brand identity &amp; packaging system</h3>
-            <p>Brand</p>
-          </article>
+          </div>
+          <div class="proj-item__visual">
+            <img src="img/02_devices 1.png" alt="B2B Analytics Dashboard visual" />
+          </div>
+          <a href="projects.html" class="proj-item__arrow" aria-label="View project">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </article>
 
-          <!-- Business & Professional Services -->
-          <article class="work-card" data-category="business">
-            <div class="work-card__media" style="--accent: #0984e3">
-              <span class="work-card__tag">SaaS · Dashboard</span>
+        <!-- Panel 3: Dark -->
+        <article class="proj-item proj-item--dark" data-index="03">
+          <div class="proj-item__inner container">
+            <div class="proj-item__info">
+              <span class="proj-item__index">03</span>
+              <h3 class="proj-item__title">Global Mobility Insights Hub</h3>
+              <div class="proj-item__tags">
+                <span>Maps</span>
+                <span>Data Viz</span>
+                <span>UX Research</span>
+              </div>
             </div>
-            <h3>B2B analytics platform for enterprise clients</h3>
-            <p>SaaS</p>
-          </article>
-          <article class="work-card" data-category="business">
-            <div class="work-card__media" style="--accent: #00b894">
-              <span class="work-card__tag">Branding · Web Design</span>
-            </div>
-            <h3>Consultancy firm rebrand and lead-gen site</h3>
-            <p>Professional</p>
-          </article>
-          <article class="work-card" data-category="business">
-            <div class="work-card__media" style="--accent: #fdcb6e">
-              <span class="work-card__tag">UI/UX · Portal</span>
-            </div>
-            <h3>HR self-service portal with role-based access</h3>
-            <p>Enterprise</p>
-          </article>
+          </div>
+          <div class="proj-item__visual">
+            <img src="img/03_experience 1.png" alt="Global Mobility Insights Hub visual" />
+          </div>
+          <a href="projects.html" class="proj-item__arrow" aria-label="View project">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </article>
 
-          <!-- Travel & Global Mobility -->
-          <article class="work-card" data-category="travel">
-            <div class="work-card__media" style="--accent: #00cec9">
-              <span class="work-card__tag">Web Design · Booking</span>
+        <!-- Panel 4: Warm Beige -->
+        <article class="proj-item proj-item--warm" data-index="04">
+          <div class="proj-item__inner container">
+            <div class="proj-item__info">
+              <span class="proj-item__index">04</span>
+              <h3 class="proj-item__title">Lifestyle Brand Online Store</h3>
+              <div class="proj-item__tags">
+                <span>E-commerce</span>
+                <span>Shopify</span>
+                <span>Branding</span>
+              </div>
             </div>
-            <h3>Multi-destination travel planning platform</h3>
-            <p>Travel</p>
-          </article>
-          <article class="work-card" data-category="travel">
-            <div class="work-card__media" style="--accent: #6c5ce7">
-              <span class="work-card__tag">Mobile App · iOS</span>
-            </div>
-            <h3>Visa &amp; immigration mobile assistant for global workers</h3>
-            <p>Mobility</p>
-          </article>
-          <article class="work-card" data-category="travel">
-            <div class="work-card__media" style="--accent: #74b9ff">
-              <span class="work-card__tag">Maps · Data Viz · UX</span>
-            </div>
-            <h3>Interactive global mobility insights hub for enterprises</h3>
-            <p>Analytics</p>
-          </article>
+          </div>
+          <div class="proj-item__visual">
+            <img src="img/04_successful_projects 1.png" alt="Lifestyle Brand Online Store visual" />
+          </div>
+          <a href="projects.html" class="proj-item__arrow" aria-label="View project">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </article>
 
-          <!-- Community, Lifestyle & Commerce -->
-          <article class="work-card" data-category="community">
-            <div class="work-card__media" style="--accent: #ff7675">
-              <span class="work-card__tag">Social Platform · UI/UX</span>
-            </div>
-            <h3>Neighbourhood community app with local marketplace</h3>
-            <p>Community</p>
-          </article>
-          <article class="work-card" data-category="community">
-            <div class="work-card__media" style="--accent: #a29bfe">
-              <span class="work-card__tag">E-commerce · Shopify</span>
-            </div>
-            <h3>Lifestyle brand online store with editorial layout</h3>
-            <p>Commerce</p>
-          </article>
-          <article class="work-card work-card--span" data-category="community">
-            <div class="work-card__media" style="--accent: #00b894">
-              <span class="work-card__tag">Marketplace · UX Research</span>
-            </div>
-            <h3>Peer-to-peer marketplace for sustainable goods &amp; services</h3>
-            <p>Marketplace</p>
-          </article>
+      </div>
 
+      <!-- All works CTA -->
+      <div class="container">
+        <div class="works__footer">
+          <a href="projects.html" class="btn btn--ghost">View All Projects</a>
         </div>
       </div>
     </section>
