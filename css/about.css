@@ -188,12 +188,25 @@
 .cases__list {
     display: flex;
     flex-direction: column;
-    gap: clamp(5rem, 10vw, 8rem);
+    gap: 0;
 }
 
 .mini-case {
     display: block;
+    position: sticky;
+    top: 80px;
+    will-change: transform;
+    transform-origin: center top;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    transition: box-shadow 0.4s var(--ease);
 }
+
+/* Stacked offsets — same pattern as proj-item */
+.mini-case:nth-child(1) { top: 80px; z-index: 1; }
+.mini-case:nth-child(2) { top: 88px; z-index: 2; }
+.mini-case:nth-child(3) { top: 96px; z-index: 3; }
+.mini-case:nth-child(4) { top: 104px; z-index: 4; }
 
 .mini-case__link {
     display: block;

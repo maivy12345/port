@@ -18,7 +18,7 @@
 
   <header class="header">
     <div class="container header__container">
-      <a class="logo" href="#">Mei<span>.</span></a>
+      <a class="logo" href="#">Mey<span>.</span></a>
       <nav class="nav" id="nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -128,6 +128,86 @@
       </div>
     </section> -->
 
+    <!-- ===================== ABOUT ME SECTION ===================== -->
+    <section class="aboutme reveal" id="about">
+      <div class="container aboutme__container">
+
+        <!-- Left: Portrait -->
+        <div class="aboutme__image-col">
+          <div class="aboutme__image-wrap">
+            <img src="img/AboutMe.png" alt="Portrait of Mey — Product Designer" class="aboutme__portrait" />
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="aboutme__content">
+          <h2 class="aboutme__headline">
+            I've always been fascinated by the intersection of art and technology.
+          </h2>
+
+          <p class="aboutme__bio">
+            With 3+ years designing complex web and mobile products across healthcare, B2B, eCommerce, and service platforms, I partner closely with product and engineering teams to turn complexity into clear, scalable, and measurable outcomes.
+          </p>
+
+          <div class="aboutme__ctas">
+            <a href="#" class="btn btn--primary aboutme__cv-btn">
+              Download CV
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="5 12 12 19 19 12"></polyline></svg>
+            </a>
+            <a href="about.html" class="btn btn--ghost aboutme__about-btn">
+              About Me
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+          </div>
+
+          <div class="aboutme__sparkle-wrap">
+            <span class="aboutme__sparkle" aria-hidden="true">
+              <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 0L17.8 13.2L28.8 6.4L21.4 17.1L32 16L18.8 17.8L25.6 28.8L14.9 21.4L16 32L14.2 18.8L3.2 25.6L10.6 14.9L0 16L13.2 14.2L6.4 3.2L17.1 10.6Z" fill="var(--accent)"/>
+              </svg>
+            </span>
+          </div>
+
+          <div class="aboutme__achievements">
+            <!-- Item 1 -->
+            <a href="#" class="aboutme__ach-link">
+              <div class="aboutme__ach-text">
+                <strong>Employee of the Year</strong>
+                <span>Medpro — Medical Booking (2024)</span>
+              </div>
+              <div class="aboutme__ach-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </div>
+            </a>
+
+            <!-- Item 2 -->
+            <a href="#" class="aboutme__ach-link">
+              <div class="aboutme__ach-text">
+                <strong>Top Best Digital Product Design Projects H1</strong>
+                <span>Arena Multimedia (2023)</span>
+              </div>
+              <div class="aboutme__ach-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </div>
+            </a>
+
+            <!-- Item 3 -->
+            <a href="#" class="aboutme__ach-link">
+              <div class="aboutme__ach-text">
+                <strong>Certification: Fundamentals of Digital Marketing</strong>
+                <span>2023</span>
+              </div>
+              <div class="aboutme__ach-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- =================== END ABOUT ME ========================== -->
+
     <section class="showcase about reveal" id="stats">
       <div class="container about__layout">
         <div class="about__text">
@@ -220,121 +300,134 @@
             <h2><span class="title-anim">Selected</span> <span class="title-anim">works</span></h2>
           </div>
           <div class="works__head-right">
-            <p>Explore a curated selection of projects that blend creative vision with practical design.</p>
-            <a href="projects.html" class="link-arrow">All Works ↗</a>
+            <a href="projects.html" class="btn btn--ghost works__all-btn">All Works
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
           </div>
         </div>
       </div>
 
       <!-- Project Panels (Rayo Dark style) -->
-      <div class="proj-panels">
+      <div class="container proj-panels-wrap">
+        <div class="proj-panels" id="projPanels">
 
-        <!-- Panel 1: Cream/Off-white -->
-        <article class="proj-item proj-item--cream" data-index="01">
-          <div class="proj-item__inner container">
-            <div class="proj-item__info">
-              <span class="proj-item__index">01</span>
-              <h3 class="proj-item__title">Wellness Booking Platform</h3>
-              <div class="proj-item__tags">
-                <span>UI/UX</span>
-                <span>Web Design</span>
-                <span>Health</span>
+          <!-- Panel 1: Cream/Off-white -->
+          <article class="proj-item proj-item--cream" data-index="01">
+            <div class="proj-item__inner container">
+              <div class="proj-item__info">
+                <span class="proj-item__index">01</span>
+                <h3 class="proj-item__title">Wellness Booking Platform</h3>
+                <div class="proj-item__tags">
+                  <span>UI/UX</span>
+                  <span>Web Design</span>
+                  <span>Health</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="proj-item__visual">
-            <img src="img/01_star 1.png" alt="Wellness Booking Platform visual" />
-          </div>
-          <a href="projects.html" class="proj-item__arrow" aria-label="View project">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-          </a>
-        </article>
+            <div class="proj-item__visual">
+              <img src="img/Selected works1.png" alt="Wellness Booking Platform visual" />
+            </div>
+            <a href="projects.html" class="proj-item__arrow" aria-label="View project">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </article>
 
-        <!-- Panel 2: Lime Green -->
-        <article class="proj-item proj-item--lime" data-index="02">
-          <div class="proj-item__inner container">
-            <div class="proj-item__info">
-              <span class="proj-item__index">02</span>
-              <h3 class="proj-item__title">B2B Analytics Dashboard</h3>
-              <div class="proj-item__tags">
-                <span>SaaS</span>
-                <span>Dashboard</span>
-                <span>Enterprise</span>
+          <!-- Panel 2: Lime Green -->
+          <article class="proj-item proj-item--lime" data-index="02">
+            <div class="proj-item__inner container">
+              <div class="proj-item__info">
+                <span class="proj-item__index">02</span>
+                <h3 class="proj-item__title">B2B Analytics Dashboard</h3>
+                <div class="proj-item__tags">
+                  <span>SaaS</span>
+                  <span>Dashboard</span>
+                  <span>Enterprise</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="proj-item__visual">
-            <img src="img/02_devices 1.png" alt="B2B Analytics Dashboard visual" />
-          </div>
-          <a href="projects.html" class="proj-item__arrow" aria-label="View project">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-          </a>
-        </article>
+            <div class="proj-item__visual">
+              <img src="img/Selected works2.png" alt="B2B Analytics Dashboard visual" />
+            </div>
+            <a href="projects.html" class="proj-item__arrow" aria-label="View project">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </article>
 
-        <!-- Panel 3: Dark -->
-        <article class="proj-item proj-item--dark" data-index="03">
-          <div class="proj-item__inner container">
-            <div class="proj-item__info">
-              <span class="proj-item__index">03</span>
-              <h3 class="proj-item__title">Global Mobility Insights Hub</h3>
-              <div class="proj-item__tags">
-                <span>Maps</span>
-                <span>Data Viz</span>
-                <span>UX Research</span>
+          <!-- Panel 3: Dark -->
+          <article class="proj-item proj-item--dark" data-index="03">
+            <div class="proj-item__inner container">
+              <div class="proj-item__info">
+                <span class="proj-item__index">03</span>
+                <h3 class="proj-item__title">Global Mobility Insights Hub</h3>
+                <div class="proj-item__tags">
+                  <span>Maps</span>
+                  <span>Data Viz</span>
+                  <span>UX Research</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="proj-item__visual">
-            <img src="img/03_experience 1.png" alt="Global Mobility Insights Hub visual" />
-          </div>
-          <a href="projects.html" class="proj-item__arrow" aria-label="View project">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-          </a>
-        </article>
+            <div class="proj-item__visual">
+              <img src="img/Selected works3.png" alt="Global Mobility Insights Hub visual" />
+            </div>
+            <a href="projects.html" class="proj-item__arrow" aria-label="View project">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </article>
 
-        <!-- Panel 4: Warm Beige -->
-        <article class="proj-item proj-item--warm" data-index="04">
-          <div class="proj-item__inner container">
-            <div class="proj-item__info">
-              <span class="proj-item__index">04</span>
-              <h3 class="proj-item__title">Lifestyle Brand Online Store</h3>
-              <div class="proj-item__tags">
-                <span>E-commerce</span>
-                <span>Shopify</span>
-                <span>Branding</span>
+          <!-- Panel 4: Warm Beige -->
+          <article class="proj-item proj-item--warm" data-index="04">
+            <div class="proj-item__inner container">
+              <div class="proj-item__info">
+                <span class="proj-item__index">04</span>
+                <h3 class="proj-item__title">Lifestyle Brand Online Store</h3>
+                <div class="proj-item__tags">
+                  <span>E-commerce</span>
+                  <span>Shopify</span>
+                  <span>Branding</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="proj-item__visual">
-            <img src="img/04_successful_projects 1.png" alt="Lifestyle Brand Online Store visual" />
-          </div>
-          <a href="projects.html" class="proj-item__arrow" aria-label="View project">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-          </a>
-        </article>
+            <div class="proj-item__visual">
+              <img src="img/Selected works4.png" alt="Lifestyle Brand Online Store visual" />
+            </div>
+            <a href="projects.html" class="proj-item__arrow" aria-label="View project">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </article>
 
-      </div>
+        </div>
+      </div><!-- end proj-panels-wrap -->
 
       <!-- All works CTA -->
       <div class="container">
         <div class="works__footer">
-          <a href="projects.html" class="btn btn--ghost">View All Projects</a>
+          <a href="projects.html" class="btn btn--ghost works__all-btn">All Works
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
         </div>
       </div>
     </section>

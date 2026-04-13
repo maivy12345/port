@@ -280,6 +280,29 @@
         filterCards("all");
     }
 
+    // Stacked project cards scroll effect
+    (function () {
+        var panels = gsap.utils.toArray('#projPanels .proj-item');
+        if (!panels || panels.length < 2) return;
+
+        panels.forEach(function (panel, i) {
+            // Each card (except the last) scales down as the next card stacks over it
+            if (i < panels.length - 1) {
+                gsap.to(panel, {
+                    scale: 0.94,
+                    opacity: 0.75,
+                    borderRadius: '28px',
+                    scrollTrigger: {
+                        trigger: panels[i + 1],
+                        start: 'top 85%',
+                        end: 'top top',
+                        scrub: 0.8,
+                    }
+                });
+            }
+        });
+    })();
+
     // Mini cases scrub reveal for smooth scroll
     gsap.utils.toArray('.mini-case').forEach((caseItem) => {
         gsap.fromTo(caseItem,
