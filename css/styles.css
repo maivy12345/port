@@ -84,33 +84,54 @@ img {
     left: 0;
     right: 0;
     z-index: 100;
-    padding: 1.25rem 0;
-    transition: transform 0.45s var(--ease);
+    padding: 1.5rem 0; /* More top space for floating feel */
+    transition: transform 0.45s var(--ease), padding 0.45s var(--ease);
 }
 
 .header__container {
     display: flex;
     justify-content: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
 .header__inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1000px;
-    background: #18181b;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    justify-content: center;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    width: fit-content;
+    background: rgba(18, 18, 20, 0.65);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 999px;
-    padding: 0.5rem 0.5rem 0.5rem 1.75rem;
-    transition: background 0.45s var(--ease), box-shadow 0.45s var(--ease);
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
+    position: relative;
+    transition: all 0.45s var(--ease);
+}
+
+/* Creative glow accent behind the pill */
+.header__inner::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 157, 222, 0.2), transparent);
+    border-radius: 999px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.45s var(--ease);
 }
 
 .header.is-scrolled .header__inner {
-    background: rgba(24, 24, 27, 0.85);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background: rgba(10, 10, 11, 0.88);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    transform: scale(0.98);
+}
+
+.header.is-scrolled .header__inner::before {
+    opacity: 1;
 }
 
 .logo {
@@ -118,7 +139,7 @@ img {
     font-weight: 800;
     font-size: 1.35rem;
     letter-spacing: -0.03em;
-    color: var(--text);
+    color: #ffffff;
 }
 
 .logo span {
@@ -159,38 +180,34 @@ img {
     gap: 0.5rem;
 }
 
-.header__btn-talk {
-    background: var(--accent);
-    color: var(--bg);
-    padding: 0.6rem 1.25rem;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
-}
-
-.header__btn-talk:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(255, 157, 222, 0.3);
-    color: var(--bg);
-}
-
-.header__btn-icon {
+.header__btn-contact {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
+    gap: 0.65rem;
     background: var(--accent);
     color: var(--bg);
-    border-radius: 50%;
+    padding: 0.65rem 1.5rem;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 700;
     transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
-.header__btn-icon:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(255, 157, 222, 0.3);
+.header__btn-contact svg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s var(--ease);
+}
+
+.header__btn-contact:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.15);
+    background-color: #ffffff;
     color: var(--bg);
+}
+
+.header__btn-contact:hover svg {
+    transform: rotate(45deg);
 }
 
 .header__mobile-pill-el {
@@ -234,8 +251,10 @@ img {
         padding: 0.35rem 0.35rem 0.35rem 0.5rem;
         max-width: fit-content;
         gap: 1rem;
-        background: #111111;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        background: rgba(18, 18, 20, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .header__desktop-el {
@@ -1042,7 +1061,7 @@ img {
 }
 
 .proj-item--lime {
-    background: #c5f135;
+    background: #FF9DDE;
     color: #111111;
 }
 
@@ -1090,12 +1109,21 @@ img {
 /* Project title */
 .proj-item__title {
     font-family: var(--font-display);
-    font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+    font-size: clamp(2rem, 4.5vw, 3.2rem); /* Increased by ~5px from 2.8rem */
     font-weight: 800;
-    line-height: 1.02;
+    line-height: 1.05;
     letter-spacing: -0.04em;
-    margin: 0;
+    margin: 0 0 1.25rem;
     max-width: 58%;
+}
+
+.proj-item__desc {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: currentColor; /* Inherits #111111 or #f0f0ee from the parent variant */
+    max-width: 52%;
+    margin-bottom: 2rem;
+    opacity: 0.7; /* Slightly muted for hierarchy but perfectly legible */
 }
 
 /* Tags at bottom */
@@ -1144,14 +1172,15 @@ img {
 .proj-item__visual img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
+    object-fit: contain; /* Prevent cropping */
+    object-position: right center;
     display: block;
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: 2rem; /* Give the contained image some breathing room */
 }
 
 .proj-item:hover .proj-item__visual img {
-    transform: scale(1.04);
+    transform: scale(1.05);
 }
 
 /* Arrow button — top-right, overlaying the image */
@@ -1396,7 +1425,7 @@ img {
 }
 
 .phi-card:hover {
-    border-color: rgba(201, 169, 98, 0.25);
+    border-color: rgba(255, 157, 222, 0.25);
     transform: translateY(-3px);
 }
 
@@ -1885,8 +1914,18 @@ img {
     transition: transform 0.3s;
 }
 
+.aboutme__cv-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(255, 157, 222, 0.35);
+}
+
+.aboutme__cv-btn:active {
+    transform: translateY(-1px) scale(0.98);
+    transition: transform 0.1s;
+}
+
 .aboutme__cv-btn:hover svg {
-    transform: translateY(2px);
+    transform: translateY(3px);
 }
 
 .aboutme__about-btn:hover svg {
