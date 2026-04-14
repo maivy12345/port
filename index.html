@@ -18,17 +18,42 @@
 
   <header class="header">
     <div class="container header__container">
-      <a class="logo" href="#">Mey<span>.</span></a>
-      <nav class="nav" id="nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="#contact" class="nav__cta">Contact me</a>
-      </nav>
-      <button type="button" class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"
-        aria-controls="nav">
-        <span></span><span></span>
-      </button>
+      <div class="header__inner">
+        <!-- Logo Desktop -->
+        <a class="logo header__desktop-el" href="#">BentoX</a>
+        
+        <!-- Mobile Pill Header Elements -->
+        <div class="header__mobile-pill-el">
+          <div class="mobile-profile">
+            <img src="img/AboutMe.png" alt="Profile" />
+          </div>
+          <div class="mobile-status">
+            <span>Available for work</span>
+            <span class="status-dot"></span>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav" id="nav">
+          <a href="index.html">Home <svg class="nav-chevron desktop-only" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <a href="about.html">About</a>
+          <a href="projects.html">Works</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        
+        <!-- Desktop CTA Buttons -->
+        <div class="header__cta header__desktop-el">
+          <a href="#contact" class="header__btn-talk">Let's Talk</a>
+          <a href="#contact" class="header__btn-icon" aria-label="Let's Talk">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="5 5 19 5 19 19"></polyline></svg>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button type="button" class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -128,85 +153,6 @@
       </div>
     </section> -->
 
-    <!-- ===================== ABOUT ME SECTION ===================== -->
-    <section class="aboutme reveal" id="about">
-      <div class="container aboutme__container">
-
-        <!-- Left: Portrait -->
-        <div class="aboutme__image-col">
-          <div class="aboutme__image-wrap">
-            <img src="img/AboutMe.png" alt="Portrait of Mey — Product Designer" class="aboutme__portrait" />
-          </div>
-        </div>
-
-        <!-- Right: Content -->
-        <div class="aboutme__content">
-          <h2 class="aboutme__headline">
-            I've always been fascinated by the intersection of art and technology.
-          </h2>
-
-          <p class="aboutme__bio">
-            With 3+ years designing complex web and mobile products across healthcare, B2B, eCommerce, and service platforms, I partner closely with product and engineering teams to turn complexity into clear, scalable, and measurable outcomes.
-          </p>
-
-          <div class="aboutme__ctas">
-            <a href="#" class="btn btn--primary aboutme__cv-btn">
-              Download CV
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="5 12 12 19 19 12"></polyline></svg>
-            </a>
-            <a href="about.html" class="btn btn--ghost aboutme__about-btn">
-              About Me
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-            </a>
-          </div>
-
-          <div class="aboutme__sparkle-wrap">
-            <span class="aboutme__sparkle" aria-hidden="true">
-              <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16 0L17.8 13.2L28.8 6.4L21.4 17.1L32 16L18.8 17.8L25.6 28.8L14.9 21.4L16 32L14.2 18.8L3.2 25.6L10.6 14.9L0 16L13.2 14.2L6.4 3.2L17.1 10.6Z" fill="var(--accent)"/>
-              </svg>
-            </span>
-          </div>
-
-          <div class="aboutme__achievements">
-            <!-- Item 1 -->
-            <a href="#" class="aboutme__ach-link">
-              <div class="aboutme__ach-text">
-                <strong>Employee of the Year</strong>
-                <span>Medpro — Medical Booking (2024)</span>
-              </div>
-              <div class="aboutme__ach-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-              </div>
-            </a>
-
-            <!-- Item 2 -->
-            <a href="#" class="aboutme__ach-link">
-              <div class="aboutme__ach-text">
-                <strong>Top Best Digital Product Design Projects H1</strong>
-                <span>Arena Multimedia (2023)</span>
-              </div>
-              <div class="aboutme__ach-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-              </div>
-            </a>
-
-            <!-- Item 3 -->
-            <a href="#" class="aboutme__ach-link">
-              <div class="aboutme__ach-text">
-                <strong>Certification: Fundamentals of Digital Marketing</strong>
-                <span>2023</span>
-              </div>
-              <div class="aboutme__ach-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-              </div>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-    <!-- =================== END ABOUT ME ========================== -->
 
     <section class="showcase about reveal" id="stats">
       <div class="container about__layout">
@@ -311,7 +257,7 @@
         </div>
       </div>
 
-      <!-- Project Panels (Rayo Dark style) -->
+      <!-- Project Panels -->
       <div class="container proj-panels-wrap">
         <div class="proj-panels" id="projPanels">
 
@@ -431,6 +377,100 @@
         </div>
       </div>
     </section>
+    <!-- ===================== ABOUT ME SECTION ===================== -->
+    <section class="aboutme reveal" id="about">
+      <div class="container aboutme__container">
+
+        <!-- Left: Portrait -->
+        <div class="aboutme__image-col">
+          <div class="aboutme__image-wrap">
+            <img src="img/AboutMe.png" alt="Portrait of Mey — Product Designer" class="aboutme__portrait" />
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="aboutme__content">
+          <h2 class="aboutme__headline">
+            I've always been fascinated by the intersection of art and technology.
+          </h2>
+
+          <p class="aboutme__bio">
+            With 3+ years designing complex web and mobile products across healthcare, B2B, eCommerce, and service
+            platforms, I partner closely with product and engineering teams to turn complexity into clear, scalable, and
+            measurable outcomes.
+          </p>
+
+          <div class="aboutme__ctas">
+            <a href="#" class="btn btn--primary aboutme__cv-btn">
+              Download CV
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="5 12 12 19 19 12"></polyline>
+              </svg>
+            </a>
+            <a href="about.html" class="btn btn--ghost aboutme__about-btn">
+              About Me
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <div class="aboutme__achievements">
+            <!-- Item 1 -->
+            <a href="#" class="aboutme__ach-link">
+              <div class="aboutme__ach-text">
+                <strong>Employee of the Year</strong>
+                <span>Medpro — Medical Booking (2024)</span>
+              </div>
+              <div class="aboutme__ach-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Item 2 -->
+            <a href="https://www.arena-multimedia.vn/tin-arena/student-project-showcase-top-do-an-digital-product-design-xuat-sac-nhat-nua-dau-2023/"
+              target="_blank" rel="noopener" class="aboutme__ach-link">
+              <div class="aboutme__ach-text">
+                <strong>Top Best Digital Product Design Projects</strong>
+                <span>Arena Multimedia (2023)</span>
+              </div>
+              <div class="aboutme__ach-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Item 3 -->
+            <a href="#" class="aboutme__ach-link">
+              <div class="aboutme__ach-text">
+                <strong>Certification: Fundamentals of Digital Marketing</strong>
+                <span>2023</span>
+              </div>
+              <div class="aboutme__ach-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- =================== END ABOUT ME ========================== -->
 
     <section class="services reveal" id="services">
       <div class="container">
