@@ -17,7 +17,7 @@
     /* Layout Tokens */
     --container-max: 1600px;
     --container-padding: clamp(1.5rem, 8vw, 6rem);
-    --section-v-padding: clamp(4rem, 10vw, 8rem);
+    --section-v-padding: clamp(2rem, 5vw, 4.25rem);
 }
 
 *,
@@ -1814,7 +1814,7 @@ img {
 
 /* ===================== ABOUT ME SECTION (EDITORIAL) ===================== */
 .aboutme {
-    padding: clamp(6rem, 12vw, 10rem) 0;
+    padding: var(--section-v-padding) 0;
     border-bottom: 1px solid var(--border);
     background: var(--bg);
 }
