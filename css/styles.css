@@ -676,19 +676,41 @@ img {
     flex-direction: column;
     justify-content: space-between;
     min-height: 580px;
-    transition: transform 0.45s var(--ease), border-color 0.45s;
+    isolation: isolate;
+    transition: transform 0.45s var(--ease), border-color 0.45s, box-shadow 0.45s var(--ease);
+}
+
+.showcase-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at top right, rgba(255, 157, 222, 0.2), transparent 42%);
+    opacity: 0;
+    transition: opacity 0.45s var(--ease);
+    z-index: 0;
 }
 
 .showcase-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 157, 222, 0.28);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+.showcase-card:hover::before {
+    opacity: 1;
 }
 
 .showcase-card--highlight {
-    background: #d4f039;
-    /* Lime-green */
+    background: linear-gradient(145deg, #FFB6E8 0%, #FF9DDE 52%, #F77AD0 100%);
     color: #0a0a0b;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 24px 70px rgba(255, 157, 222, 0.28);
+}
+
+.showcase-card--highlight::before {
+    background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.35), transparent 46%);
+    opacity: 1;
 }
 
 .col-5 {
@@ -726,6 +748,7 @@ img {
     display: flex;
     flex-direction: column;
     z-index: 2;
+    position: relative;
 }
 
 .showcase-card--right .showcase-header {
@@ -758,80 +781,23 @@ img {
     margin-left: auto;
 }
 
-.showcase-footer {
-    margin-top: auto;
-    z-index: 2;
-}
-
-.showcase-card--right .showcase-footer {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.showcase-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
-    padding: 0.75rem 1.35rem;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    font-size: 0.82rem;
-    font-weight: 700;
-    text-transform: capitalize;
-    letter-spacing: 0.01em;
-    color: var(--text);
-    transition:
-        color 0.3s var(--ease),
-        border-color 0.3s var(--ease),
-        transform 0.3s var(--ease),
-        box-shadow 0.3s var(--ease);
-}
-
-.showcase-card--highlight .showcase-btn {
-    border-color: rgba(0, 0, 0, 0.25);
-    color: #0a0a0b;
-}
-
-.showcase-btn svg {
-    width: 14px;
-    height: 14px;
-    transition: transform 0.3s var(--ease);
-}
-
-.showcase-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 28px rgba(255, 157, 222, 0.15);
-}
-
-.showcase-card--highlight .showcase-btn:hover {
-    border-color: rgba(0, 0, 0, 0.6);
-    color: #0a0a0b;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
-}
-
-.showcase-btn:hover svg {
-    transform: translate(2px, -2px);
-}
-
 .showcase-visual {
     position: absolute;
     pointer-events: none;
     z-index: 1;
-    transition: transform 0.6s var(--ease);
+    transition: transform 0.6s var(--ease), filter 0.6s var(--ease);
 }
 
 .showcase-card:hover .showcase-visual {
-    transform: scale(1.04);
+    transform: scale(1.04) rotate(-1deg);
+    filter: drop-shadow(0 20px 36px rgba(255, 157, 222, 0.18));
 }
 
 /* Visual placement */
 .vis-star {
-    width: clamp(280px, 45%, 420px);
-    left: -8%;
-    top: 50%;
-    transform: translateY(-50%);
+    width: clamp(320px, 58%, 500px);
+    left: -2%;
+    bottom: 10%;
 }
 
 .vis-devices {

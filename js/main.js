@@ -209,6 +209,20 @@
         });
     });
 
+    // Parallax media on About page (and any .parallax-media)
+    gsap.utils.toArray('.parallax-media').forEach(media => {
+        var parent = media.closest('figure') || media.parentElement;
+        gsap.to(media, {
+            y: -30,
+            scrollTrigger: {
+                trigger: parent,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1
+            }
+        });
+    });
+
     // Testimonial slider
     var track = document.getElementById("testimonialTrack");
     var dotsWrap = document.getElementById("testimonialDots");
