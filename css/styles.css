@@ -167,6 +167,10 @@ img {
     color: var(--text);
 }
 
+.nav a[aria-current="page"] {
+    color: #ffffff;
+}
+
 .nav-chevron {
     width: 14px;
     height: 14px;

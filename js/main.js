@@ -68,6 +68,27 @@
         });
     });
 
+    // 5.1 Subtle 3D tilt for focus cards
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        document.querySelectorAll(".focus-card").forEach((card) => {
+            card.addEventListener("mousemove", (e) => {
+                const rect = card.getBoundingClientRect();
+                const rx = ((e.clientY - rect.top) / rect.height - 0.5) * -6;
+                const ry = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
+                gsap.to(card, {
+                    rotateX: rx,
+                    rotateY: ry,
+                    transformPerspective: 900,
+                    duration: 0.45,
+                    ease: "power2.out"
+                });
+            });
+            card.addEventListener("mouseleave", () => {
+                gsap.to(card, { rotateX: 0, rotateY: 0, duration: 0.6, ease: "power3.out" });
+            });
+        });
+    }
+
     // 6. Section Titles Animations
     gsap.utils.toArray('.title-anim').forEach((title) => {
         gsap.fromTo(title,
@@ -162,6 +183,21 @@
 
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
+    // Mark active header nav item based on current page
+    if (nav) {
+        var currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        nav.querySelectorAll("a[href]").forEach(function (link) {
+            var href = link.getAttribute("href");
+            if (!href || href.charAt(0) === "#") return;
+            var target = href.split('/').pop();
+            if (target === currentPath) {
+                link.setAttribute("aria-current", "page");
+            } else {
+                link.removeAttribute("aria-current");
+            }
+        });
+    }
+
     function onScroll() {
         if (!header) return;
         header.classList.toggle("is-scrolled", window.scrollY > 40);
@@ -211,6 +247,8 @@
 
     // Parallax media on About page (and any .parallax-media)
     gsap.utils.toArray('.parallax-media').forEach(media => {
+        if (media.classList.contains('parallax-media--deep')) return;
+        if (media.closest('.philosophy-video')) return;
         var parent = media.closest('figure') || media.parentElement;
         gsap.to(media, {
             y: -30,
@@ -222,6 +260,129 @@
             }
         });
     });
+
+    (function initPhilosophyVideoFx() {
+        var wrap = document.querySelector(".philosophy-video");
+        var media = wrap ? wrap.querySelector(".philosophy-video__media--fx") : null;
+        if (!wrap || !media) return;
+
+        gsap.fromTo(wrap, { autoAlpha: 0, y: 26 }, {
+            autoAlpha: 1,
+            y: 0,
+            duration: 1.15,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: wrap,
+                start: "top 82%"
+            }
+        });
+
+        // Strong cinematic parallax (intentionally high amplitude)
+        gsap.fromTo(wrap, { y: 30 }, {
+            y: -30,
+            ease: "none",
+            scrollTrigger: {
+                trigger: wrap,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 0.45
+            }
+        });
+
+        gsap.fromTo(media, { y: 110, scale: 1.34 }, {
+            y: -110,
+            scale: 1.02,
+            ease: "none",
+            scrollTrigger: {
+                trigger: wrap,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 0.35
+            }
+        });
+    })();
+
+    gsap.utils.toArray('.parallax-media--deep').forEach(media => {
+        var parent = media.closest('figure') || media.parentElement;
+        gsap.fromTo(media, { y: 28, scale: 1.06 }, {
+            y: -42,
+            scale: 1.02,
+            ease: "none",
+            scrollTrigger: {
+                trigger: parent,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 0.65
+            }
+        });
+    });
+
+    (function initExpertiseSectionMotion() {
+        var sec = document.querySelector(".expertise-process");
+        if (!sec) return;
+
+        var left = sec.querySelector(".expertise-process__col--left");
+        var right = sec.querySelector(".expertise-process__col--right");
+        if (left) {
+            gsap.fromTo(left, { y: 56 }, {
+                y: -40,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: sec,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1.1
+                }
+            });
+        }
+        if (right) {
+            gsap.fromTo(right, { y: -32 }, {
+                y: 48,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: sec,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1.1
+                }
+            });
+        }
+
+        var rail = sec.querySelector(".timeline--rail");
+        var lineFill = rail ? rail.querySelector(".timeline__line-fill") : null;
+        if (lineFill && rail) {
+            gsap.fromTo(lineFill, { scaleY: 0 }, {
+                scaleY: 1,
+                ease: "none",
+                transformOrigin: "top center",
+                scrollTrigger: {
+                    trigger: rail,
+                    start: "top 78%",
+                    end: "bottom 45%",
+                    scrub: 0.35
+                }
+            });
+        }
+
+        var stack = sec.querySelector(".timeline__stack");
+        if (stack) {
+            gsap.fromTo(stack.querySelectorAll(".timeline-item"),
+                { autoAlpha: 0, x: -24 },
+                {
+                    autoAlpha: 1,
+                    x: 0,
+                    duration: 0.95,
+                    ease: "power3.out",
+                    stagger: 0.1,
+                    scrollTrigger: {
+                        trigger: stack,
+                        start: "top 86%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        }
+    })();
 
     // Testimonial slider
     var track = document.getElementById("testimonialTrack");
@@ -317,21 +478,5 @@
         });
     })();
 
-    // Mini cases scrub reveal for smooth scroll
-    gsap.utils.toArray('.mini-case').forEach((caseItem) => {
-        gsap.fromTo(caseItem,
-            { autoAlpha: 0, y: 120 },
-            {
-                scrollTrigger: {
-                    trigger: caseItem,
-                    start: "top 95%",
-                    end: "top 55%",
-                    scrub: 1.5,
-                },
-                autoAlpha: 1,
-                y: 0
-            }
-        );
-    });
-
 })();
+
