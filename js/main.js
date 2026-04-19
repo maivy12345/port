@@ -30,12 +30,14 @@
     // Initial setups for elements we will animate
     gsap.set(".hero__text", { yPercent: 120, rotate: 2, opacity: 0 });
     gsap.set([".hero__eyebrow", ".hero__desc", ".hero__actions", ".hero__social"], { autoAlpha: 0, y: 20 });
+    gsap.set(".hero__sphere-img", { autoAlpha: 0, scale: 0.9 });
 
     heroTimeline
         .to(".hero__eyebrow", { autoAlpha: 1, y: 0, duration: 1 }, 0.2)
         .to(".hero__text", { yPercent: 0, rotate: 0, opacity: 1, duration: 1.4, stagger: 0.15 }, "-=0.8")
-        .to(".hero__desc", { autoAlpha: 1, y: 0, duration: 1 }, "-=1")
-        .to([".hero__actions", ".hero__social"], { autoAlpha: 1, y: 0, stagger: 0.2, duration: 1 }, "-=0.8");
+        .to(".hero__sphere-img", { autoAlpha: 1, scale: 1, duration: 0.95, ease: "back.out(1.35)" }, "-=0.7")
+        .to(".hero__desc", { autoAlpha: 1, y: 0, duration: 1 }, "-=0.5")
+        .to([".hero__actions", ".hero__social"], { autoAlpha: 1, y: 0, stagger: 0.2, duration: 1 }, "-=0.75");
 
     // 4. Scroll Reveal Animations (Replacing intersection Observer)
     gsap.utils.toArray('.reveal').forEach((elem) => {

@@ -18,6 +18,10 @@
     --container-max: 1600px;
     --container-padding: clamp(1.5rem, 8vw, 6rem);
     --section-v-padding: clamp(2rem, 5vw, 4.25rem);
+
+    /* Hero: one-screen — offset for fixed pill header + safe areas */
+    --hero-header-offset: calc(5.75rem + env(safe-area-inset-top, 0px));
+    --hero-bottom-safe: calc(0.35rem + env(safe-area-inset-bottom, 0px));
 }
 
 *,
@@ -350,6 +354,70 @@ img {
     overflow: hidden;
 }
 
+/* One viewport: full hero visible, scales on short / narrow screens */
+.hero.hero--centered {
+    min-height: 100svh;
+    height: 100svh;
+    max-height: 100dvh;
+    padding: 0;
+    padding-top: var(--hero-header-offset);
+    padding-bottom: var(--hero-bottom-safe);
+    box-sizing: border-box;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.hero.hero--centered > .container.hero__layout--centered {
+    /* Khớp .container: max-width + căn giữa (padding ngang từ class .container) */
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
+    width: 100%;
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.hero.hero--centered .hero__main {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.2rem, 1.2vmin, 0.65rem);
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Headline + visual dùng full bề ngang container; nội dung vẫn căn giữa nhờ text-align */
+.hero.hero--centered .hero__eyebrow,
+.hero.hero--centered .hero__title {
+    width: 100%;
+}
+
+.hero.hero--centered .hero__marquee {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding: clamp(0.35rem, 1.2vh, 0.65rem) var(--container-padding);
+    box-sizing: border-box;
+    border-top: 1px solid var(--border);
+}
+
 .hero::before {
     content: "";
     position: absolute;
@@ -384,12 +452,8 @@ img {
 }
 
 @media (max-width: 900px) {
-    .hero__layout {
+    .hero__layout:not(.hero__layout--centered) {
         grid-template-columns: 1fr;
-    }
-
-    .hero__tech {
-        display: none;
     }
 }
 
@@ -550,6 +614,239 @@ img {
 
     to {
         transform: translateX(-50%);
+    }
+}
+
+/* —— Centered hero (grid + 3D sphere asset) —— */
+.hero.hero--centered::before {
+    display: none;
+}
+
+.hero__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hero__grid {
+    position: absolute;
+    inset: -20% -10% 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 85% 70% at 50% 35%, black 20%, transparent 72%);
+    opacity: 0.85;
+}
+
+.hero__blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.45;
+}
+
+.hero__blob--1 {
+    width: min(55vw, 420px);
+    height: min(55vw, 420px);
+    top: 8%;
+    right: 5%;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.45) 0%, transparent 68%);
+}
+
+.hero__blob--2 {
+    width: min(45vw, 360px);
+    height: min(45vw, 360px);
+    bottom: 12%;
+    left: -5%;
+    background: radial-gradient(circle, rgba(255, 157, 222, 0.35) 0%, transparent 65%);
+}
+
+.hero__watermark {
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(4.5rem, 22vw, 16rem);
+    letter-spacing: -0.07em;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.035);
+    white-space: nowrap;
+    user-select: none;
+}
+
+.hero__layout--centered {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.hero__layout--centered .hero__desc {
+    max-width: 38rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero__layout--centered .hero__actions {
+    justify-content: center;
+}
+
+.hero__layout--centered .hero__social {
+    justify-content: center;
+}
+
+.hero.hero--centered .hero__eyebrow {
+    margin: 0 0 clamp(0.1rem, 0.6vh, 0.45rem);
+    font-size: clamp(0.62rem, 1.2vmin + 0.2vw, 0.76rem);
+}
+
+.hero.hero--centered .hero__title {
+    font-size: clamp(1.45rem, 3.8vmin + 1.8vw, 3.65rem);
+    margin: 0;
+    line-height: 0.96;
+}
+
+.hero.hero--centered .hero__line--sub {
+    margin-top: 0.08em;
+}
+
+.hero.hero--centered .hero__desc {
+    font-size: clamp(0.72rem, 1.5vmin + 0.45vw, 0.95rem);
+    line-height: 1.38;
+    /* Không dùng margin shorthand — sẽ ghi đè margin-inline: auto của .hero__layout--centered .hero__desc */
+    margin-top: 0;
+    margin-bottom: clamp(0.25rem, 0.9vh, 0.55rem);
+    margin-inline: auto;
+}
+
+.hero.hero--centered .hero__actions {
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+}
+
+.hero.hero--centered .hero__social {
+    margin: clamp(0.25rem, 0.9vh, 0.65rem) 0 0;
+    width: 100%;
+    justify-content: center;
+}
+
+.hero.hero--centered .btn {
+    padding: clamp(0.5rem, 1.2vh, 0.72rem) clamp(0.92rem, 2.2vw, 1.35rem);
+    font-size: clamp(0.76rem, 1.25vmin, 0.86rem);
+}
+
+.hero.hero--centered .hero__marquee-inner {
+    font-size: clamp(0.56rem, 1vmin + 0.2vw, 0.68rem);
+    gap: clamp(0.65rem, 2vw, 1.25rem);
+}
+
+.hero.hero--centered .hero__watermark {
+    font-size: clamp(2.25rem, min(16vh, 18vw), 11rem);
+    top: 44%;
+}
+
+.hero__visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: clamp(0.75rem, 3vw, 1.5rem) 0 clamp(0.5rem, 2vw, 1.1rem);
+}
+
+.hero.hero--centered .hero__visual {
+    width: 100%;
+    margin: clamp(0.08rem, 0.7vh, 0.45rem) 0;
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero__sphere-img {
+    width: min(72vw, 300px);
+    height: auto;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    filter: drop-shadow(0 18px 44px rgba(0, 0, 0, 0.42));
+    animation: heroSphereFloat 8s ease-in-out infinite;
+}
+
+.hero.hero--centered .hero__sphere-img {
+    width: auto;
+    height: clamp(96px, min(32vh, 36vmin), 260px);
+    max-width: min(92vw, 300px);
+    object-fit: contain;
+}
+
+@keyframes heroSphereFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 600px) {
+    .hero__watermark {
+        top: 32%;
+        font-size: clamp(3.25rem, 26vw, 9rem);
+    }
+
+    .hero:not(.hero--centered) .hero__sphere-img {
+        width: min(80vw, 260px);
+    }
+
+    .hero.hero--centered .hero__actions {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-height: 700px) {
+    .hero.hero--centered {
+        --hero-header-offset: calc(4.85rem + env(safe-area-inset-top, 0px));
+    }
+
+    .hero.hero--centered .hero__sphere-img {
+        height: clamp(80px, 26vh, 200px);
+    }
+
+    .hero.hero--centered .hero__title {
+        font-size: clamp(1.25rem, 3.2vmin + 1.4vw, 2.85rem);
+    }
+}
+
+@media (max-height: 560px) {
+    .hero.hero--centered {
+        --hero-header-offset: calc(4.25rem + env(safe-area-inset-top, 0px));
+    }
+
+    .hero.hero--centered .hero__sphere-img {
+        height: clamp(64px, 22vh, 160px);
+    }
+
+    .hero.hero--centered .hero__eyebrow {
+        font-size: 0.6rem;
+    }
+
+    .hero.hero--centered .hero__desc {
+        font-size: 0.7rem;
+        line-height: 1.32;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero__sphere-img {
+        animation: none;
     }
 }
 
