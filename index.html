@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mey - Product Designer</title>
+  <title>Meivy - Product Designer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -20,7 +20,7 @@
     <div class="container header__container">
       <div class="header__inner">
         <!-- Logo Desktop -->
-        <a class="logo header__desktop-el" href="index.html">Mey<span>.</span></a>
+        <a class="logo header__desktop-el" href="index.html">Meivy<span>.</span></a>
 
         <!-- Mobile Pill Header Elements -->
         <div class="header__mobile-pill-el">
@@ -66,22 +66,36 @@
         <div class="hero__grid"></div>
         <div class="hero__blob hero__blob--1"></div>
         <div class="hero__blob hero__blob--2"></div>
-        <p class="hero__watermark">MEY</p>
+        <p class="hero__watermark">Meivy Nguyen</p>
+        <div class="hero__sparkles">
+          <span class="sparkle sparkle--1"></span>
+          <span class="sparkle sparkle--2"></span>
+          <span class="sparkle sparkle--3"></span>
+          <span class="sparkle sparkle--4"></span>
+          <span class="sparkle sparkle--5"></span>
+          <span class="sparkle sparkle--6"></span>
+          <span class="sparkle sparkle--7"></span>
+          <span class="sparkle sparkle--8"></span>
+          <span class="sparkle sparkle--9"></span>
+          <span class="sparkle sparkle--10"></span>
+          <span class="sparkle sparkle--11"></span>
+          <span class="sparkle sparkle--12"></span>
+        </div>
       </div>
       <div class="container hero__layout hero__layout--centered">
         <div class="hero__main">
           <p class="hero__eyebrow">Product design · UX/UI</p>
           <h1 class="hero__title" id="heroTitle">
-            <span class="hero__line" style="--d: 0">Design, strategy</span>
-            <span class="hero__line hero__line--accent" style="--d: 1">&amp; clarity</span>
+            <span class="hero__line hero__line--accent" style="--d: 0">Design, strategy &amp; clarity</span>
             <span class="hero__line hero__line--sub" style="--d: 2">for modern digital products</span>
           </h1>
           <div class="hero__visual" aria-hidden="true">
-            <img class="hero__sphere-img" src="img/image%201.png" width="400" height="400" alt="" loading="eager" />
+            <div class="hero__sphere-track">
+              <div id="planetWrap">
+                <img class="hero__sphere-img planet" src="img/image%202.png" width="400" height="400" alt="" loading="eager" />
+              </div>
+            </div>
           </div>
-          <p class="hero__desc">
-            UX-first flows, refined UI, and outcomes you can measure — built for real products and brands.
-          </p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="#works">Explore Works</a>
             <a class="btn btn--ghost" href="#contact">Say Hello</a>
@@ -89,7 +103,7 @@
           <ul class="hero__social" aria-label="Social">
             <li>
               <a href="https://www.behance.net/meivyng" target="_blank" rel="noopener" aria-label="Behance">
-                <svg width="20" height="20" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+                <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
                   class="social-icon">
                   <circle cx="24" cy="24" r="24" fill="currentColor" />
                   <path
@@ -100,7 +114,7 @@
             </li>
             <li>
               <a href="https://www.linkedin.com/in/meivyng/" target="_blank" rel="noopener" aria-label="LinkedIn">
-                <svg width="20" height="20" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+                <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
                   class="social-icon">
                   <circle cx="24" cy="24" r="24" fill="currentColor" fill-opacity="1" />
                   <path
@@ -155,7 +169,7 @@
     </section> -->
 
 
-    <section class="showcase about reveal" id="stats">
+    <section class="showcase showcase--timeline about reveal" id="stats">
       <div class="container about__layout">
         <div class="about__text">
           <p class="about__label">Who we are</p>
@@ -172,7 +186,6 @@
         <div class="showcase-grid">
           <!-- Card 1: 46+ Star -->
           <div class="showcase-card showcase-card--highlight showcase-card--right col-5">
-            <img src="img/01_star 1.png" alt="Happy Clients Star" class="showcase-visual vis-star">
             <div class="showcase-header">
               <div class="showcase-metric" data-target="46" data-suffix="+">0</div>
               <p class="showcase-desc">Happy clients who trust my work</p>
@@ -181,7 +194,6 @@
 
           <!-- Card 2: 80% Devices -->
           <div class="showcase-card showcase-card--right col-7">
-            <img src="img/02_devices 1.png" alt="Device Mockups" class="showcase-visual vis-devices">
             <div class="showcase-header">
               <div class="showcase-metric" data-target="80" data-suffix="%">0</div>
               <p class="showcase-desc">of clients return for new projects</p>
@@ -190,7 +202,6 @@
 
           <!-- Card 3: 3+ Experience -->
           <div class="showcase-card col-7">
-            <img src="img/03_experience 1.png" alt="Experience Product" class="showcase-visual vis-experience">
             <div class="showcase-header">
               <div class="showcase-metric" data-target="3" data-suffix="+">0</div>
               <p class="showcase-desc">Years of experience designing digital products</p>
@@ -199,7 +210,6 @@
 
           <!-- Card 4: 20+ Projects -->
           <div class="showcase-card col-5">
-            <img src="img/04_successful_projects 1.png" alt="Successful Projects" class="showcase-visual vis-success">
             <div class="showcase-header">
               <div class="showcase-metric" data-target="20" data-suffix="+">0</div>
               <p class="showcase-desc">Projects delivered successfully</p>
@@ -365,20 +375,19 @@
         <!-- Left: Portrait -->
         <div class="aboutme__image-col">
           <div class="aboutme__image-wrap">
-            <img src="img/AboutMe.jpg" alt="Portrait of Mey — Product Designer" class="aboutme__portrait" />
+            <img src="img/AboutMe.jpg" alt="Portrait of Meivy — Product Designer" class="aboutme__portrait" />
           </div>
         </div>
 
         <!-- Right: Content -->
         <div class="aboutme__content">
           <h2 class="aboutme__headline">
-            I've always been fascinated by the intersection of art and technology.
+            Systematic - Empathetic
           </h2>
 
           <p class="aboutme__bio">
-            With 3+ years designing complex web and mobile products across healthcare, B2B, eCommerce, and service
-            platforms, I partner closely with product and engineering teams to turn complexity into clear, scalable, and
-            measurable outcomes.
+            3+ years designing complex products across healthcare, B2B, and eCommerce-I bridge user needs and technical
+            constraints to create interfaces that scale without breaking.
           </p>
 
           <div class="aboutme__ctas">
@@ -452,158 +461,162 @@
 
       </div>
     </section>
-    <!-- =================== END ABOUT ME ========================== -->
-
-    <section class="services reveal" id="services">
+  
+    <section class="pink-benefits reveal" id="benefits">
       <div class="container">
-        <div class="service-block">
-          <h2>Digital art and graphic design</h2>
-          <div class="service-block__tags">
-            <span>UI/UX</span><span>Web design</span><span>Packing</span><span>Motion</span><span>3D models</span>
-          </div>
-          <p>
-            We create visually compelling designs that enhance user experience. We make sure your
-            brand’s visuals resonate with your audience.
+        <div class="pink-benefits__head">
+          <p class="pink-benefits__eyebrow">Why work with me</p>
+          <h2>Strategic Design Partnership</h2>
+          <p class="pink-benefits__sub">
+            Product design that moves your metrics, without the politics, process bloat, or misaligned outputs.
           </p>
         </div>
-        <div class="service-block">
-          <h2>Creative development</h2>
-          <div class="service-block__tags">
-            <span>Frontend</span><span>Interactions</span><span>UI/UX</span><span>Backend</span><span>Mobile Apps</span>
-          </div>
-          <p>
-            We build high-performance websites and applications using modern technologies. Our
-            solutions are designed to be scalable and functional for optimal performance.
-          </p>
+
+        <div class="pink-benefits__grid">
+          <article class="pink-benefit-card">
+            <span class="pink-benefit-card__icon" aria-hidden="true">✦</span>
+            <h3>Clear Product Direction</h3>
+            <p>Strategic roadmap with prioritized initiatives & documented rationale — your team knows what to build and why.</p>
+          </article>
+
+          <article class="pink-benefit-card pink-benefit-card--center">
+            <span class="pink-benefit-card__badge">Featured</span>
+            <img src="img/image%201.png" alt="Creative visual" loading="lazy" />
+            <h3>Design System Ready</h3>
+            <p>Scalable component libraries with documentation and tokens — built for consistency and seamless handoff.</p>
+          </article>
+
+          <article class="pink-benefit-card">
+            <span class="pink-benefit-card__icon" aria-hidden="true">✦</span>
+            <h3>Fast Iterations</h3>
+            <p>Rapid exploration without compromising craft — prototypes that answer questions, feedback loops that align teams.</p>
+          </article>
+
+          <article class="pink-benefit-card">
+            <span class="pink-benefit-card__icon" aria-hidden="true">✦</span>
+            <h3>Conversion Focused</h3>
+            <p>UI patterns optimized for user completion — reduce friction, build trust, guide high-value actions.</p>
+          </article>
+
+          <article class="pink-benefit-card">
+            <span class="pink-benefit-card__icon" aria-hidden="true">✦</span>
+            <h3>Developer Friendly</h3>
+            <p>Pixel-perfect specs with auto-layout and component states — everything engineering needs to build right.</p>
+          </article>
         </div>
-        <div class="service-block">
-          <h2>Brand identity</h2>
-          <div class="service-block__tags">
-            <span>Brand strategy</span><span>Logo design</span><span>Guidelines</span><span>Rebranding</span>
-          </div>
-          <p>
-            From logo design to comprehensive brand strategies, we ensure your business stands out
-            with a unique visual identity and consistent messaging across all touchpoints.
-          </p>
-        </div>
-        <div class="service-block">
-          <h2>Digital marketing solutions</h2>
-          <div class="service-block__tags">
-            <span>Strategy</span><span>Social
-              media</span><span>SEO</span><span>Optimization</span><span>Campaigns</span>
-          </div>
-          <p>
-            SEO and content marketing, social media management and paid campaigns – we help you reach
-            and engage your target audience effectively.
-          </p>
+
+        <div class="pink-benefits__cta">
+          <a class="btn btn--primary" href="#contact">Explore Full Features</a>
         </div>
       </div>
     </section>
-
-    <section class="approach reveal">
-      <div class="container">
-        <div class="approach__head">
-          <h2><span class="title-anim">Approach</span> <span class="title-anim">&amp;</span> <span
-              class="title-anim">philosophy</span></h2>
-          <ul class="approach__pillars">
-            <li>Design</li>
-            <li>Development</li>
-            <li>Mastership</li>
-          </ul>
-          <a class="btn btn--primary" href="#contact">Let's Chat</a>
-        </div>
-        <div class="philosophy__cards">
-          <div class="phi-card">
-            <h4>Perfection</h4>
-            <p>
-              From pixel-perfect designs to flawless code, every aspect of our projects is crafted
-              with care to ensure the highest standards of quality.
-            </p>
-          </div>
-          <div class="phi-card">
-            <h4>Innovative</h4>
-            <p>
-              I stay ahead of design trends, offering modern and visually impactful solutions that
-              set your brand apart.
-            </p>
-          </div>
-          <div class="phi-card">
-            <h4>Expertise</h4>
-            <p>
-              I am passionate about integrating the latest technologies and trends, including
-              interactive animations and mobile-first strategies.
-            </p>
-          </div>
-        </div>
-        <div class="phi-row">
-          <div class="phi-card phi-card--sm">
-            <h4>Full-Cycle services</h4>
-            <p>
-              From web design to development, branding, SEO, and UX/UI, we provide a full range of
-              services that cover all your digital needs.
-            </p>
-          </div>
-          <div class="phi-card phi-card--sm">
-            <h4>Client Success</h4>
-            <p>
-              Our clients consistently see improved engagement, conversion rates, and business
-              growth.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="marquee-section reveal" aria-hidden="true">
-      <div class="marquee-section__track">
-        <span>Inspiring ideas</span><span>Creative minds</span><span>Inspiring ideas</span><span>Creative
-          minds</span><span>Inspiring ideas</span><span>Creative minds</span><span>Inspiring ideas</span><span>Creative
-          minds</span><span>Inspiring ideas</span><span>Creative minds</span><span>Inspiring ideas</span><span>Creative
-          minds</span>
-      </div>
-    </section>
-
+  
     <section class="cta-block reveal" id="contact">
-      <h2>Let's talk about your project!</h2>
-      <p>Contact us — we typically reply within one business day.</p>
-      <form class="cta-form" id="ctaForm">
-        <input type="email" name="email" placeholder="hello@rayostudio.com" required />
-        <button type="submit" class="btn btn--primary">Send</button>
-      </form>
+
+      <!-- Main card -->
+      <div class="cta-card container">
+
+        <!-- Left: headline + info -->
+        <div class="cta-card__left">
+          <p class="cta-block__eyebrow">Let's work together</p>
+          <h2 class="cta-block__title">Got a project<br />in <span class="cta-block__title-accent">mind?</span></h2>
+
+          <ul class="cta-block__meta">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <a href="mailto:vy.nguyentrucmai@gmail.com">vy.nguyentrucmai@gmail.com</a>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Typically replies in &lt;24h</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Ho Chi Minh City, Vietnam</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: form -->
+        <div class="cta-card__form">
+          <form class="cta-form" id="ctaForm" novalidate>
+            <div class="cta-form__row">
+              <div class="cta-form__field">
+                <input type="text" id="ctaName" name="name" placeholder="Name / Company *" required />
+              </div>
+              <div class="cta-form__field">
+                <input type="email" id="ctaEmail" name="email" placeholder="Email *" required />
+              </div>
+            </div>
+
+            <div class="cta-form__field">
+              <div class="cta-form__select-wrap">
+                <select id="ctaType" name="type">
+                  <option value="" disabled selected>Project type</option>
+                  <option value="website">Website</option>
+                  <option value="landing">Landing Page</option>
+                  <option value="app">Mobile / Web App</option>
+                  <option value="saas">SaaS Dashboard</option>
+                  <option value="design-system">Design System</option>
+                  <option value="other">Other</option>
+                </select>
+                <svg class="cta-form__select-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+
+            <div class="cta-form__field">
+              <textarea id="ctaMsg" name="message" rows="5" placeholder="Tell me about your project — goals, timeline, budget…"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--ghost cta-form__submit">
+              Send message
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Decorative -->
+      <div class="cta-block__blob cta-block__blob--2" aria-hidden="true"></div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__top">
-        <div class="footer__brand">
-          <span class="logo">Mey<span>.</span></span>
-          <p>Creative digital agency — design &amp; development.</p>
-          <p class="footer__contact">
-            <a href="mailto:hello@rayostudio.com">hello@rayostudio.com</a><br />
-            <a href="tel:+12127089400">+1 212-708-9400</a>
-          </p>
-        </div>
-        <nav class="footer__nav">
-          <a href="#">Home</a>
-          <a href="#about">About us</a>
-          <a href="projects.html">Projects</a>
-          <a href="#services">Services</a>
-          <a href="#insights">Insights</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <div class="footer__social">
-          <a href="#" aria-label="Dribbble">Dr</a>
-          <a href="#" aria-label="Behance">Be</a>
-          <a href="#" aria-label="Instagram">In</a>
-          <a href="#" aria-label="Github">Gh</a>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <span>© <span id="year"></span> Mey. All Rights Reserved.</span>
-        <span><a href="#">Privacy Policy</a> · <a href="#">Terms &amp; conditions</a></span>
-      </div>
+  <!-- Watermark wordmark -->
+  <div class="footer__wordmark container" aria-hidden="true">
+    <div class="footer__wordmark-track">
+      <span>Meivy Nguyen</span>
+      <span>Meivy Nguyen</span>
     </div>
+  </div>
+
+  <footer class="footer">
+
+    <!-- Main card grid -->
+    <div class="footer__grid-wrap container"><div class="footer__grid">
+
+      <div class="footer__box-left">
+        <a class="logo" href="index.html">Meivy<span>.</span></a>
+      </div>
+
+      <div class="footer__box-right">
+        <a href="mailto:vy.nguyentrucmai@gmail.com">vy.nguyentrucmai@gmail.com ↗</a>
+        <a href="img/CV-NguyenThiTrucMaiVy.pdf" download="MeivyNguyen_CV.pdf">Resume ↗</a>
+        <a href="https://www.linkedin.com/in/meivyng/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://www.instagram.com/meivy.ngg" target="_blank" rel="noopener">Instagram ↗</a>
+      </div>
+
+    </div></div>
+
+    <!-- Bottom bar -->
+    <div class="footer__bottom container">
+      <span>© <span id="year"></span> Meivy Nguyen. Built with precision.</span>
+      <span>Thank you for spending time exploring my portfolio ✦</span>
+    </div>
+
   </footer>
 
   <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>

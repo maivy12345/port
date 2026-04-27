@@ -18,26 +18,34 @@
 
     gsap.ticker.lagSmoothing(0);
 
-    // 2. Wrap text for mask animations in Hero
-    document.querySelectorAll(".hero__line").forEach((line) => {
-        const text = line.innerHTML;
-        line.innerHTML = `<span class="hero__mask"><span class="hero__text">${text}</span></span>`;
+    // 2. Hero title: split words and animate word-by-word
+    var heroWords = [];
+    document.querySelectorAll(".hero__line").forEach(function(line) {
+        var raw = line.textContent.replace(/\s+/g, " ").trim();
+        line.textContent = "";
+        raw.split(" ").forEach(function(w) {
+            var span = document.createElement("span");
+            span.className = "word";
+            span.style.display = "inline-block";
+            span.textContent = w;
+            line.appendChild(span);
+            line.appendChild(document.createTextNode(" "));
+            heroWords.push(span);
+        });
     });
 
     // 3. Hero GSAP Timeline
-    const heroTimeline = gsap.timeline({ defaults: { ease: "power4.out" } });
+    gsap.set(heroWords, { opacity: 0, y: "0.35em", rotate: 2 });
+    gsap.set([".hero__eyebrow", ".hero__actions", ".hero__social"], { autoAlpha: 0, y: 20 });
+    gsap.set("#planetWrap", { autoAlpha: 0, scale: 0.9 });
 
-    // Initial setups for elements we will animate
-    gsap.set(".hero__text", { yPercent: 120, rotate: 2, opacity: 0 });
-    gsap.set([".hero__eyebrow", ".hero__desc", ".hero__actions", ".hero__social"], { autoAlpha: 0, y: 20 });
-    gsap.set(".hero__sphere-img", { autoAlpha: 0, scale: 0.9 });
+    const heroTimeline = gsap.timeline();
 
     heroTimeline
-        .to(".hero__eyebrow", { autoAlpha: 1, y: 0, duration: 1 }, 0.2)
-        .to(".hero__text", { yPercent: 0, rotate: 0, opacity: 1, duration: 1.4, stagger: 0.15 }, "-=0.8")
-        .to(".hero__sphere-img", { autoAlpha: 1, scale: 1, duration: 0.95, ease: "back.out(1.35)" }, "-=0.7")
-        .to(".hero__desc", { autoAlpha: 1, y: 0, duration: 1 }, "-=0.5")
-        .to([".hero__actions", ".hero__social"], { autoAlpha: 1, y: 0, stagger: 0.2, duration: 1 }, "-=0.75");
+        .to(".hero__eyebrow", { autoAlpha: 1, y: 0, duration: 1, ease: "power3.out" }, 0.15)
+        .to(heroWords, { opacity: 1, y: 0, rotate: 0, duration: 1.0, stagger: 0.08, ease: "power3.out" }, "-=0.5")
+        .to("#planetWrap", { autoAlpha: 1, scale: 1, duration: 0.95, ease: "back.out(1.35)" }, "-=0.7")
+        .to([".hero__actions", ".hero__social"], { autoAlpha: 1, y: 0, stagger: 0.15, duration: 1, ease: "power3.out" }, "-=0.7");
 
     // 4. Scroll Reveal Animations (Replacing intersection Observer)
     gsap.utils.toArray('.reveal').forEach((elem) => {
@@ -70,6 +78,93 @@
         });
     });
 
+    // 5.02 Magnetic stat cards: same feel as Say Hello button
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        document.querySelectorAll(".showcase--timeline .showcase-card, .pink-benefit-card:not(.pink-benefit-card--center)").forEach((card) => {
+            card.addEventListener("mousemove", (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                gsap.to(card, {
+                    x: x * 0.24,
+                    y: y * 0.24,
+                    duration: 0.65,
+                    ease: "power2.out"
+                });
+            });
+            card.addEventListener("mouseleave", () => {
+                gsap.to(card, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "elastic.out(1, 0.3)"
+                });
+            });
+        });
+    }
+
+    // 5.03 Center pink card: follow cursor (not wobble)
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        const centerCard = document.querySelector(".pink-benefit-card--center");
+        if (centerCard) {
+            centerCard.addEventListener("mousemove", (e) => {
+                const rect = centerCard.getBoundingClientRect();
+                if (rect.width < 1 || rect.height < 1) return;
+                const nx = (e.clientX - rect.left) / rect.width - 0.5;
+                const ny = (e.clientY - rect.top) / rect.height - 0.5;
+                gsap.to(centerCard, {
+                    x: nx * 10,
+                    y: ny * 8 - 2,
+                    rotateX: ny * -3,
+                    rotateY: nx * 4.5,
+                    transformPerspective: 900,
+                    duration: 0.6,
+                    ease: "power2.out"
+                });
+            });
+            centerCard.addEventListener("mouseleave", () => {
+                gsap.to(centerCard, {
+                    x: 0,
+                    y: 0,
+                    rotateX: 0,
+                    rotateY: 0,
+                    duration: 0.8,
+                    ease: "elastic.out(1, 0.3)"
+                });
+            });
+        }
+    }
+
+    // 5.05 Hero sphere: CSS float + smooth cursor parallax
+    const heroVisual = document.querySelector(".hero__visual");
+    const heroSphere = document.querySelector(".hero__sphere-img");
+    if (
+        heroVisual &&
+        heroSphere &&
+        window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+        const maxPx = 26;
+        gsap.set(heroSphere, { transformOrigin: "50% 50%" });
+        const xTo = gsap.quickTo(heroSphere, "x", { duration: 0.7, ease: "sine.out" });
+        const yTo = gsap.quickTo(heroSphere, "y", { duration: 0.7, ease: "sine.out" });
+        const rotTo = gsap.quickTo(heroSphere, "rotation", { duration: 0.8, ease: "sine.out" });
+        heroVisual.addEventListener("mousemove", (e) => {
+            const rect = heroVisual.getBoundingClientRect();
+            if (rect.width < 1 || rect.height < 1) return;
+            const nx = (e.clientX - rect.left) / rect.width - 0.5;
+            const ny = (e.clientY - rect.top) / rect.height - 0.5;
+            xTo(nx * 2 * maxPx);
+            yTo(ny * 2 * maxPx);
+            rotTo(nx * -3.2 + ny * 1.6);
+        });
+        heroVisual.addEventListener("mouseleave", () => {
+            xTo(0);
+            yTo(0);
+            rotTo(0);
+        });
+    }
+
     // 5.1 Subtle 3D tilt for focus cards
     if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
         document.querySelectorAll(".focus-card").forEach((card) => {
@@ -91,20 +186,53 @@
         });
     }
 
-    // 6. Section Titles Animations
-    gsap.utils.toArray('.title-anim').forEach((title) => {
-        gsap.fromTo(title,
-            { y: "1em", opacity: 0 },
+    // 6. Section titles: word-by-word reveal
+    function wrapHeadingWords(el) {
+        if (!el || el.dataset.wordReady === "true") return;
+
+        // Collect plain text, preserving <br> as line break marker
+        var rawHTML = el.innerHTML
+            .replace(/<br\s*\/?>/gi, " ")
+            .replace(/<[^>]+>/g, "");
+        var rawText = rawHTML.replace(/\s+/g, " ").trim();
+
+        el.innerHTML = "";
+
+        rawText.split(" ").forEach(function (w) {
+            if (!w) return;
+            var span = document.createElement("span");
+            span.className = "word";
+            span.textContent = w;
+            el.appendChild(span);
+            el.appendChild(document.createTextNode(" "));
+        });
+
+        el.dataset.wordReady = "true";
+    }
+
+    var sectionTitleTargets = gsap.utils.toArray(
+        '.works__head h2, .pink-benefits__head h2, .aboutme__headline, .cta-block__title, .section-head h2, .approach__head h2'
+    );
+
+    sectionTitleTargets.forEach(function (titleEl) {
+        wrapHeadingWords(titleEl);
+        var words = titleEl.querySelectorAll('.word');
+        if (!words.length) return;
+
+        gsap.fromTo(words,
+            { color: "rgba(244,244,245,0.1)", y: "0.35em", rotate: 2 },
             {
                 scrollTrigger: {
-                    trigger: title.closest('.section-head') || title,
-                    start: "top 85%",
+                    trigger: titleEl,
+                    start: "top 82%",
+                    once: true
                 },
+                color: "#f4f4f5",
                 y: 0,
-                opacity: 1,
-                duration: 1,
-                ease: "power4.out",
-                stagger: 0.1
+                rotate: 0,
+                duration: 1.0,
+                stagger: 0.1,
+                ease: "power3.out"
             }
         );
     });
@@ -130,6 +258,7 @@
                 scrollTrigger: {
                     trigger: el,
                     start: "top 85%",
+                    once: true
                 },
                 opacity: 1,
                 y: 0,
@@ -479,6 +608,48 @@
             }
         });
     })();
+
+    // Magnetic button effect
+    const magnetBtns = document.querySelectorAll('.header__btn-contact, .cta-form__submit');
+
+    magnetBtns.forEach(btn => {
+        const isContact = btn.classList.contains('header__btn-contact');
+        const hoverShadow = isContact
+            ? '0 12px 30px rgba(255,255,255,0.15)'
+            : '0 12px 30px rgba(255,157,222,0.25)';
+
+        btn.addEventListener('mouseenter', () => {
+            gsap.to(btn, {
+                boxShadow: hoverShadow,
+                duration: 0.25,
+                ease: 'power2.out',
+            });
+        });
+
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const dx = (e.clientX - cx) * 0.35;
+            const dy = (e.clientY - cy) * 0.35;
+            gsap.to(btn, {
+                x: dx,
+                y: dy,
+                duration: 0.3,
+                ease: 'power2.out',
+            });
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            gsap.to(btn, {
+                x: 0,
+                y: 0,
+                boxShadow: '0 0px 0px rgba(0,0,0,0)',
+                duration: 0.5,
+                ease: 'elastic.out(1, 0.5)',
+            });
+        });
+    });
 
 })();
 
