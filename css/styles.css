@@ -871,8 +871,8 @@ img {
 }
 
 .hero.hero--centered .hero__title .hero__line--sub .word {
-    color: #ffe9f6;
-    -webkit-text-fill-color: #ffe9f6;
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
 }
 
 .hero.hero--centered .hero__line--sub {
@@ -1730,25 +1730,18 @@ img {
     padding-bottom: var(--section-v-padding);
 }
 
-/* Section header: two columns */
+/* Section header — centered title */
 .works__head {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    padding-bottom: clamp(2.5rem, 6vw, 4rem);
-    border-bottom: 1px solid var(--border);
-    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+    text-align: center;
+    padding-bottom: clamp(0.25rem, 1vw, 0.75rem);
+    margin-bottom: clamp(1rem, 3vw, 1.75rem);
 }
 
 .works__head-left {
-    flex: 1 1 auto;
-}
-
-.works__head-right {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
+    width: 100%;
 }
 
 .works__label {
@@ -1788,12 +1781,8 @@ img {
 
 @media (max-width: 768px) {
     .works__head {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .works__head-right {
-        flex: none;
+        align-items: center;
+        text-align: center;
     }
 }
 
@@ -2019,7 +2008,11 @@ img {
 .works__footer {
     display: flex;
     justify-content: center;
-    padding-top: clamp(2rem, 5vw, 3.5rem);
+    padding-top: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.proj-panels .proj-item:last-child {
+    margin-bottom: 12px;
 }
 
 /* Responsive */
@@ -3256,7 +3249,11 @@ img {
 .aboutme__cv-btn svg,
 .aboutme__about-btn svg {
     margin-left: 0.5rem;
-    transition: transform 0.3s;
+    transition: transform 0.3s var(--ease);
+}
+
+.aboutme__about-btn svg {
+    transform-origin: center;
 }
 
 .aboutme__cv-btn:hover {
@@ -3274,7 +3271,7 @@ img {
 }
 
 .aboutme__about-btn:hover svg {
-    transform: translate(2px, -2px);
+    transform: rotate(45deg);
 }
 
 .aboutme__sparkle-wrap {
@@ -3310,6 +3307,10 @@ img {
 
 .aboutme__ach-link:last-child {
     border-bottom: 1px solid var(--border);
+}
+
+.aboutme__ach-link--static {
+    cursor: default;
 }
 
 .aboutme__ach-link:hover {

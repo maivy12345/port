@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Healthcare Platform — Case Study · Meivy Nguyen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Syne:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/project-detail.css" />
+</head>
+
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- ======================== HEADER ======================== -->
+  <header class="header">
+    <div class="container header__container">
+      <div class="header__inner">
+        <a class="logo header__desktop-el" href="index.html">Meivy<span>.</span></a>
+        <div class="header__mobile-pill-el">
+          <div class="mobile-profile"><img src="img/AboutMe.jpg" alt="Profile" /></div>
+          <div class="mobile-status">
+            <span>Available for work</span>
+            <span class="status-dot"></span>
+          </div>
+        </div>
+        <nav class="nav" id="nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="projects.html">Works</a>
+        </nav>
+        <div class="header__cta header__desktop-el">
+          <a href="#contact" class="header__btn-contact">
+            Contact
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+        <button type="button" class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- First screen: hero + meta = cùng 100vh khi load (HTML tách section) -->
+    <div class="cs-fold">
+      <section class="cs-hero" aria-labelledby="cs-hero-title">
+        <div class="cs-hero__media">
+          <img src="img/Selected works1.png" alt="Healthcare platform — product screens" class="cs-hero__bg-img" width="1920" height="1080" loading="eager" decoding="async" />
+        </div>
+        <div class="cs-hero__scrim" aria-hidden="true"></div>
+        <div class="container cs-hero__content">
+          <nav class="cs-hero__crumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="cs-hero__crumb-sep" aria-hidden="true">›</span>
+            <a href="projects.html">Works</a>
+            <span class="cs-hero__crumb-sep" aria-hidden="true">›</span>
+            <span class="cs-hero__crumb-current">Healthcare Platform</span>
+          </nav>
+          <div class="cs-hero__tags">
+            <span class="cs-tag">Health &amp; Beauty</span>
+            <span class="cs-tag">UX / UI Design</span>
+            <span class="cs-tag">Product design</span>
+            <span class="cs-tag">2024</span>
+          </div>
+          <h1 class="cs-hero__title" id="cs-hero-title">
+            <span class="title-anim">Healthcare Platform</span>
+            <span class="title-anim cs-hero__title-line2">— Digital experience for care, booking &amp; health records</span>
+          </h1>
+          <p class="cs-hero__sub">Improved the healthcare experience by simplifying user flows for browsing services, accessing doctor information, and managing health-related actions in a more intuitive way.</p>
+        </div>
+      </section>
+
+      <section class="cs-meta" aria-label="Project summary">
+        <div class="container">
+          <div class="cs-meta__grid">
+            <div class="cs-meta__item">
+              <span class="cs-meta__label">Client</span>
+              <span class="cs-meta__value">Medpro Healthcare</span>
+            </div>
+            <div class="cs-meta__item">
+              <span class="cs-meta__label">My Role</span>
+              <span class="cs-meta__value">Lead UX / UI Designer</span>
+            </div>
+            <div class="cs-meta__item">
+              <span class="cs-meta__label">Deliverables</span>
+              <span class="cs-meta__value">Research · Wireframes · UI System · Prototype</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ======================== BODY: sidebar + content ======================== -->
+    <div class="cs-body container">
+
+      <!-- LEFT: sticky TOC -->
+      <aside class="cs-toc" aria-label="Table of contents">
+        <p class="cs-toc__heading">Contents</p>
+        <nav>
+          <a href="#cs-overview"   class="cs-toc__link is-active">Project Overview</a>
+          <a href="#cs-context"    class="cs-toc__link">Context &amp; Problem</a>
+          <a href="#cs-goals"      class="cs-toc__link">Design Goals</a>
+          <a href="#cs-personas"   class="cs-toc__link">User Personas</a>
+          <a href="#cs-process"    class="cs-toc__link">Design Process</a>
+          <a href="#cs-screens"    class="cs-toc__link">Key Screens</a>
+          <a href="#cs-results"    class="cs-toc__link">Results</a>
+          <a href="#cs-reflection" class="cs-toc__link">Reflection</a>
+        </nav>
+
+        <div class="cs-toc__share">
+          <p class="cs-toc__heading">Share</p>
+          <div class="cs-toc__share-icons">
+            <a href="https://www.linkedin.com/in/meivyng/" target="_blank" rel="noopener" aria-label="Share on LinkedIn" class="cs-toc__share-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://www.behance.net/meivyng" target="_blank" rel="noopener" aria-label="Behance" class="cs-toc__share-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h7a3 3 0 0 1 0 6H2zm0 6h8a3 3 0 0 1 0 6H2z"/><line x1="15" y1="7" x2="21" y2="7"/><path d="M15 12a3 3 0 1 0 6 0 3 3 0 0 0-6 0z"/></svg>
+            </a>
+            <button class="cs-toc__share-btn" aria-label="Copy link" id="copyLinkBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT: scrollable content -->
+      <div class="cs-content">
+
+        <!-- 01 — OVERVIEW -->
+        <section class="cs-entry" id="cs-overview">
+          <div class="cs-entry__num">01</div>
+          <h2 class="cs-entry__title">Project Overview</h2>
+          <div class="cs-meta-card">
+            <div class="cs-meta-card__item">
+              <span class="cs-meta-card__label">Client</span>
+              <span class="cs-meta-card__value">Medpro Healthcare</span>
+            </div>
+            <div class="cs-meta-card__item">
+              <span class="cs-meta-card__label">Product</span>
+              <span class="cs-meta-card__value">Healthcare booking platform — Web &amp; Mobile</span>
+            </div>
+            <div class="cs-meta-card__item">
+              <span class="cs-meta-card__label">Channels</span>
+              <span class="cs-meta-card__value">Patient portal · Clinic staff app · Admin dashboard</span>
+            </div>
+          </div>
+          <p>Medpro needed a full redesign of their patient-facing platform to reduce booking friction, increase conversion at key decision points, and unify three disconnected user roles into one coherent product experience.</p>
+        </section>
+
+        <!-- 02 — CONTEXT -->
+        <section class="cs-entry" id="cs-context">
+          <div class="cs-entry__num">02</div>
+          <h2 class="cs-entry__title">Context &amp; Problem</h2>
+          <p>Patients and medical staff struggled with a fragmented system that made it hard to find doctors, book appointments, and track health records. The interface lacked hierarchy, leading to high drop-off rates at key decision points.</p>
+          <p>We needed to redesign the core flows from the ground up — creating a unified experience that served three distinct user groups: patients, clinic staff, and administrators.</p>
+          <ul class="cs-list">
+            <li>Information overload on the doctor discovery screen</li>
+            <li>Unclear booking status &amp; confirmation flow</li>
+            <li>No unified view for appointment history across clinics</li>
+            <li>Three separate codebases with inconsistent design patterns</li>
+          </ul>
+          <figure class="cs-figure">
+            <div class="cs-figure__frame">
+              <img src="img/Selected works1.png" alt="Problem mapping" loading="lazy" />
+            </div>
+            <figcaption>Affinity diagram from user research sessions — 12 interviews, 3 problem clusters</figcaption>
+          </figure>
+        </section>
+
+        <!-- 03 — GOALS -->
+        <section class="cs-entry" id="cs-goals">
+          <div class="cs-entry__num">03</div>
+          <h2 class="cs-entry__title">Design Goals</h2>
+          <p>After synthesising research findings with the product team, we aligned on four measurable design goals:</p>
+          <div class="cs-goals-grid">
+            <div class="cs-goal-card">
+              <span class="cs-goal-card__icon">✦</span>
+              <h3>Reduce booking friction</h3>
+              <p>Cut the steps-to-appointment from 7 to 3 by redesigning the core booking flow.</p>
+            </div>
+            <div class="cs-goal-card">
+              <span class="cs-goal-card__icon">✦</span>
+              <h3>Unified design system</h3>
+              <p>One shared component library across patient, staff, and admin apps.</p>
+            </div>
+            <div class="cs-goal-card">
+              <span class="cs-goal-card__icon">✦</span>
+              <h3>Clear information hierarchy</h3>
+              <p>Restructure IA so key actions are reachable within 2 taps from any screen.</p>
+            </div>
+            <div class="cs-goal-card">
+              <span class="cs-goal-card__icon">✦</span>
+              <h3>Accessible for all ages</h3>
+              <p>WCAG AA compliance — target users span 18–70+ years, many with low digital literacy.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 04 — PERSONAS -->
+        <section class="cs-entry" id="cs-personas">
+          <div class="cs-entry__num">04</div>
+          <h2 class="cs-entry__title">User Personas</h2>
+          <p>We identified three primary user archetypes from the research data:</p>
+          <div class="cs-personas">
+            <div class="cs-persona">
+              <div class="cs-persona__header">
+                <div class="cs-persona__avatar" style="background: linear-gradient(135deg, rgba(255,157,222,0.18), rgba(255,157,222,0.05));">
+                  <span>P</span>
+                </div>
+                <div>
+                  <h3 class="cs-persona__name">The Patient</h3>
+                  <span class="cs-persona__role">Primary user · Age 25–60</span>
+                </div>
+              </div>
+              <p>Wants to quickly find a trusted doctor, book without confusion, and receive clear confirmation. Often anxious; needs reassurance at every step.</p>
+              <ul class="cs-list">
+                <li>Too many irrelevant doctors in search results</li>
+                <li>Confusing cancellation & reschedule flow</li>
+              </ul>
+            </div>
+            <div class="cs-persona">
+              <div class="cs-persona__header">
+                <div class="cs-persona__avatar" style="background: linear-gradient(135deg, rgba(157,222,255,0.18), rgba(157,222,255,0.05));">
+                  <span>S</span>
+                </div>
+                <div>
+                  <h3 class="cs-persona__name">Clinic Staff</h3>
+                  <span class="cs-persona__role">Secondary user · Daily power user</span>
+                </div>
+              </div>
+              <p>Manages multiple appointments, patient check-ins, and records updates throughout the day. Values speed and keyboard-first workflows.</p>
+              <ul class="cs-list">
+                <li>No quick-view for daily schedule at a glance</li>
+                <li>Data entry duplicated across two screens</li>
+              </ul>
+            </div>
+            <div class="cs-persona">
+              <div class="cs-persona__header">
+                <div class="cs-persona__avatar" style="background: linear-gradient(135deg, rgba(222,255,157,0.18), rgba(222,255,157,0.05));">
+                  <span>A</span>
+                </div>
+                <div>
+                  <h3 class="cs-persona__name">Admin</h3>
+                  <span class="cs-persona__role">Tertiary user · Oversight role</span>
+                </div>
+              </div>
+              <p>Needs bird's-eye visibility of clinic performance, booking rates, and staff activity. Works in desktop only; reviews reports weekly.</p>
+              <ul class="cs-list">
+                <li>Metrics buried 4 levels deep in navigation</li>
+                <li>No export / share function for reports</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 05 — PROCESS -->
+        <section class="cs-entry" id="cs-process">
+          <div class="cs-entry__num">05</div>
+          <h2 class="cs-entry__title">Design Process</h2>
+          <p>The process was iterative and research-anchored, moving from broad discovery to focused execution over 4 months.</p>
+          <div class="cs-steps">
+            <div class="cs-step">
+              <span class="cs-step__num">01</span>
+              <div class="cs-step__content">
+                <h3>Discovery &amp; mapping</h3>
+                <p>User interviews, competitive audit, and analytics review to identify opportunity areas.</p>
+              </div>
+            </div>
+            <div class="cs-step">
+              <span class="cs-step__num">02</span>
+              <div class="cs-step__content">
+                <h3>Information architecture</h3>
+                <p>Card-sorting workshops. Reduced primary navigation from 9 items to 4 clear task-based categories.</p>
+              </div>
+            </div>
+            <div class="cs-step">
+              <span class="cs-step__num">03</span>
+              <div class="cs-step__content">
+                <h3>Wireframing &amp; concept</h3>
+                <p>Lo-fi wireframes for key flows, validated with quick guerrilla tests before high-fidelity.</p>
+              </div>
+            </div>
+            <div class="cs-step">
+              <span class="cs-step__num">04</span>
+              <div class="cs-step__content">
+                <h3>Design system &amp; UI</h3>
+                <p>Scalable component library — tokens, spacing, accessibility, multi-role theming.</p>
+              </div>
+            </div>
+            <div class="cs-step">
+              <span class="cs-step__num">05</span>
+              <div class="cs-step__content">
+                <h3>Prototype &amp; handoff</h3>
+                <p>Interactive prototype tested via Maze. Annotated specs delivered in Figma Dev Mode.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 06 — SCREENS -->
+        <section class="cs-entry" id="cs-screens">
+          <div class="cs-entry__num">06</div>
+          <h2 class="cs-entry__title">Key Screens</h2>
+          <p>Selected screens from the final design system, covering the core patient booking journey and staff dashboard.</p>
+
+          <div class="cs-screens-grid">
+            <figure class="cs-figure">
+              <div class="cs-figure__frame">
+                <img src="img/Selected works1.png" alt="Doctor discovery" loading="lazy" />
+              </div>
+              <figcaption>Doctor discovery &amp; filtering</figcaption>
+            </figure>
+            <figure class="cs-figure">
+              <div class="cs-figure__frame">
+                <img src="img/Selected works4.png" alt="Booking flow" loading="lazy" />
+              </div>
+              <figcaption>Appointment booking flow</figcaption>
+            </figure>
+          </div>
+
+          <figure class="cs-figure cs-figure--wide">
+            <div class="cs-figure__frame">
+              <img src="img/Selected works1.png" alt="Staff dashboard" loading="lazy" />
+            </div>
+            <figcaption>Staff &amp; admin dashboard overview</figcaption>
+          </figure>
+
+          <div class="cs-screens-grid cs-screens-grid--3">
+            <figure class="cs-figure">
+              <div class="cs-figure__frame">
+                <img src="img/Selected works1.png" alt="Patient profile" loading="lazy" />
+              </div>
+              <figcaption>Patient profile</figcaption>
+            </figure>
+            <figure class="cs-figure">
+              <div class="cs-figure__frame">
+                <img src="img/Selected works4.png" alt="Health record" loading="lazy" />
+              </div>
+              <figcaption>Health record view</figcaption>
+            </figure>
+            <figure class="cs-figure">
+              <div class="cs-figure__frame">
+                <img src="img/Selected works1.png" alt="Notifications" loading="lazy" />
+              </div>
+              <figcaption>Notifications &amp; reminders</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- 07 — RESULTS -->
+        <section class="cs-entry" id="cs-results">
+          <div class="cs-entry__num">07</div>
+          <h2 class="cs-entry__title">Results</h2>
+          <p>After launch, the redesigned platform was measured against baseline metrics over a 6-week period:</p>
+          <div class="cs-metrics-grid">
+            <div class="cs-metric-card">
+              <span class="cs-metric__number">+42<span class="cs-metric__unit">%</span></span>
+              <span class="cs-metric__desc">Booking completion rate</span>
+            </div>
+            <div class="cs-metric-card">
+              <span class="cs-metric__number">−3.2<span class="cs-metric__unit">min</span></span>
+              <span class="cs-metric__desc">Average time to find a doctor</span>
+            </div>
+            <div class="cs-metric-card">
+              <span class="cs-metric__number">4.8<span class="cs-metric__unit">/5</span></span>
+              <span class="cs-metric__desc">Usability score from Maze testing</span>
+            </div>
+            <div class="cs-metric-card">
+              <span class="cs-metric__number">3<span class="cs-metric__unit">x</span></span>
+              <span class="cs-metric__desc">Faster staff onboarding</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 08 — REFLECTION -->
+        <section class="cs-entry" id="cs-reflection">
+          <div class="cs-entry__num">08</div>
+          <h2 class="cs-entry__title">Reflection</h2>
+          <p>Designing for healthcare means designing for high-stakes moments. Clear, calm UI isn't just an aesthetic choice — it's a functional requirement when users are stressed or unwell.</p>
+          <p>The biggest shift was moving from "feature parity" to "task clarity." Cutting features that users didn't need freed up space for the flows that actually mattered.</p>
+          <p>If I were to do this again, I'd push for earlier engineering involvement during IA restructuring — some navigation decisions we made in week 3 had to be revisited after a tech constraints review in week 8.</p>
+        </section>
+
+      </div><!-- /cs-content -->
+    </div><!-- /cs-body -->
+
+    <!-- ======================== NEXT PROJECT ======================== -->
+    <section class="cs-next">
+      <div class="container">
+        <span class="cs-kicker">Next project</span>
+        <a href="project-detail.html" class="cs-next__card">
+          <div class="cs-next__info">
+            <h3 class="cs-next__title">B2B Analytics Dashboard</h3>
+            <p class="cs-next__sub">SaaS · Dashboard · Enterprise</p>
+          </div>
+          <div class="cs-next__arrow">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+          <div class="cs-next__thumb">
+            <img src="img/Selected works2.png" alt="B2B Analytics Dashboard" loading="lazy" />
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ======================== CTA ======================== -->
+    <section class="cta-block reveal" id="contact">
+      <div class="cta-card container">
+        <div class="cta-card__left">
+          <p class="cta-block__eyebrow">Let's work together</p>
+          <h2 class="cta-block__title">Got a project<br />in <span class="cta-block__title-accent">mind?</span></h2>
+          <ul class="cta-block__meta">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <a href="mailto:vy.nguyentrucmai@gmail.com">vy.nguyentrucmai@gmail.com</a>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Typically replies in &lt;24h</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Ho Chi Minh City, Vietnam</span>
+            </li>
+          </ul>
+        </div>
+        <div class="cta-card__form">
+          <form class="cta-form" id="ctaForm" novalidate>
+            <div class="cta-form__row">
+              <div class="cta-form__field">
+                <input type="text" id="ctaName" name="name" placeholder="Name / Company *" required />
+              </div>
+              <div class="cta-form__field">
+                <input type="email" id="ctaEmail" name="email" placeholder="Email *" required />
+              </div>
+            </div>
+            <div class="cta-form__field">
+              <div class="cta-form__select-wrap">
+                <select id="ctaType" name="type">
+                  <option value="" disabled selected>Project type</option>
+                  <option value="website">Website</option>
+                  <option value="landing">Landing Page</option>
+                  <option value="app">Mobile / Web App</option>
+                  <option value="saas">SaaS Dashboard</option>
+                  <option value="design-system">Design System</option>
+                  <option value="other">Other</option>
+                </select>
+                <svg class="cta-form__select-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+            <div class="cta-form__field">
+              <textarea id="ctaMsg" name="message" rows="5" placeholder="Tell me about your project — goals, timeline, budget…"></textarea>
+            </div>
+            <button type="submit" class="btn btn--ghost cta-form__submit">
+              Send message
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="cta-block__blob cta-block__blob--2" aria-hidden="true"></div>
+    </section>
+
+  </main>
+
+  <div class="footer__wordmark container" aria-hidden="true">
+    <div class="footer__wordmark-track">
+      <span>Meivy Nguyen</span>
+      <span>Meivy Nguyen</span>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__grid-wrap container"><div class="footer__grid">
+      <div class="footer__box-left">
+        <a class="logo" href="index.html">Meivy<span>.</span></a>
+      </div>
+      <div class="footer__box-right">
+        <a href="mailto:vy.nguyentrucmai@gmail.com">vy.nguyentrucmai@gmail.com ↗</a>
+        <a href="img/CV-NguyenThiTrucMaiVy.pdf" download="MeivyNguyen_CV.pdf">Resume ↗</a>
+        <a href="https://www.linkedin.com/in/meivyng/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://www.instagram.com/meivy.ngg" target="_blank" rel="noopener">Instagram ↗</a>
+      </div>
+    </div></div>
+    <div class="footer__bottom container">
+      <span>© <span id="year"></span> Meivy Nguyen. Built with precision.</span>
+      <span>Thank you for spending time exploring my portfolio ✦</span>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/project-detail.js"></script>
+</body>
+
+</html>

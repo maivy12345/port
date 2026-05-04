@@ -48,7 +48,8 @@
         .to([".hero__actions", ".hero__social"], { autoAlpha: 1, y: 0, stagger: 0.15, duration: 1, ease: "power3.out" }, "-=0.7");
 
     // 4. Scroll Reveal Animations (Replacing intersection Observer)
-    gsap.utils.toArray('.reveal').forEach((elem) => {
+    // Exclude sections whose layout depends on CSS transforms on children (marquee tracks / masks).
+    gsap.utils.toArray('.reveal:not(.about-expertise-marquee):not(.cases--marquee)').forEach((elem) => {
         gsap.fromTo(elem,
             { autoAlpha: 0, y: 30 },
             {
@@ -397,10 +398,10 @@
         var media = wrap ? wrap.querySelector(".philosophy-video__media--fx") : null;
         if (!wrap || !media) return;
 
-        gsap.fromTo(wrap, { autoAlpha: 0, y: 26 }, {
+        gsap.fromTo(wrap, { autoAlpha: 0, y: 16 }, {
             autoAlpha: 1,
             y: 0,
-            duration: 1.15,
+            duration: 1.05,
             ease: "power3.out",
             scrollTrigger: {
                 trigger: wrap,
@@ -408,27 +409,16 @@
             }
         });
 
-        // Strong cinematic parallax (intentionally high amplitude)
-        gsap.fromTo(wrap, { y: 30 }, {
-            y: -30,
+        /* Single-axis parallax on video only; keep scale in tween so GSAP does not strip CSS overscan */
+        gsap.fromTo(media, { y: 12, scale: 1.1 }, {
+            y: -12,
+            scale: 1.1,
             ease: "none",
             scrollTrigger: {
                 trigger: wrap,
                 start: "top bottom",
                 end: "bottom top",
-                scrub: 0.45
-            }
-        });
-
-        gsap.fromTo(media, { y: 110, scale: 1.34 }, {
-            y: -110,
-            scale: 1.02,
-            ease: "none",
-            scrollTrigger: {
-                trigger: wrap,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 0.35
+                scrub: 0.85
             }
         });
     })();
