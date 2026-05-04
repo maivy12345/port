@@ -63,6 +63,7 @@
 
   <main>
     <section class="hero hero--about reveal">
+      <div class="hero__grid" aria-hidden="true"></div>
       <div class="container about-hero">
         <div class="about-hero__content">
           <div class="about-hero__identity">
@@ -82,7 +83,7 @@
           </p>
           <div class="about-hero__actions hero__actions">
             <a href="#cases" class="btn btn--primary">View Case Highlights</a>
-            <a href="#contact" class="about-hero__ghost-btn">Let's collaborate</a>
+            <a href="#contact" class="btn btn--ghost">Let's collaborate</a>
           </div>
           <ul class="about-hero__proof">
             <li><strong>30%</strong> Faster delivery via systemized UX</li>
@@ -206,11 +207,19 @@
           <div class="cases-marquee__intro-copy">
             <p class="cases__label">Selected work</p>
             <h2 class="cases-marquee__title">
-              <span class="title-anim">Featured</span> <span class="title-anim">projects</span>
+              <span class="title-anim">Featured projects</span>
             </h2>
             <p class="cases-marquee__lede">A cross-section of shipped product, web, and platform work.</p>
           </div>
-          <a href="projects.html" class="cases__all-btn cases-marquee__cta">All Works →</a>
+          <div class="cases-marquee__intro-actions">
+            <a href="projects.html" class="btn btn--ghost works__all-btn">All Works
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
       <div class="cases-marquee__rail">
@@ -259,12 +268,13 @@
 
     <section class="expertise-process reveal" id="expertise" aria-labelledby="expertise-title">
       <div class="expertise-process__glow" aria-hidden="true"></div>
+      <header class="container expertise-process__head section-head section-head--center">
+        <span class="section-kicker">Experience</span>
+        <h2 id="expertise-title">End-to-end product design</h2>
+      </header>
       <div class="container expertise-process__layout">
         <div class="expertise-process__col expertise-process__col--left">
           <div class="expertise-panel">
-            <span class="section-kicker">Expertise</span>
-            <h3 id="expertise-title" class="text-split">Core capabilities</h3>
-            <p class="expertise-panel__lede">End-to-end craft across strategy, systems, and measurable product outcomes.</p>
             <figure class="expertise-photo about-media about-media--expertise reveal">
               <img class="about-media__img parallax-media parallax-media--deep" src="img/About3.jpg" alt="Personal photo" loading="lazy" decoding="async" />
             </figure>
@@ -272,8 +282,6 @@
         </div>
         <div class="expertise-process__col expertise-process__col--right">
           <div class="experience-panel">
-            <span class="section-kicker">Experience</span>
-            <h3 class="text-split">Building products across systems and sectors</h3>
             <div class="timeline timeline--rail">
               <div class="timeline__rail" aria-hidden="true">
                 <span class="timeline__line-bg"></span>
@@ -281,22 +289,40 @@
               </div>
               <div class="timeline__stack">
                 <article class="timeline-item timeline-item--accent">
-                  <span class="timeline-item__date">04/2025 — Present</span>
-                  <h4>Bin Corporation Group</h4>
-                  <p class="timeline-item__role">Product Designer</p>
-                  <p>Led end-to-end design across B2B, visa, legal, and service platforms. Improved onboarding, lead capture, and account flows with measurable UX gains in conversion and efficiency.</p>
+                  <div class="timeline-item__shell">
+                    <header class="timeline-item__header">
+                      <div class="timeline-item__titles">
+                        <h4>Bin Corporation Group</h4>
+                        <p class="timeline-item__role">Product Designer</p>
+                      </div>
+                      <time class="timeline-item__date" datetime="2025-04">04/2025 — Present</time>
+                    </header>
+                    <p class="timeline-item__summary">Led end-to-end design across B2B, visa, legal, and service platforms. Improved onboarding, lead capture, and account flows with measurable UX gains in conversion and efficiency.</p>
+                  </div>
                 </article>
                 <article class="timeline-item">
-                  <span class="timeline-item__date">05/2023 — 04/2025</span>
-                  <h4>Medpro</h4>
-                  <p class="timeline-item__role">Product Designer</p>
-                  <p>Designed a healthcare ecosystem spanning patient app, doctor app, and kiosk. Optimized booking, consultation, and management journeys using data to improve completion and reduce friction.</p>
+                  <div class="timeline-item__shell">
+                    <header class="timeline-item__header">
+                      <div class="timeline-item__titles">
+                        <h4>Medpro</h4>
+                        <p class="timeline-item__role">Product Designer</p>
+                      </div>
+                      <time class="timeline-item__date" datetime="2023-05">05/2023 — 04/2025</time>
+                    </header>
+                    <p class="timeline-item__summary">Designed a healthcare ecosystem spanning patient app, doctor app, and kiosk. Optimized booking, consultation, and management journeys using data to improve completion and reduce friction.</p>
+                  </div>
                 </article>
                 <article class="timeline-item">
-                  <span class="timeline-item__date">2022 — Present</span>
-                  <h4>Freelance &amp; Part-time</h4>
-                  <p class="timeline-item__role">Product Designer</p>
-                  <p>Delivered UX/UI for healthcare, eCommerce, and service platforms, including conversion-focused landing pages and end-to-end product work across industries.</p>
+                  <div class="timeline-item__shell">
+                    <header class="timeline-item__header">
+                      <div class="timeline-item__titles">
+                        <h4>Freelance &amp; Part-time</h4>
+                        <p class="timeline-item__role">Product Designer</p>
+                      </div>
+                      <time class="timeline-item__date" datetime="2022">2022 — Present</time>
+                    </header>
+                    <p class="timeline-item__summary">Delivered UX/UI for healthcare, eCommerce, and service platforms, including conversion-focused landing pages and end-to-end product work across industries.</p>
+                  </div>
                 </article>
               </div>
             </div>

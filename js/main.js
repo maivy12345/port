@@ -211,7 +211,7 @@
     }
 
     var sectionTitleTargets = gsap.utils.toArray(
-        '.works__head h2, .pink-benefits__head h2, .aboutme__headline, .cta-block__title, .section-head h2, .approach__head h2'
+        '.works__head h2, .pink-benefits__head h2, .aboutme__headline, .cta-block__title, .section-head h2:not(.cases-marquee__title), .approach__head h2'
     );
 
     sectionTitleTargets.forEach(function (titleEl) {

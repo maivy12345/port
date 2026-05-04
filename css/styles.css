@@ -640,11 +640,81 @@ img {
     position: absolute;
     inset: -20% -10% 0;
     background-image:
-        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        linear-gradient(rgba(255, 255, 255, 0.032) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.032) 1px, transparent 1px);
     background-size: 56px 56px;
-    mask-image: radial-gradient(ellipse 85% 70% at 50% 35%, black 20%, transparent 72%);
-    opacity: 0.85;
+    /* Circular vignette: bright center, symmetric fade into corners */
+    mask-image: radial-gradient(
+        circle at 50% 42%,
+        #000 0%,
+        rgba(0, 0, 0, 0.82) 26%,
+        rgba(0, 0, 0, 0.38) 46%,
+        rgba(0, 0, 0, 0.12) 64%,
+        rgba(0, 0, 0, 0.03) 80%,
+        transparent 92%
+    );
+    -webkit-mask-image: radial-gradient(
+        circle at 50% 42%,
+        #000 0%,
+        rgba(0, 0, 0, 0.82) 26%,
+        rgba(0, 0, 0, 0.38) 46%,
+        rgba(0, 0, 0, 0.12) 64%,
+        rgba(0, 0, 0, 0.03) 80%,
+        transparent 92%
+    );
+    opacity: 0.76;
+}
+
+/* Brighter grid — tight center spot only */
+.hero__grid::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.88;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.098) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.098) 1px, transparent 1px),
+        linear-gradient(rgba(255, 157, 222, 0.048) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 157, 222, 0.048) 1px, transparent 1px);
+    background-size: 56px 56px, 56px 56px, 280px 280px, 280px 280px;
+    mask-image: radial-gradient(
+        circle at 50% 42%,
+        #000 0%,
+        rgba(0, 0, 0, 0.72) 18%,
+        rgba(0, 0, 0, 0.35) 34%,
+        rgba(0, 0, 0, 0.1) 52%,
+        transparent 72%
+    );
+    -webkit-mask-image: radial-gradient(
+        circle at 50% 42%,
+        #000 0%,
+        rgba(0, 0, 0, 0.72) 18%,
+        rgba(0, 0, 0, 0.35) 34%,
+        rgba(0, 0, 0, 0.1) 52%,
+        transparent 72%
+    );
+}
+
+/* Top edge + TL/TR corners: veil matches --bg so grid merges into background */
+.hero__grid::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            ellipse 78% 95% at 0% 0%,
+            color-mix(in srgb, var(--bg) 84%, transparent) 0%,
+            transparent 58%
+        ),
+        radial-gradient(
+            ellipse 78% 95% at 100% 0%,
+            color-mix(in srgb, var(--bg) 84%, transparent) 0%,
+            transparent 58%
+        ),
+        linear-gradient(180deg, color-mix(in srgb, var(--bg) 52%, transparent) 0%, transparent 38%);
 }
 
 .hero__blob {
