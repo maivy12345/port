@@ -1,4 +1,4 @@
-/* About page - senior editorial product designer */
+﻿/* About page - senior editorial product designer */
 
 .about-hero__name,
 .hero--about .hero__title,
@@ -960,7 +960,7 @@
     border-bottom: 1px solid var(--border);
 }
 
-/* Featured projects strip — Rayo-style horizontal marquee */
+/* Featured works strip â€” Rayo-style horizontal marquee */
 .cases--marquee {
     position: relative;
     padding: clamp(3.25rem, 7vw, 5.5rem) 0 clamp(3.5rem, 8vw, 6rem);
@@ -1034,7 +1034,7 @@
     color: var(--text-muted);
 }
 
-/* Title → lede: scoped margin-top (must follow .cases-marquee__lede { margin: 0 }) */
+/* Title â†’ lede: scoped margin-top (must follow .cases-marquee__lede { margin: 0 }) */
 .cases--marquee .cases-marquee__intro-copy > .cases-marquee__lede {
     margin-top: max(0px, calc(clamp(0.85rem, 2.4vw, 1.35rem) - 10px));
 }
@@ -1227,7 +1227,7 @@
     margin-top: 0;
 }
 
-/* Full-width expertise marquee — ghost type like home .marquee-section, no borders */
+/* Full-width expertise marquee â€” ghost type like home .marquee-section, no borders */
 .about-expertise-marquee {
     padding: clamp(1.1rem, 2.5vw, 1.65rem) 0;
     overflow: hidden;
@@ -1236,7 +1236,7 @@
 
 .about-expertise-marquee__viewport {
     overflow: hidden;
-    /* Promote own layer — avoids rare cases where mask + child transform paint as static on some GPUs */
+    /* Promote own layer â€” avoids rare cases where mask + child transform paint as static on some GPUs */
     transform: translateZ(0);
     mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
     -webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
@@ -1603,7 +1603,7 @@
     text-align: center;
 }
 
-/* Tighter than global .section-head — title block → video */
+/* Tighter than global .section-head â€” title block â†’ video */
 .philosophy-head.section-head {
     margin-bottom: 0;
 }
@@ -1619,7 +1619,7 @@
     text-wrap: balance;
 }
 
-/* Override .section-head p (styles.css max-width) — use full container width + pretty wrap to avoid orphan words */
+/* Override .section-head p (styles.css max-width) â€” use full container width + pretty wrap to avoid orphan words */
 .philosophy-head.section-head p.philosophy-intro {
     margin: 0 auto 0.35rem;
     max-width: none;
@@ -1684,7 +1684,7 @@
     aspect-ratio: 16 / 5;
     object-fit: cover;
     object-position: center;
-    /* Overscan for parallax scroll — keep modest so sphere stays inside rounded clip */
+    /* Overscan for parallax scroll â€” keep modest so sphere stays inside rounded clip */
     transform: scale(1.1);
     transform-origin: center center;
     transition: none;
@@ -2008,3 +2008,4 @@
         transform: none;
     }
 }
+

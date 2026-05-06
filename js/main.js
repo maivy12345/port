@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
     "use strict";
 
     // 1. Init Lenis for smooth scrolling
@@ -238,7 +238,7 @@
         );
     });
 
-    // 7. Split “Who we are” into words and animate (and any .text-split usage)
+    // 7. Split â€œWho we areâ€ into words and animate (and any .text-split usage)
     var splitElements = gsap.utils.toArray('#aboutSplit, .text-split');
     
     splitElements.forEach(function(el) {
@@ -539,7 +539,7 @@
         track.addEventListener("mouseleave", function () { auto = setInterval(function () { goToSlide(current + 1); }, 5500); });
     }
 
-    // Project category filter
+    // Work category filter
     var tabsNav = document.getElementById("worksTabs");
     var worksGrid = document.getElementById("worksGrid");
     if (tabsNav && worksGrid) {
@@ -549,8 +549,8 @@
         function filterCards(filter) {
             var delay = 0;
             cards.forEach(function (card) {
-                var cat = card.getAttribute("data-category");
-                var show = (filter === "all" || cat === filter);
+                var cat = (card.getAttribute("data-category") || "").split(/\s+/);
+                var show = (filter === "all" || cat.indexOf(filter) !== -1);
                 card.classList.remove("is-visible-anim");
                 if (show) {
                     card.classList.remove("is-hidden");
@@ -576,7 +576,7 @@
         filterCards("all");
     }
 
-    // Stacked project cards scroll effect
+    // Stacked work cards scroll effect
     (function () {
         var panels = gsap.utils.toArray('#projPanels .proj-item');
         if (!panels || panels.length < 2) return;
@@ -642,4 +642,5 @@
     });
 
 })();
+
 

@@ -1,4 +1,4 @@
-/* Rayo-inspired — Syne + Manrope, motion aligned with agency demo */
+﻿/* Rayo-inspired â€” Syne + Manrope, motion aligned with agency demo */
 :root {
     --bg: #0a0a0b;
     --bg-elevated: #121214;
@@ -19,7 +19,7 @@
     --container-padding: clamp(1.5rem, 8vw, 6rem);
     --section-v-padding: clamp(2rem, 5vw, 4.25rem);
 
-    /* Hero: one-screen — offset for fixed pill header + safe areas */
+    /* Hero: one-screen â€” offset for fixed pill header + safe areas */
     --hero-header-offset: calc(5.75rem + env(safe-area-inset-top, 0px));
     --hero-bottom-safe: calc(0.35rem + env(safe-area-inset-bottom, 0px));
 }
@@ -368,7 +368,7 @@ img {
 }
 
 .hero.hero--centered > .container.hero__layout--centered {
-    /* Khớp .container: max-width + căn giữa (padding ngang từ class .container) */
+    /* Khá»›p .container: max-width + cÄƒn giá»¯a (padding ngang tá»« class .container) */
     flex: 1 1 auto;
     min-height: 0;
     min-width: 0;
@@ -399,7 +399,7 @@ img {
     text-align: center;
 }
 
-/* Headline + visual dùng full bề ngang container; nội dung vẫn căn giữa nhờ text-align */
+/* Headline + visual dÃ¹ng full bá» ngang container; ná»™i dung váº«n cÄƒn giá»¯a nhá» text-align */
 .hero.hero--centered .hero__eyebrow,
 .hero.hero--centered .hero__title {
     width: 100%;
@@ -624,7 +624,7 @@ img {
     }
 }
 
-/* —— Centered hero (grid + 3D sphere asset) —— */
+/* â€”â€” Centered hero (grid + 3D sphere asset) â€”â€” */
 .hero.hero--centered::before {
     display: none;
 }
@@ -665,7 +665,7 @@ img {
     opacity: 0.76;
 }
 
-/* Brighter grid — tight center spot only */
+/* Brighter grid â€” tight center spot only */
 .hero__grid::before {
     content: "";
     position: absolute;
@@ -740,7 +740,7 @@ img {
     background: radial-gradient(circle, rgba(255, 157, 222, 0.35) 0%, transparent 65%);
 }
 
-/* ── Hero Sparkles ── */
+/* â”€â”€ Hero Sparkles â”€â”€ */
 .hero__sparkles {
     position: absolute;
     inset: 0;
@@ -884,7 +884,7 @@ img {
 .hero.hero--centered .hero__desc {
     font-size: clamp(0.72rem, 1.5vmin + 0.45vw, 0.95rem);
     line-height: 1.55;
-    /* Không dùng margin shorthand — sẽ ghi đè margin-inline: auto của .hero__layout--centered .hero__desc */
+    /* KhÃ´ng dÃ¹ng margin shorthand â€” sáº½ ghi Ä‘Ã¨ margin-inline: auto cá»§a .hero__layout--centered .hero__desc */
     margin-top: clamp(0.35rem, 1.2vh, 0.75rem);
     margin-bottom: clamp(0.45rem, 1.2vh, 0.85rem);
     margin-inline: auto;
@@ -1722,7 +1722,7 @@ img {
 }
 
 /* ======================================
-   WORKS SECTION — Rayo Dark Panel Style
+   WORKS SECTION â€” Rayo Dark Panel Style
    ====================================== */
 
 .works {
@@ -1730,7 +1730,167 @@ img {
     padding-bottom: var(--section-v-padding);
 }
 
-/* Section header — centered title */
+.works-page {
+    padding-top: clamp(7rem, 10vw, 9rem);
+}
+
+.works-page__hero {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto clamp(1.5rem, 3vw, 2.4rem);
+}
+
+.works-page__eyebrow {
+    margin: 0 0 0.8rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.works-page__hero h1 {
+    margin: 0 0 0.9rem;
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 5vw, 3.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+}
+
+.works-page__hero p {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.works-page__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-bottom: clamp(1.2rem, 2vw, 2rem);
+}
+
+.works__tab {
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    border-radius: 999px;
+    padding: 0.55rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s var(--ease);
+}
+
+.works__tab:hover {
+    border-color: rgba(255, 157, 222, 0.5);
+    color: var(--text);
+}
+
+.works__tab.is-active {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    color: #fff;
+}
+
+.works-page__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.case-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.02);
+    overflow: hidden;
+    min-height: 100%;
+    transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease), opacity 0.25s var(--ease);
+}
+
+.case-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 157, 222, 0.35);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
+}
+
+.case-card__image-wrap {
+    aspect-ratio: 16 / 10;
+    background: #13131a;
+    overflow: hidden;
+}
+
+.case-card__image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s var(--ease);
+}
+
+.case-card:hover .case-card__image-wrap img {
+    transform: scale(1.04);
+}
+
+.case-card__body {
+    padding: 1rem;
+}
+
+.case-card__industry {
+    margin: 0 0 0.35rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.case-card h3 {
+    margin: 0 0 0.4rem;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    line-height: 1.3;
+}
+
+.case-card__tags {
+    margin: 0;
+    color: var(--accent);
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.work-card.is-hidden {
+    display: none;
+}
+
+.work-card.is-visible-anim {
+    animation: caseFadeIn 0.45s var(--ease-out);
+}
+
+@keyframes caseFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 960px) {
+    .works-page__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 620px) {
+    .works-page__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Section header â€” centered title */
 .works__head {
     display: flex;
     flex-direction: column;
@@ -1763,7 +1923,7 @@ img {
     line-height: 1;
 }
 
-/* All Works button — matches btn--ghost (Say Hello style) with icon */
+/* All Works button â€” matches btn--ghost (Say Hello style) with icon */
 .works__all-btn {
     display: inline-flex;
     align-items: center;
@@ -1786,13 +1946,13 @@ img {
     }
 }
 
-/* Project Panels Wrapper — constrains cards inside grid container */
+/* Work Panels Wrapper â€” constrains cards inside grid container */
 .proj-panels-wrap {
     /* NOTE: overflow:hidden would break position:sticky; use max-width from .container instead */
     overflow: clip; /* clip (not hidden) preserves sticky stacking */
 }
 
-/* Project Panels Container — stacked scroll */
+/* Work Panels Container â€” stacked scroll */
 .proj-panels {
     display: flex;
     flex-direction: column;
@@ -1800,7 +1960,7 @@ img {
     position: relative;
 }
 
-/* Individual Panel — sticky stacked */
+/* Individual Panel â€” sticky stacked */
 .proj-item {
     position: sticky;
     top: 0;
@@ -1849,7 +2009,7 @@ img {
     z-index: 2;
 }
 
-/* Stacked card offsets — each card sits slightly lower creating layered depth */
+/* Stacked card offsets â€” each card sits slightly lower creating layered depth */
 .proj-item:nth-child(1) { top: 80px; z-index: 1; }
 .proj-item:nth-child(2) { top: 88px; z-index: 2; }
 .proj-item:nth-child(3) { top: 96px; z-index: 3; }
@@ -1867,7 +2027,7 @@ img {
     margin-bottom: 1rem;
 }
 
-/* Project title */
+/* Work title */
 .proj-item__title {
     font-family: var(--font-display);
     font-size: clamp(2rem, 4.5vw, 3.2rem); /* Increased by ~5px from 2.8rem */
@@ -1912,7 +2072,7 @@ img {
     opacity: 0.85;
 }
 
-/* Visual — fills the right portion of the card, touching all edges */
+/* Visual â€” fills the right portion of the card, touching all edges */
 .proj-item__visual {
     position: absolute;
     right: 0;
@@ -1944,7 +2104,7 @@ img {
     transform: scale(1.05);
 }
 
-/* Arrow button — top-right, overlaying the image */
+/* Arrow button â€” top-right, overlaying the image */
 .proj-item__arrow {
     position: absolute;
     top: clamp(1.25rem, 3vw, 2rem);
@@ -1977,7 +2137,7 @@ img {
     color: #111111;
 }
 
-/* Hover — scale, rotate, accent glow */
+/* Hover â€” scale, rotate, accent glow */
 .proj-item__arrow:hover {
     transform: scale(1.2) rotate(45deg);
 }
@@ -2657,7 +2817,7 @@ img {
 }
 
 /* CTA / Contact */
-/* ── CTA / Contact Section ── */
+/* â”€â”€ CTA / Contact Section â”€â”€ */
 .cta-block {
     position: relative;
     padding: var(--section-v-padding) 0;
@@ -2997,7 +3157,7 @@ img {
 }
 
 /* Footer */
-/* ── Footer ── */
+/* â”€â”€ Footer â”€â”€ */
 .footer {
     position: relative;
     padding-top: clamp(3rem, 6vw, 5rem);
