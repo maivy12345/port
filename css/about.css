@@ -1308,8 +1308,10 @@
     min-height: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
+    object-fit: contain;
+    object-position: center top;
+    transform: none;
+    background: #0f1014;
 }
 
 .expertise-photo.about-media--expertise::after {
@@ -2006,6 +2008,75 @@
 
     .timeline-item:hover {
         transform: none;
+    }
+}
+
+/* ======================================
+   About page mobile simplification
+   ====================================== */
+@media (max-width: 768px) {
+    .about-hero {
+        gap: 1.1rem;
+    }
+
+    .hero--about .hero__desc {
+        font-size: 0.92rem;
+        line-height: 1.6;
+    }
+
+    .about-hero__proof li {
+        font-size: 0.84rem;
+        line-height: 1.5;
+    }
+
+    .about-hero__orbit-btn {
+        transform: translate(18%, 18%);
+        width: clamp(72px, 21vw, 90px);
+    }
+
+    .about-media--center,
+    .about-media--contact {
+        height: 190px;
+    }
+
+    .philosophy-video {
+        border-radius: 18px;
+    }
+
+    .philosophy-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .timeline-item__summary {
+        font-size: 0.88rem;
+        line-height: 1.6;
+    }
+
+    .cases-marquee__caption {
+        font-size: 0.82rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .about-hero__portrait-wrap {
+        aspect-ratio: 4 / 5.2;
+    }
+
+    .about-hero__actions {
+        margin-bottom: 1.1rem;
+    }
+
+    .cases-marquee__item {
+        width: min(82vw, 300px);
+    }
+
+    .about-focus--editorial .focus-card__star {
+        display: none;
+    }
+
+    .about-media--in-card {
+        height: 160px;
     }
 }
 

@@ -901,3 +901,74 @@
     .cs-meta-card__item:last-child { border-bottom: none; }
 }
 
+/* ======================================
+   Work detail mobile simplification
+   ====================================== */
+@media (max-width: 768px) {
+    .cs-hero__crumb {
+        font-size: 0.72rem;
+    }
+
+    .cs-hero .cs-tag {
+        font-size: 0.62rem;
+        padding: 0.3rem 0.58rem;
+    }
+
+    .cs-entry {
+        padding-top: 2.1rem;
+        padding-bottom: 2rem;
+    }
+
+    .cs-entry__title {
+        margin-bottom: 1rem;
+    }
+
+    .cs-entry > p,
+    .cs-list li,
+    .cs-step__content p,
+    .cs-persona > p {
+        font-size: 0.92rem;
+        line-height: 1.6;
+    }
+
+    .cs-figure {
+        margin: 1rem 0;
+    }
+
+    .cs-figure figcaption {
+        font-size: 0.75rem;
+    }
+
+    .cs-next {
+        padding: 2.5rem 0;
+    }
+
+    .cs-next__card {
+        padding: 1.15rem;
+        gap: 0.9rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .cs-toc__share {
+        display: none;
+    }
+
+    .cs-goals-grid .cs-goal-card:nth-child(n+3) {
+        display: none;
+    }
+
+    .cs-personas .cs-persona:nth-child(3) {
+        display: none;
+    }
+
+    .cs-screens-grid--3 .cs-figure:nth-child(n+3) {
+        display: none;
+    }
+
+    .cs-next__arrow {
+        width: 44px;
+        height: 44px;
+    }
+}
+

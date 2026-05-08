@@ -64,218 +64,50 @@
     <section class="works works-page reveal" id="works">
       <div class="container">
         <div class="works-page__hero">
-          <h1><span class="title-anim">Success</span> <span class="title-anim">Stories</span></h1>
-          <p>Explore selected case studies across industries and growth objectives.</p>
+          <h1 class="hero__title works-page__title">
+            <span class="hero__line hero__line--accent">All Works</span>
+          </h1>
         </div>
 
-        <div class="works__tabs works-page__tabs" role="tablist" aria-label="Filter works by category" id="worksTabs">
-          <button class="works__tab is-active" role="tab" aria-selected="true" data-filter="all">All</button>
-          <button class="works__tab" role="tab" aria-selected="false" data-filter="app">App</button>
-          <button class="works__tab" role="tab" aria-selected="false" data-filter="branding">Branding</button>
-          <button class="works__tab" role="tab" aria-selected="false" data-filter="compliance">Compliance</button>
-          <button class="works__tab" role="tab" aria-selected="false" data-filter="ecommerce">E-Commerce</button>
-          <button class="works__tab" role="tab" aria-selected="false" data-filter="leadgen">Leadgen</button>
+        <div class="works__tabs works-page__tabs" id="worksFilters" aria-label="Filter works">
+          <div class="works__filter-block">
+            <p class="works__filter-label">Industry</p>
+            <div class="works__filter-group" id="worksIndustryFilters" aria-label="Filter by industry">
+              <button class="works__tab is-active" type="button" data-filter-group="industry" data-filter-value="all">All (18)</button>
+              <button class="works__tab" type="button" data-filter-group="industry" data-filter-value="healthcare">Healthcare (4)</button>
+              <button class="works__tab" type="button" data-filter-group="industry" data-filter-value="business-and-finance">Business &amp; Finance (5)</button>
+              <button class="works__tab" type="button" data-filter-group="industry" data-filter-value="technology">Technology (3)</button>
+              <button class="works__tab" type="button" data-filter-group="industry" data-filter-value="commerce">Commerce (1)</button>
+              <button class="works__tab" type="button" data-filter-group="industry" data-filter-value="real-estate">Real Estate (2)</button>
+              <button class="works__tab" type="button" data-filter-group="industry" data-filter-value="legal-and-immigration">Legal &amp; Immigration (2)</button>
+              <button class="works__tab" type="button" data-filter-group="industry" data-filter-value="education">Education (1)</button>
+            </div>
+          </div>
+
+          <div class="works__filter-block">
+            <p class="works__filter-label">Service</p>
+            <div class="works__service-dropdown" id="worksServiceDropdown">
+              <button
+                type="button"
+                class="works__service-trigger"
+                id="worksServiceTrigger"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+              >
+                <span id="worksServiceLabel">All Services</span>
+              </button>
+              <div class="works__service-menu" id="worksServiceMenu" role="listbox" aria-label="Filter by service">
+                <button type="button" class="works__service-option is-active" data-service-value="all" role="option" aria-selected="true">All Services</button>
+                <button type="button" class="works__service-option" data-service-value="web-design" role="option" aria-selected="false">Web Design</button>
+                <button type="button" class="works__service-option" data-service-value="mobile-app" role="option" aria-selected="false">Mobile App</button>
+                <button type="button" class="works__service-option" data-service-value="landing-page" role="option" aria-selected="false">Landing Page</button>
+                <button type="button" class="works__service-option" data-service-value="portal" role="option" aria-selected="false">Portal</button>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="works__grid works-page__grid" id="worksGrid">
-          <a href="work-detail.html" class="work-card case-card" data-category="leadgen branding app">
-            <div class="case-card__image-wrap">
-              <img src="img/Project1-OneIBC-App.jpg" alt="One IBC App case study" />
-            </div>
-            <div class="case-card__body">
-              <p class="case-card__industry">Application / App</p>
-              <h3>One IBC App</h3>
-              <p class="case-card__tags">Leadgen - Branding - App</p>
-            </div>
-          </a>
-
-          <a href="work-detail.html" class="work-card case-card" data-category="compliance">
-            <div class="case-card__image-wrap">
-              <img src="img/Project2-OCC-Web.jpg" alt="Offshore CompanyCorp case study" />
-            </div>
-            <div class="case-card__body">
-              <p class="case-card__industry">Professional Services</p>
-              <h3>Offshore CompanyCorp</h3>
-              <p class="case-card__tags">Compliance</p>
-            </div>
-          </a>
-
-          <a href="work-detail.html" class="work-card case-card" data-category="ecommerce">
-            <div class="case-card__image-wrap">
-              <img src="img/Project5-medpro-WebApp.jpg" alt="Medpro case study" />
-            </div>
-            <div class="case-card__body">
-              <p class="case-card__industry">Healthcare</p>
-              <h3>Medpro</h3>
-              <p class="case-card__tags">E-Commerce</p>
-            </div>
-          </a>
-
-          <a href="work-detail.html" class="work-card case-card" data-category="branding leadgen">
-            <div class="case-card__image-wrap">
-              <img src="img/Project6-ntbindustrialpark-web.jpg" alt="NTB Industrial Park case study" />
-            </div>
-            <div class="case-card__body">
-              <p class="case-card__industry">Industrial</p>
-              <h3>NTB Industrial Park</h3>
-              <p class="case-card__tags">Branding - Leadgen</p>
-            </div>
-          </a>
-
-          <a href="work-detail.html" class="work-card case-card" data-category="branding ecommerce">
-            <div class="case-card__image-wrap">
-              <img src="img/Project8-binmedia-web.jpg" alt="BIN Media case study" />
-            </div>
-            <div class="case-card__body">
-              <p class="case-card__industry">Media</p>
-              <h3>BIN Media</h3>
-              <p class="case-card__tags">Branding - E-Commerce</p>
-            </div>
-          </a>
-
-          <a href="work-detail.html" class="work-card case-card" data-category="app leadgen">
-            <div class="case-card__image-wrap">
-              <img src="img/Project11-manbu-app.jpg" alt="Manbu case study" />
-            </div>
-            <div class="case-card__body">
-              <p class="case-card__industry">Lifestyle</p>
-              <h3>Manbu</h3>
-              <p class="case-card__tags">App - Leadgen</p>
-            </div>
-          </a>
-
-          <a href="work-detail.html" class="work-card case-card" data-category="app branding">
-            <div class="case-card__image-wrap">
-              <img src="img/Project3-Airnoma-App.jpg" alt="Airnoma case study" />
-            </div>
-            <div class="case-card__body">
-              <p class="case-card__industry">Travel Tech</p>
-              <h3>Airnoma</h3>
-              <p class="case-card__tags">App - Branding</p>
-            </div>
-          </a>
-
-          <a href="work-detail.html" class="work-card case-card" data-category="branding leadgen">
-            <div class="case-card__image-wrap">
-              <img src="img/Project4-myss-landingpage.jpg" alt="myss Clinic case study" />
-            </div>
-            <div class="case-card__body">
-              <p class="case-card__industry">Healthcare / Beauty</p>
-              <h3>myss Clinic</h3>
-              <p class="case-card__tags">Branding - Leadgen</p>
-            </div>
-          </a>
-
-          <a href="work-detail.html" class="work-card case-card" data-category="branding compliance">
-            <div class="case-card__image-wrap">
-              <img src="img/Project7-md1world-web.jpg" alt="MD1 World case study" />
-            </div>
-            <div class="case-card__body">
-              <p class="case-card__industry">Business Services</p>
-              <h3>MD1 World</h3>
-              <p class="case-card__tags">Branding - Compliance</p>
-            </div>
-          </a>
-
-          <a href="work-detail.html" class="work-card case-card" data-category="leadgen app">
-            <div class="case-card__image-wrap">
-              <img src="img/Project9-tamvie-webapp.jpg" alt="TamVie Health case study" />
-            </div>
-            <div class="case-card__body">
-              <p class="case-card__industry">Healthcare</p>
-              <h3>TamVie Health</h3>
-              <p class="case-card__tags">Leadgen - App</p>
-            </div>
-          </a>
-
-          <a href="work-detail.html" class="work-card case-card" data-category="branding leadgen">
-            <div class="case-card__image-wrap">
-              <img src="img/Project10-spa-landingpage.jpg" alt="Aesthetic clinic case study" />
-            </div>
-            <div class="case-card__body">
-              <p class="case-card__industry">Beauty</p>
-              <h3>Aesthetic clinic</h3>
-              <p class="case-card__tags">Branding - Leadgen</p>
-            </div>
-          </a>
-
-          <a href="work-detail.html" class="work-card case-card" data-category="app compliance">
-            <div class="case-card__image-wrap">
-              <img src="img/Project12-OneIBC-Portal.jpg" alt="One IBC Portal case study" />
-            </div>
-            <div class="case-card__body">
-              <p class="case-card__industry">Business Platform</p>
-              <h3>One IBC Portal</h3>
-              <p class="case-card__tags">App - Compliance</p>
-            </div>
-          </a>
-
-          <a href="work-detail.html" class="work-card case-card" data-category="compliance leadgen">
-            <div class="case-card__image-wrap">
-              <img src="img/Project13-uom-web.jpg" alt="UOM Immigration case study" />
-            </div>
-            <div class="case-card__body">
-              <p class="case-card__industry">Immigration Services</p>
-              <h3>UOM Immigration</h3>
-              <p class="case-card__tags">Compliance - Leadgen</p>
-            </div>
-          </a>
-
-          <a href="work-detail.html" class="work-card case-card" data-category="branding ecommerce">
-            <div class="case-card__image-wrap">
-              <img src="img/Project15-voltorax-web.jpg" alt="Voltorax case study" />
-            </div>
-            <div class="case-card__body">
-              <p class="case-card__industry">Automotive</p>
-              <h3>Voltorax</h3>
-              <p class="case-card__tags">Branding - E-Commerce</p>
-            </div>
-          </a>
-
-          <a href="work-detail.html" class="work-card case-card" data-category="leadgen branding">
-            <div class="case-card__image-wrap">
-              <img src="img/Project16-visa-landingpage.jpg" alt="Saudi e-Visa case study" />
-            </div>
-            <div class="case-card__body">
-              <p class="case-card__industry">Travel / Visa</p>
-              <h3>Saudi e-Visa</h3>
-              <p class="case-card__tags">Leadgen - Branding</p>
-            </div>
-          </a>
-
-          <a href="work-detail.html" class="work-card case-card" data-category="app branding">
-            <div class="case-card__image-wrap">
-              <img src="img/Project17-Elearning-landingpage.jpg" alt="E-learning Platform case study" />
-            </div>
-            <div class="case-card__body">
-              <p class="case-card__industry">Education</p>
-              <h3>E-learning Platform</h3>
-              <p class="case-card__tags">App - Branding</p>
-            </div>
-          </a>
-
-          <a href="work-detail.html" class="work-card case-card" data-category="ecommerce branding">
-            <div class="case-card__image-wrap">
-              <img src="img/Project18-EcoHHB-web.jpg" alt="Health care food case study" />
-            </div>
-            <div class="case-card__body">
-              <p class="case-card__industry">Organic Food</p>
-              <h3>Health care food</h3>
-              <p class="case-card__tags">E-Commerce - Branding</p>
-            </div>
-          </a>
-
-          <a href="work-detail.html" class="work-card case-card" data-category="leadgen compliance">
-            <div class="case-card__image-wrap">
-              <img src="img/Project19-JNRVIETNAM-landingpage.jpg" alt="JNR Vietnam case study" />
-            </div>
-            <div class="case-card__body">
-              <p class="case-card__industry">Corporate</p>
-              <h3>JNR Vietnam</h3>
-              <p class="case-card__tags">Leadgen - Compliance</p>
-            </div>
-          </a>
-        </div>
+        <div class="works__grid works-page__grid" id="worksGrid"></div>
       </div>
     </section>
 
@@ -390,6 +222,11 @@
   <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/supabase-content.js"></script>
+  <script src="js/projects-data.js"></script>
+  <script src="js/works-page.js"></script>
   <script src="js/main.js"></script>
 </body>
 

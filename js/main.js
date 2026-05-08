@@ -539,18 +539,34 @@
         track.addEventListener("mouseleave", function () { auto = setInterval(function () { goToSlide(current + 1); }, 5500); });
     }
 
-    // Work category filter
-    var tabsNav = document.getElementById("worksTabs");
-    var worksGrid = document.getElementById("worksGrid");
-    if (tabsNav && worksGrid) {
-        var tabBtns = tabsNav.querySelectorAll(".works__tab");
-        var cards = worksGrid.querySelectorAll(".work-card");
+    // Works page filter: Industry + Service
+    (function initWorksDualFilter() {
+        var filtersWrap = document.getElementById("worksFilters");
+        var worksGrid = document.getElementById("worksGrid");
+        if (!filtersWrap || !worksGrid) return;
 
-        function filterCards(filter) {
+        var industryBtns = filtersWrap.querySelectorAll('.works__tab[data-filter-group="industry"][data-filter-value]');
+        var industryFilters = document.getElementById("worksIndustryFilters");
+        var serviceDropdown = document.getElementById("worksServiceDropdown");
+        var serviceTrigger = document.getElementById("worksServiceTrigger");
+        var serviceMenu = document.getElementById("worksServiceMenu");
+        var serviceLabel = document.getElementById("worksServiceLabel");
+        var serviceOptions = serviceMenu ? serviceMenu.querySelectorAll(".works__service-option[data-service-value]") : [];
+        var active = { industry: "all", service: "all" };
+
+        function getCards() {
+            return worksGrid.querySelectorAll(".work-card");
+        }
+
+        function filterCards() {
+            var cards = getCards();
             var delay = 0;
             cards.forEach(function (card) {
-                var cat = (card.getAttribute("data-category") || "").split(/\s+/);
-                var show = (filter === "all" || cat.indexOf(filter) !== -1);
+                var industry = card.getAttribute("data-industry") || "";
+                var services = (card.getAttribute("data-service") || "").split(/\s+/);
+                var matchIndustry = active.industry === "all" || industry === active.industry;
+                var matchService = active.service === "all" || services.indexOf(active.service) !== -1;
+                var show = matchIndustry && matchService;
                 card.classList.remove("is-visible-anim");
                 if (show) {
                     card.classList.remove("is-hidden");
@@ -562,19 +578,163 @@
             });
         }
 
-        tabBtns.forEach(function (btn) {
+        industryBtns.forEach(function (btn) {
+            if (btn.dataset.filterBound === "true") return;
+            btn.dataset.filterBound = "true";
             btn.addEventListener("click", function () {
-                tabBtns.forEach(function (b) {
-                    b.classList.remove("is-active");
-                    b.setAttribute("aria-selected", "false");
-                });
+                var group = btn.getAttribute("data-filter-group");
+                var value = btn.getAttribute("data-filter-value") || "all";
+                if (!group) return;
+
+                filtersWrap
+                    .querySelectorAll('.works__tab[data-filter-group="' + group + '"]')
+                    .forEach(function (item) {
+                        item.classList.remove("is-active");
+                    });
+
                 btn.classList.add("is-active");
-                btn.setAttribute("aria-selected", "true");
-                filterCards(btn.getAttribute("data-filter"));
+                active[group] = value;
+                filterCards();
             });
         });
-        filterCards("all");
-    }
+
+        if (industryFilters) {
+            var industryFadeBlock = industryFilters.closest(".works__filter-block");
+            var isDown = false;
+            var startX = 0;
+            var scrollLeft = 0;
+            var moved = false;
+
+            function updateIndustryEdgeFade() {
+                if (!industryFadeBlock) return;
+                var maxScroll = industryFilters.scrollWidth - industryFilters.clientWidth;
+                if (maxScroll <= 1) {
+                    industryFadeBlock.classList.remove("has-left-fade");
+                    industryFadeBlock.classList.remove("has-right-fade");
+                    return;
+                }
+                var x = industryFilters.scrollLeft;
+                industryFadeBlock.classList.toggle("has-left-fade", x > 2);
+                industryFadeBlock.classList.toggle("has-right-fade", x < (maxScroll - 2));
+            }
+
+            industryFilters.addEventListener("mousedown", function (e) {
+                isDown = true;
+                moved = false;
+                industryFilters.classList.add("is-dragging");
+                startX = e.pageX - industryFilters.offsetLeft;
+                scrollLeft = industryFilters.scrollLeft;
+            });
+
+            industryFilters.addEventListener("mouseleave", function () {
+                isDown = false;
+                industryFilters.classList.remove("is-dragging");
+            });
+
+            industryFilters.addEventListener("mouseup", function () {
+                isDown = false;
+                industryFilters.classList.remove("is-dragging");
+            });
+
+            industryFilters.addEventListener("mousemove", function (e) {
+                if (!isDown) return;
+                e.preventDefault();
+                var x = e.pageX - industryFilters.offsetLeft;
+                var walk = (x - startX) * 1.1;
+                if (Math.abs(walk) > 2) moved = true;
+                industryFilters.scrollLeft = scrollLeft - walk;
+                updateIndustryEdgeFade();
+            });
+
+            industryFilters.addEventListener("scroll", updateIndustryEdgeFade, { passive: true });
+            window.addEventListener("resize", updateIndustryEdgeFade);
+
+            industryFilters.querySelectorAll(".works__tab").forEach(function (btn) {
+                btn.addEventListener("click", function (e) {
+                    if (moved) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                });
+            });
+
+            document.addEventListener("works:grid-updated", updateIndustryEdgeFade);
+            updateIndustryEdgeFade();
+        }
+
+        function closeServiceMenu() {
+            if (!serviceTrigger || !serviceMenu) return;
+            serviceMenu.classList.remove("is-open");
+            serviceTrigger.classList.remove("is-open");
+            serviceTrigger.setAttribute("aria-expanded", "false");
+        }
+
+        function openServiceMenu() {
+            if (!serviceTrigger || !serviceMenu) return;
+            serviceMenu.classList.add("is-open");
+            serviceTrigger.classList.add("is-open");
+            serviceTrigger.setAttribute("aria-expanded", "true");
+        }
+
+        function setServiceValue(value, labelText) {
+            active.service = value || "all";
+            if (serviceLabel) serviceLabel.textContent = labelText || "All Services";
+            serviceOptions.forEach(function (option) {
+                var isActive = (option.getAttribute("data-service-value") || "all") === active.service;
+                option.classList.toggle("is-active", isActive);
+                option.setAttribute("aria-selected", isActive ? "true" : "false");
+            });
+            filterCards();
+        }
+
+        if (serviceTrigger && serviceMenu) {
+            serviceTrigger.addEventListener("click", function () {
+                if (serviceMenu.classList.contains("is-open")) {
+                    closeServiceMenu();
+                } else {
+                    openServiceMenu();
+                }
+            });
+
+            serviceOptions.forEach(function (option) {
+                option.addEventListener("click", function () {
+                    setServiceValue(
+                        option.getAttribute("data-service-value") || "all",
+                        option.textContent.trim()
+                    );
+                    closeServiceMenu();
+                });
+            });
+
+            document.addEventListener("click", function (event) {
+                if (!serviceDropdown) return;
+                if (serviceDropdown.contains(event.target)) return;
+                closeServiceMenu();
+            });
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") closeServiceMenu();
+            });
+        }
+
+        function syncActiveFromUI() {
+            var activeBtn = filtersWrap.querySelector('.works__tab.is-active[data-filter-group="industry"]');
+            active.industry = activeBtn ? (activeBtn.getAttribute("data-filter-value") || "all") : "all";
+            var activeServiceOption = serviceMenu ? serviceMenu.querySelector(".works__service-option.is-active") : null;
+            active.service = activeServiceOption ? (activeServiceOption.getAttribute("data-service-value") || "all") : "all";
+            if (serviceLabel && activeServiceOption) {
+                serviceLabel.textContent = activeServiceOption.textContent.trim();
+            }
+        }
+
+        document.addEventListener("works:grid-updated", function () {
+            syncActiveFromUI();
+            filterCards();
+        });
+
+        syncActiveFromUI();
+        filterCards();
+    })();
 
     // Stacked work cards scroll effect
     (function () {
