@@ -215,7 +215,7 @@ img {
 }
 
 .header__btn-contact:hover svg {
-    transform: rotate(45deg);
+    transform: rotate(-45deg);
 }
 
 .header__mobile-pill-el {
@@ -2380,7 +2380,7 @@ img {
 
 /* Hover â€” scale, rotate, accent glow */
 .proj-item__arrow:hover {
-    transform: scale(1.2) rotate(45deg);
+    transform: scale(1.2) rotate(-45deg);
 }
 
 .proj-item--cream .proj-item__arrow:hover,
@@ -3296,7 +3296,7 @@ img {
 }
 
 .cta-form__submit:hover svg {
-    transform: rotate(45deg);
+    transform: rotate(-45deg);
 }
 
 /* Right: image column */
@@ -3672,7 +3672,7 @@ img {
 }
 
 .aboutme__about-btn:hover svg {
-    transform: rotate(45deg);
+    transform: rotate(-45deg);
 }
 
 .aboutme__sparkle-wrap {
@@ -3760,7 +3760,7 @@ img {
     background: var(--text);
     color: var(--bg);
     border-color: var(--text);
-    transform: scale(1.1) rotate(45deg);
+    transform: scale(1.1) rotate(-45deg);
 }
 
 .aboutme__ach-icon svg {

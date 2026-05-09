@@ -824,7 +824,7 @@
     transition: transform 0.4s var(--ease), background 0.4s var(--ease);
 }
 .cs-next__card:hover .cs-next__arrow {
-    transform: rotate(45deg) scale(1.1);
+    transform: rotate(-45deg) scale(1.1);
     background: var(--accent);
 }
 .cs-next__thumb {
