@@ -31,7 +31,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
 }
 
 body {
@@ -2177,7 +2177,7 @@ img {
 }
 
 .works__all-btn:hover svg {
-    transform: translate(2px, -2px);
+    transform: rotate(45deg);
 }
 
 @media (max-width: 768px) {

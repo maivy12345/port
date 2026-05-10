@@ -69,18 +69,20 @@
         worksGrid.innerHTML = source.map(function (project) {
             var link = "work-detail.html?slug=" + encodeURIComponent(project.slug);
             var normalizedIndustry = project.industryGroup || INDUSTRY_GROUP_BY_SLUG[project.slug] || normalizeIndustry(project.industry);
-            var primaryService = Array.isArray(project.serviceTypes) && project.serviceTypes.length
-                ? project.serviceTypes[0]
-                : inferPrimaryService(project);
+            var serviceList = Array.isArray(project.serviceTypes) && project.serviceTypes.length
+                ? project.serviceTypes
+                : [inferPrimaryService(project)];
+            var dataService = serviceList.map(slugify).join(" ");
+            var serviceLabel = serviceList.map(formatServiceLabel).join(" · ");
             return [
-                '<a href="' + link + '" class="work-card case-card" data-industry="' + escapeHtml(slugify(normalizedIndustry)) + '" data-service="' + escapeHtml(slugify(primaryService)) + '">',
+                '<a href="' + link + '" class="work-card case-card" data-industry="' + escapeHtml(slugify(normalizedIndustry)) + '" data-service="' + escapeHtml(dataService) + '">',
                 '  <div class="case-card__image-wrap">',
                 '    <img src="' + escapeHtml(project.cardImage) + '" alt="' + escapeHtml(project.cardAlt || project.title + " case study") + '" />',
                 "  </div>",
                 '  <div class="case-card__body">',
                 '    <p class="case-card__industry">' + escapeHtml(normalizedIndustry) + "</p>",
                 "    <h3>" + escapeHtml(project.title) + "</h3>",
-                '    <p class="case-card__tags">' + escapeHtml(formatServiceLabel(primaryService)) + "</p>",
+                '    <p class="case-card__tags">' + escapeHtml(serviceLabel) + "</p>",
                 "  </div>",
                 "</a>"
             ].join("");

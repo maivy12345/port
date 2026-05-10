@@ -113,8 +113,11 @@
     color: rgba(255, 255, 255, 0.95);
     font-weight: 600;
 }
+.cs-hero__crumb {
+    margin-bottom: 0.75rem;
+}
 .cs-hero .cs-hero__tags {
-    margin-bottom: clamp(0.55rem, 1.2vw, 0.85rem);
+    margin-bottom: clamp(0.9rem, 1.5vw, 1.25rem);
 }
 .cs-hero .cs-tag {
     border: 1px solid rgba(255, 255, 255, 0.14);
@@ -215,12 +218,12 @@
     }
 
     .cs-fold .cs-hero__crumb {
-        margin-bottom: 0.35rem;
+        margin-bottom: 1rem;
         font-size: 0.72rem;
     }
 
     .cs-fold .cs-hero .cs-hero__tags {
-        margin-bottom: 0.4rem;
+        margin-bottom: 1rem;
     }
 
     .cs-fold .cs-hero .cs-tag {
@@ -333,63 +336,94 @@
 /* â”€â”€ Body layout: sidebar + content â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cs-body {
     display: grid;
-    grid-template-columns: 230px 1fr;
+    grid-template-columns: 1fr 230px;
     gap: 0 clamp(3rem, 6vw, 6rem);
     align-items: start;
     padding-top: clamp(3rem, 6vw, 5rem);
     padding-bottom: clamp(3rem, 6vw, 5rem);
 }
 
-/* â”€â”€ Sticky TOC sidebar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Sticky TOC sidebar ─────────────────────────────── */
 .cs-toc {
     position: sticky;
     top: calc(var(--hero-header-offset) + 1.5rem);
     max-height: calc(100vh - var(--hero-header-offset) - 3rem);
     overflow-y: auto;
     scrollbar-width: none;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem 1.25rem;
 }
 .cs-toc::-webkit-scrollbar { display: none; }
 
 .cs-toc__heading {
-    font-size: 0.68rem;
+    font-size: 0.6rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: rgba(255, 255, 255, 0.3);
-    margin: 0 0 0.85rem;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.22);
+    margin: 0 0 0.85rem 0.2rem;
 }
 
-.cs-toc nav {
+.cs-toc__nav {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 0;
-    border-left: 1px solid var(--border);
 }
 
+/* Sliding highlight indicator */
+.cs-toc__indicator {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 40px;
+    background: rgba(255, 157, 222, 0.07);
+    border-left: 2px solid var(--accent);
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 0;
+    transition:
+        transform 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+        height 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.2s var(--ease);
+    opacity: 0;
+}
+.cs-toc__indicator.is-ready { opacity: 1; }
+
 .cs-toc__link {
-    display: block;
-    padding: 0.52rem 1rem;
-    font-size: 0.85rem;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.82rem;
     font-weight: 500;
     color: var(--text-muted);
     text-decoration: none;
-    border-left: 2px solid transparent;
-    margin-left: -1px;
-    transition:
-        color 0.25s var(--ease),
-        border-color 0.25s var(--ease),
-        padding-left 0.25s var(--ease);
     line-height: 1.35;
+    transition: color 0.25s var(--ease);
 }
-.cs-toc__link:hover {
-    color: var(--text);
-}
+.cs-toc__link:hover { color: var(--text); }
 .cs-toc__link.is-active {
     color: var(--accent);
-    border-left-color: var(--accent);
-    padding-left: 1.2rem;
     font-weight: 600;
 }
+
+.cs-toc__num {
+    font-family: var(--font-display);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: inherit;
+    opacity: 0.4;
+    flex-shrink: 0;
+    transition: opacity 0.25s var(--ease);
+}
+.cs-toc__link.is-active .cs-toc__num { opacity: 0.75; }
 
 /* Share block */
 .cs-toc__share {
@@ -425,6 +459,7 @@
 /* â”€â”€ Content sections â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cs-content {
     min-width: 0;
+    max-width: 760px;
 }
 
 .cs-entry {
@@ -469,7 +504,6 @@
     line-height: 1.78;
     color: rgba(244, 244, 245, 0.78);
     margin: 0 0 1.1rem;
-    max-width: 68ch;
 }
 
 /* â”€â”€ Meta card (work overview block) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
@@ -514,7 +548,6 @@
     display: flex;
     flex-direction: column;
     gap: 0.55rem;
-    max-width: 68ch;
 }
 .cs-list li {
     display: flex;
@@ -841,7 +874,7 @@
 /* â”€â”€ Responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 1024px) {
     .cs-body {
-        grid-template-columns: 200px 1fr;
+        grid-template-columns: 1fr 200px;
         gap: 0 clamp(2rem, 4vw, 3.5rem);
     }
 }
@@ -853,14 +886,12 @@
 
     .cs-toc {
         position: static;
+        order: -1;
         max-height: none;
         overflow: visible;
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 1.25rem 1.5rem;
-        background: var(--bg-elevated);
         margin-bottom: 2rem;
     }
+    .cs-toc__indicator { display: none; }
 
     .cs-metrics-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -969,6 +1000,56 @@
     .cs-next__arrow {
         width: 44px;
         height: 44px;
+    }
+}
+
+/* ── Audit highlights ─────────────────────────────────── */
+.cs-audit-highlights {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+.cs-audit-highlights__heading {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+}
+.cs-audit-highlights__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.cs-audit-highlight {
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    transition: border-color 0.25s var(--ease);
+}
+.cs-audit-highlight:hover {
+    border-color: rgba(255, 157, 222, 0.35);
+}
+.cs-audit-highlight__label {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.45rem;
+}
+.cs-audit-highlight p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+@media (max-width: 640px) {
+    .cs-audit-highlights__grid {
+        grid-template-columns: 1fr;
     }
 }
 

@@ -47,18 +47,8 @@
         onScroll();
     }
 
-    /* â”€â”€ Smooth scroll for TOC links â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-    function initTocSmooth() {
-        document.querySelectorAll('.cs-toc__link[href^="#"]').forEach(link => {
-            link.addEventListener('click', function (e) {
-                const id = this.getAttribute('href').slice(1);
-                const target = document.getElementById(id);
-                if (!target) return;
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-    }
+    /* Smooth scroll handled in main.js via Lenis */
+    function initTocSmooth() {}
 
     /* â”€â”€ Copy link button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     function initCopyLink() {
@@ -126,9 +116,37 @@
     }
 
     /* â”€â”€ Init â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* -- TOC sliding indicator ----------------------------- */
+    function initTocIndicator() {
+        const indicator = document.querySelector('.cs-toc__indicator');
+        if (!indicator) return;
+
+        function updateIndicator() {
+            const active = document.querySelector('.cs-toc__link.is-active');
+            if (!active) return;
+            const nav = active.closest('.cs-toc__nav');
+            if (!nav) return;
+            const navTop = nav.getBoundingClientRect().top;
+            const linkRect = active.getBoundingClientRect();
+            indicator.style.transform = `translateY(${linkRect.top - navTop}px)`;
+            indicator.style.height = `${linkRect.height}px`;
+            indicator.classList.add('is-ready');
+        }
+
+        requestAnimationFrame(() => requestAnimationFrame(updateIndicator));
+
+        document.querySelectorAll('.cs-toc__link').forEach(link => {
+            new MutationObserver(updateIndicator)
+                .observe(link, { attributes: true, attributeFilter: ['class'] });
+        });
+
+        window.addEventListener('resize', updateIndicator, { passive: true });
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
         initScrollSpy();
         initTocSmooth();
+        initTocIndicator();
         initCopyLink();
         initHeroTitle();
         initEntryReveal();

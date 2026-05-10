@@ -79,8 +79,6 @@
 
         var titleAnim = document.querySelectorAll(".cs-hero__title .title-anim");
         if (titleAnim[0]) titleAnim[0].textContent = project.title;
-        if (titleAnim[1]) titleAnim[1].textContent = "- " + (project.heroSubtitle || "Case study detail");
-        text(document.querySelector(".cs-hero__sub"), project.heroSummary || detail.overview);
 
         var metaValues = document.querySelectorAll(".cs-meta__value");
         if (metaValues[0]) metaValues[0].textContent = project.client || "Confidential client";
@@ -120,10 +118,55 @@
             });
         }
 
+        // Process section — intro text + dynamic steps
+        var processIntroEl = document.querySelector("#cs-process > p");
+        if (processIntroEl && detail.processIntro) {
+            processIntroEl.textContent = detail.processIntro;
+        }
+        var stepsContainer = document.querySelector("#cs-process .cs-steps");
+        if (stepsContainer && Array.isArray(detail.processSteps) && detail.processSteps.length) {
+            stepsContainer.innerHTML = detail.processSteps.map(function (step, i) {
+                return '<div class="cs-step"><span class="cs-step__num">' +
+                    String(i + 1).padStart(2, '0') +
+                    '</span><div class="cs-step__content"><h3>' + step.title + '</h3><p>' + step.body + '</p></div></div>';
+            }).join('');
+        }
+
+        // Audit highlights block (appended inside #cs-process)
+        var processSection = document.getElementById('cs-process');
+        if (processSection && Array.isArray(detail.auditHighlights) && detail.auditHighlights.length) {
+            var oldHL = processSection.querySelector('.cs-audit-highlights');
+            if (oldHL) oldHL.parentNode.removeChild(oldHL);
+            var hlBlock = document.createElement('div');
+            hlBlock.className = 'cs-audit-highlights';
+            hlBlock.innerHTML = '<p class="cs-audit-highlights__heading">Audit Highlights</p>' +
+                '<div class="cs-audit-highlights__grid">' +
+                detail.auditHighlights.map(function (item) {
+                    return '<div class="cs-audit-highlight"><span class="cs-audit-highlight__label">' +
+                        item.label + '</span><p>' + item.body + '</p></div>';
+                }).join('') + '</div>';
+            processSection.appendChild(hlBlock);
+        }
+
+        // Section visibility — hide sections with no data
+        var goalsSection = document.getElementById('cs-goals');
+        if (goalsSection) goalsSection.style.display = detail.goals ? '' : 'none';
+        var personasSection = document.getElementById('cs-personas');
+        if (personasSection) personasSection.style.display = detail.personas ? '' : 'none';
+        var resultsSection = document.getElementById('cs-results');
+        if (resultsSection) {
+            resultsSection.style.display = (Array.isArray(detail.results) && detail.results.length) ? '' : 'none';
+        }
+
         var reflectionParagraphs = document.querySelectorAll("#cs-reflection p");
         if (Array.isArray(detail.reflection)) {
-            detail.reflection.forEach(function (line, index) {
-                if (reflectionParagraphs[index]) reflectionParagraphs[index].textContent = line;
+            reflectionParagraphs.forEach(function (p, i) {
+                if (i < detail.reflection.length) {
+                    p.textContent = detail.reflection[i];
+                    p.style.display = '';
+                } else {
+                    p.style.display = 'none';
+                }
             });
         }
 

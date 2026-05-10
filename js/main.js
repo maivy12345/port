@@ -10,6 +10,7 @@
         touchMultiplier: 2,
     });
 
+    window.lenis = lenis;
     lenis.on('scroll', ScrollTrigger.update);
 
     gsap.ticker.add((time) => {
@@ -17,6 +18,17 @@
     });
 
     gsap.ticker.lagSmoothing(0);
+
+    // TOC hash links — smooth scroll via Lenis
+    document.addEventListener('click', function (e) {
+        var link = e.target.closest('.cs-toc__link[href^="#"]');
+        if (!link) return;
+        var hash = link.getAttribute('href');
+        var target = document.querySelector(hash);
+        if (!target) return;
+        e.preventDefault();
+        lenis.scrollTo(target, { offset: -24 });
+    });
 
     // 2. Hero title: split words and animate word-by-word
     var heroWords = [];
