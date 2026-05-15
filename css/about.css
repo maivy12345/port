@@ -1087,7 +1087,7 @@
 
 .cases-marquee__frame {
     position: relative;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: var(--portfolio-thumb-aspect);
     border-radius: 22px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.08);

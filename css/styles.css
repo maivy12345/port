@@ -22,6 +22,12 @@
     /* Hero: one-screen â€” offset for fixed pill header + safe areas */
     --hero-header-offset: calc(5.75rem + env(safe-area-inset-top, 0px));
     --hero-bottom-safe: calc(0.35rem + env(safe-area-inset-bottom, 0px));
+
+    /*
+     * Portfolio media — one aspect ratio (Works cards, About marquee, work-detail prev/next + case-study figures).
+     * Export at this ratio, e.g. 1600×1000 or 1920×1200; CSS uses object-fit: cover (center crop if needed).
+     */
+    --portfolio-thumb-aspect: 16 / 10;
 }
 
 *,
@@ -2058,7 +2064,7 @@ img {
 }
 
 .case-card__image-wrap {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: var(--portfolio-thumb-aspect);
     background: #13131a;
     overflow: hidden;
 }

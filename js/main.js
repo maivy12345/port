@@ -329,7 +329,7 @@
 
     // Mark active header nav item based on current page
     if (nav) {
-        var currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        var currentPath = window.location.pathname.split('/').pop() || 'home.html';
         nav.querySelectorAll("a[href]").forEach(function (link) {
             var href = link.getAttribute("href");
             if (!href || href.charAt(0) === "#") return;

@@ -17,6 +17,13 @@
         return projects[(index + 1) % projects.length];
     }
 
+    function getPreviousProject(projects, currentSlug) {
+        if (!Array.isArray(projects) || projects.length === 0) return null;
+        var index = projects.findIndex(function (item) { return item.slug === currentSlug; });
+        if (index === -1) return projects[projects.length - 1];
+        return projects[(index - 1 + projects.length) % projects.length];
+    }
+
     function text(el, value) {
         if (el) el.textContent = value || "";
     }
@@ -61,6 +68,7 @@
 
         var detail = ensureFallbackDetail(project);
         var next = getNextProject(projects, project.slug);
+        var prev = getPreviousProject(projects, project.slug);
 
         document.title = project.title + " - Case Study · Meivy Nguyen";
         text(document.querySelector(".cs-hero__crumb-current"), project.title);
@@ -73,7 +81,7 @@
 
         var tagNodes = document.querySelectorAll(".cs-hero__tags .cs-tag");
         if (tagNodes[0]) tagNodes[0].textContent = project.industry || "Case Study";
-        if (tagNodes[1]) tagNodes[1].textContent = "UX / UI Design";
+        if (tagNodes[1]) tagNodes[1].textContent = project.heroTagLine2 || "UX / UI Design";
         if (tagNodes[2]) tagNodes[2].textContent = (project.tags || []).join(" · ") || "Product design";
         if (tagNodes[3]) tagNodes[3].textContent = project.year || "2024";
 
@@ -102,6 +110,11 @@
             html(contextList, detail.contextBullets.map(function (line) {
                 return "<li>" + line + "</li>";
             }).join(""));
+        }
+
+        var contextFig = document.querySelector("#cs-context figure.cs-figure");
+        if (contextFig) {
+            contextFig.style.display = detail.hideContextFigure ? "none" : "";
         }
 
         var resultCards = document.querySelectorAll("#cs-results .cs-metric-card");
@@ -158,6 +171,112 @@
             resultsSection.style.display = (Array.isArray(detail.results) && detail.results.length) ? '' : 'none';
         }
 
+        var screensSection = document.getElementById("cs-screens");
+        if (screensSection) {
+            var screensTitle = screensSection.querySelector(".cs-entry__title");
+            if (screensTitle && detail.keyScreensTitle) {
+                screensTitle.textContent = detail.keyScreensTitle;
+            }
+        }
+        if (screensSection && Array.isArray(detail.keyScreenFigures) && detail.keyScreenFigures.length) {
+            var firstP = screensSection.querySelector("p");
+            if (firstP && detail.keyScreensIntro !== undefined) {
+                firstP.textContent = detail.keyScreensIntro;
+            }
+            screensSection.querySelectorAll(".cs-screens-grid, figure.cs-figure").forEach(function (el) {
+                el.parentNode.removeChild(el);
+            });
+            screensSection.querySelectorAll(".cs-key-surfaces-list").forEach(function (el) {
+                el.parentNode.removeChild(el);
+            });
+            detail.keyScreenFigures.forEach(function (fig) {
+                var figure = document.createElement("figure");
+                figure.className = "cs-figure" + (fig.wide ? " cs-figure--wide" : "");
+                var frame = document.createElement("div");
+                frame.className = "cs-figure__frame";
+                var img = document.createElement("img");
+                img.src = fig.src || "";
+                img.alt = fig.alt || "";
+                img.loading = "lazy";
+                img.decoding = "async";
+                frame.appendChild(img);
+                figure.appendChild(frame);
+                if (fig.caption) {
+                    var cap = document.createElement("figcaption");
+                    cap.textContent = fig.caption;
+                    figure.appendChild(cap);
+                }
+                screensSection.appendChild(figure);
+            });
+            if (Array.isArray(detail.keyScreenBullets) && detail.keyScreenBullets.length) {
+                var listAfterFig = document.createElement("ul");
+                listAfterFig.className = "cs-list cs-key-surfaces-list";
+                detail.keyScreenBullets.forEach(function (line) {
+                    var liB = document.createElement("li");
+                    liB.textContent = line;
+                    listAfterFig.appendChild(liB);
+                });
+                screensSection.appendChild(listAfterFig);
+            }
+        } else if (screensSection && Array.isArray(detail.keyScreenBullets) && detail.keyScreenBullets.length) {
+            var firstPb = screensSection.querySelector("p");
+            if (firstPb && detail.keyScreensIntro !== undefined) {
+                firstPb.textContent = detail.keyScreensIntro;
+            }
+            screensSection.querySelectorAll(".cs-key-surfaces-list").forEach(function (el) {
+                el.parentNode.removeChild(el);
+            });
+            screensSection.querySelectorAll(".cs-screens-grid, figure.cs-figure").forEach(function (el) {
+                el.parentNode.removeChild(el);
+            });
+            var listEl = document.createElement("ul");
+            listEl.className = "cs-list cs-key-surfaces-list";
+            detail.keyScreenBullets.forEach(function (line) {
+                var li = document.createElement("li");
+                li.textContent = line;
+                listEl.appendChild(li);
+            });
+            screensSection.appendChild(listEl);
+        }
+
+        if (Array.isArray(detail.hideSectionIds)) {
+            detail.hideSectionIds.forEach(function (sid) {
+                var node = document.getElementById(sid);
+                if (node) node.style.display = "none";
+            });
+        }
+
+        var tocNav = document.querySelector(".cs-toc__nav");
+        if (tocNav) {
+            tocNav.querySelectorAll('.cs-toc__link[href^="#"]').forEach(function (link) {
+                var id = link.getAttribute("href").slice(1);
+                var target = document.getElementById(id);
+                var hiddenByDetail = Array.isArray(detail.hideSectionIds) && detail.hideSectionIds.indexOf(id) !== -1;
+                var hidden = hiddenByDetail || (target && window.getComputedStyle(target).display === "none");
+                if (hidden) {
+                    link.style.display = "none";
+                } else {
+                    link.style.display = "";
+                }
+            });
+            var tocIdx = 0;
+            tocNav.querySelectorAll('.cs-toc__link[href^="#"]').forEach(function (link) {
+                if (link.style.display === "none") return;
+                tocIdx += 1;
+                var numEl = link.querySelector(".cs-toc__num");
+                if (numEl) numEl.textContent = String(tocIdx).padStart(2, "0");
+            });
+        }
+
+        if (Array.isArray(detail.entryNumberOrder)) {
+            detail.entryNumberOrder.forEach(function (sid, idx) {
+                var sec = document.getElementById(sid);
+                if (!sec) return;
+                var numEl = sec.querySelector(".cs-entry__num");
+                if (numEl) numEl.textContent = String(idx + 1).padStart(2, "0");
+            });
+        }
+
         var reflectionParagraphs = document.querySelectorAll("#cs-reflection p");
         if (Array.isArray(detail.reflection)) {
             reflectionParagraphs.forEach(function (p, i) {
@@ -168,6 +287,32 @@
                     p.style.display = 'none';
                 }
             });
+        }
+
+        var prevSection = document.getElementById("csPrevSection");
+        var showPrev = projects.length >= 2 && prev && prev.slug !== project.slug;
+
+        if (prevSection) {
+            if (showPrev) {
+                prevSection.removeAttribute("hidden");
+                var prevCard = prevSection.querySelector(".cs-prev__card");
+                if (prevCard) prevCard.setAttribute("href", "work-detail.html?slug=" + encodeURIComponent(prev.slug));
+                text(prevSection.querySelector(".cs-prev__title"), prev.title);
+                text(prevSection.querySelector(".cs-prev__sub"), (prev.tags || []).join(" · "));
+                var prevThumb = prevSection.querySelector(".cs-prev__thumb img");
+                if (prevThumb) {
+                    prevThumb.src = prev.cardImage;
+                    prevThumb.alt = prev.title;
+                }
+            } else {
+                prevSection.setAttribute("hidden", "hidden");
+            }
+        }
+
+        var adjacentGrid = document.getElementById("csAdjacentGrid");
+        if (adjacentGrid) {
+            adjacentGrid.classList.toggle("cs-adjacent__grid--solo-next", !showPrev);
+            adjacentGrid.classList.toggle("cs-adjacent__grid--has-prev", !!showPrev);
         }
 
         if (next) {

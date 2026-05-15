@@ -21,7 +21,7 @@
   <header class="header">
     <div class="container header__container">
       <div class="header__inner">
-        <a class="logo header__desktop-el" href="index.html">Meivy<span>.</span></a>
+        <a class="logo header__desktop-el" href="home.html">Meivy<span>.</span></a>
         <div class="header__mobile-pill-el">
           <div class="mobile-profile"><img src="img/AboutMe.jpg" alt="Profile" /></div>
           <div class="mobile-status">
@@ -30,7 +30,7 @@
           </div>
         </div>
         <nav class="nav" id="nav">
-          <a href="index.html">Home</a>
+          <a href="home.html">Home</a>
           <a href="about.html">About</a>
           <a href="works.html">Works</a>
         </nav>
@@ -61,7 +61,7 @@
         <div class="cs-hero__scrim" aria-hidden="true"></div>
         <div class="container cs-hero__content">
           <nav class="cs-hero__crumb" aria-label="Breadcrumb">
-            <a href="index.html">Home</a>
+            <a href="home.html">Home</a>
             <span class="cs-hero__crumb-sep" aria-hidden="true">&#8250;</span>
             <a href="works.html">Works</a>
             <span class="cs-hero__crumb-sep" aria-hidden="true">&#8250;</span>
@@ -377,25 +377,47 @@
 
     </div><!-- /cs-body -->
 
-    <!-- ======================== NEXT PROJECT ======================== -->
-    <section class="cs-next">
+    <!-- ======================== PREVIOUS + NEXT (single band) ======================== -->
+    <section class="cs-adjacent" id="csAdjacentNav" aria-label="Previous and next case studies">
       <div class="container">
-        <span class="cs-kicker">Next work</span>
-        <a href="work-detail.html" class="cs-next__card">
-          <div class="cs-next__info">
-            <h3 class="cs-next__title">B2B Analytics Dashboard</h3>
-            <p class="cs-next__sub">SaaS &middot; Dashboard &middot; Enterprise</p>
+        <div class="cs-adjacent__grid" id="csAdjacentGrid">
+            <div class="cs-adjacent__cell" id="csPrevSection" hidden>
+              <span class="cs-kicker cs-adjacent__kicker">Previous work</span>
+              <a href="work-detail.html" class="cs-prev__card cs-adjacent__card">
+                <div class="cs-prev__info">
+                  <h3 class="cs-prev__title">Project title</h3>
+                  <p class="cs-prev__sub">Tags</p>
+                </div>
+                <div class="cs-prev__arrow" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="17" y1="17" x2="7" y2="7"></line>
+                    <polyline points="17 7 7 7 7 17"></polyline>
+                  </svg>
+                </div>
+                <div class="cs-prev__thumb">
+                  <img src="img/Selected works1.png" alt="" width="260" height="195" loading="lazy" decoding="async" />
+                </div>
+              </a>
+            </div>
+            <div class="cs-adjacent__cell" id="csNextSection">
+              <span class="cs-kicker cs-adjacent__kicker">Next work</span>
+              <a href="work-detail.html" class="cs-next__card cs-adjacent__card">
+                <div class="cs-next__info">
+                  <h3 class="cs-next__title">B2B Analytics Dashboard</h3>
+                  <p class="cs-next__sub">SaaS &middot; Dashboard &middot; Enterprise</p>
+                </div>
+                <div class="cs-next__arrow" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </div>
+                <div class="cs-next__thumb">
+                  <img src="img/Selected works2.png" alt="B2B Analytics Dashboard" loading="lazy" />
+                </div>
+              </a>
+            </div>
           </div>
-          <div class="cs-next__arrow">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-          </div>
-          <div class="cs-next__thumb">
-            <img src="img/Selected works2.png" alt="B2B Analytics Dashboard" loading="lazy" />
-          </div>
-        </a>
       </div>
     </section>
 
@@ -472,7 +494,7 @@
   <footer class="footer">
     <div class="footer__grid-wrap container"><div class="footer__grid">
       <div class="footer__box-left">
-        <a class="logo" href="index.html">Meivy<span>.</span></a>
+        <a class="logo" href="home.html">Meivy<span>.</span></a>
       </div>
       <div class="footer__box-right">
         <a href="mailto:vy.nguyentrucmai@gmail.com">vy.nguyentrucmai@gmail.com &#8599;</a>
@@ -490,9 +512,6 @@
   <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="js/supabase-config.js"></script>
-  <script src="js/supabase-content.js"></script>
   <script src="js/projects-data.js"></script>
   <script src="js/work-detail-page.js"></script>
   <script src="js/main.js"></script>

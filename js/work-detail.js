@@ -1,4 +1,4 @@
-﻿/* ================================================
+/* ================================================
    Work Detail â€” Scroll Spy TOC + Copy Link
    ================================================ */
 
@@ -7,7 +7,9 @@
 
     /* â”€â”€ Scroll spy â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     function initScrollSpy() {
-        const links = Array.from(document.querySelectorAll('.cs-toc__link[href^="#"]'));
+        const links = Array.from(document.querySelectorAll('.cs-toc__link[href^="#"]')).filter(
+            (link) => link.offsetParent !== null
+        );
         if (!links.length) return;
 
         const sections = links.map(link => {
@@ -18,6 +20,8 @@
         if (!sections.length) return;
 
         let activeIndex = -1;
+        /** After a TOC click, ignore spy until scroll reaches this section (avoids stepping 01→02→03→04). */
+        let tocNavLockIndex = null;
 
         function setActive(index) {
             if (index === activeIndex) return;
@@ -27,11 +31,10 @@
             });
         }
 
-        function onScroll() {
+        function computeSpyIndex() {
             const scrollY = window.scrollY;
             const windowH = window.innerHeight;
             const offset = windowH * 0.35;
-
             let current = 0;
             for (let i = 0; i < sections.length; i++) {
                 const rect = sections[i].getBoundingClientRect();
@@ -40,8 +43,27 @@
                     current = i;
                 }
             }
+            return current;
+        }
+
+        function onScroll() {
+            const current = computeSpyIndex();
+            if (tocNavLockIndex !== null) {
+                if (current === tocNavLockIndex) {
+                    tocNavLockIndex = null;
+                } else {
+                    return;
+                }
+            }
             setActive(current);
         }
+
+        links.forEach((link, i) => {
+            link.addEventListener('click', () => {
+                tocNavLockIndex = i;
+                setActive(i);
+            });
+        });
 
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
@@ -82,11 +104,10 @@
             stagger: 0.15,
             delay: 0.15
         });
-        const sub = document.querySelector('.cs-hero__sub');
         const crumb = document.querySelector('.cs-hero__crumb');
         const tags = document.querySelector('.cs-hero__tags');
-        if (sub || crumb || tags) {
-            gsap.from([crumb, tags, sub].filter(Boolean), {
+        if (crumb || tags) {
+            gsap.from([crumb, tags].filter(Boolean), {
                 y: 24,
                 opacity: 0,
                 duration: 0.9,

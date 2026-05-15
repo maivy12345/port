@@ -55,6 +55,71 @@
             }
         },
         {
+            slug: "eco-hhb",
+            title: "Eco-HHB",
+            industry: "Corporate & sustainability",
+            industryGroup: "Commerce",
+            heroTagLine2: "UI/UX",
+            tags: ["Website", "Corporate", "Sustainability"],
+            categories: ["branding", "leadgen"],
+            serviceTypes: ["Web Design"],
+            cardImage: "img/Project18-EcoHHB-web.jpg",
+            cardAlt: "Eco-HHB case study",
+            heroImage: "img/Project18-EcoHHB-web.jpg",
+            heroAlt: "Eco-HHB — corporate and sustainability website",
+            year: "2024",
+            role: "UI/UX Designer",
+            client: "Eco-HHB",
+            deliverables: "IA · Wireframes · UI System · Web",
+            detail: {
+                product: "Multi-sector corporate website — clean products & sustainable values",
+                channels: "Web · Agriculture · Retail · Distribution · Real estate · Transport",
+                overview: "Eco-HHB operates across multiple sectors but anchors its identity around clean products and sustainable values. The website's job was to present that breadth without scattering attention — letting visitors understand what the company does, what it stands for, and how to engage, in a single coherent surface.",
+                contextParagraph1: "The brief surfaced three frictions: a wide business spread (agriculture, retail, distribution, real estate, transport) that risked feeling unfocused; a sustainability message that needed to feel grounded in real products and partners, not slogans; and a mixed audience including end consumers, business partners, and press.",
+                contextParagraph2: "The primary visitor is either a consumer interested in clean-product sourcing or a partner evaluating the company's credibility and reach.",
+                contextBullets: [],
+                hideContextFigure: true,
+                processIntro: "Three structural decisions shaped the site:",
+                processSteps: [
+                    {
+                        title: "Anchored the homepage on values, then breadth",
+                        body: "Most corporate sites lead with business lines. Eco-HHB opens with mission, vision, and product values — so visitors meet the brand before the catalog. Business lines and partners surface after, framed as how the values are delivered."
+                    },
+                    {
+                        title: "Treated partners and press as trust signals, not decoration",
+                        body: "Partner logos (Sokfarm, Moshav Farm, Bình An Farm) and press mentions appear consistently across the site. They double as credibility anchors and as proof that the sustainability message has real backing."
+                    },
+                    {
+                        title: "Designed a flexible card system for diverse content",
+                        body: "News, products, partners, testimonials, and business lines all needed visual presence. One card pattern with content variations carries them — keeping the site coherent across very different content types."
+                    }
+                ],
+                results: [],
+                reflection: [
+                    "The biggest takeaway: corporate websites for multi-industry groups have to feel coherent without flattening the differences. Every business line needs its own breathing room, but the brand has to stay one brand across all of them. The decisions here leaned toward a unified visual rhythm with enough flexibility for each sector to read distinctly — so the company comes across as broad but not generic, and ambitious while still grounded in a clear set of values."
+                ],
+                keyScreensTitle: "Key Surfaces",
+                keyScreensIntro: "",
+                keyScreenFigures: [
+                    {
+                        src: "img/Project18-EcoHHB-web.jpg",
+                        alt: "Eco-HHB — key screens from the corporate website",
+                        caption: "Eco-HHB — website",
+                        wide: true
+                    }
+                ],
+                keyScreenBullets: [
+                    "Homepage — mission, business lines overview, partner network, testimonials",
+                    "About — vision, mission, founder story",
+                    "Business lines — retail, agriculture, distribution, real estate, transport, import-export",
+                    "News & press — articles, interviews, press mentions",
+                    "Partnership — cooperation opportunities",
+                    "Contact — multi-channel intake"
+                ],
+                entryNumberOrder: ["cs-overview", "cs-context", "cs-process", "cs-screens", "cs-reflection"]
+            }
+        },
+        {
             slug: "one-ibc-app",
             title: "One IBC App",
             industry: "Mobile App",
@@ -119,7 +184,6 @@
             role: "UX Auditor & UI Designer",
             client: "Offshore CompanyCorp (in-house)",
             deliverables: "Audit Report · Heuristic Evaluation · UI Refinements",
-            heroSubtitle: "UX audit & UI refinement for a global incorporation platform",
             heroSummary: "A 2-month in-house audit of an offshore company incorporation website serving global founders — focused on reducing decision friction in the lead-to-consultation flow through clearer pricing, stronger trust signals, and a tighter CTA hierarchy.",
             detail: {
                 product: "Offshore Incorporation Website",
@@ -317,10 +381,237 @@
                 ]
             }
         },
-        { slug: "myss-clinic", title: "myss Clinic", industry: "Healthcare / Beauty", tags: ["Branding", "Leadgen"], categories: ["branding", "leadgen"], cardImage: "img/Project4-myss-landingpage.jpg", cardAlt: "myss Clinic case study", year: "2024" },
-        { slug: "md1-world", title: "MD1 World", industry: "Business Services", tags: ["Branding", "Compliance"], categories: ["branding", "compliance"], cardImage: "img/Project7-md1world-web.jpg", cardAlt: "MD1 World case study", year: "2024" },
-        { slug: "tamvie-health", title: "TamVie Health", industry: "Healthcare", tags: ["Leadgen", "App"], categories: ["leadgen", "app"], serviceTypes: ["Mobile App", "Web Design"], cardImage: "img/Project9-tamvie-webapp.jpg", cardAlt: "TamVie Health case study", year: "2024" },
-        { slug: "aesthetic-clinic", title: "Aesthetic clinic", industry: "Beauty", tags: ["Branding", "Leadgen"], categories: ["branding", "leadgen"], cardImage: "img/Project10-spa-landingpage.jpg", cardAlt: "Aesthetic clinic case study", year: "2024" },
+        {
+            slug: "myss-clinic",
+            title: "Myss Clinic",
+            industry: "Healthcare",
+            heroTagLine2: "Web design",
+            tags: ["Website", "Healthcare", "Dermatology"],
+            categories: ["branding", "leadgen"],
+            serviceTypes: ["Web Design"],
+            cardImage: "img/Project4-myss-landingpage.jpg",
+            cardAlt: "Myss Clinic case study",
+            heroImage: "img/Project4-myss-landingpage.jpg",
+            heroAlt: "Myss Clinic website",
+            year: "2026",
+            role: "UI/UX Designer",
+            client: "Myss Clinic by Dr.Anna",
+            deliverables: "UX · UI · Prototype",
+            detail: {
+                product: "Dermatology clinic website",
+                channels: "Web · Healthcare",
+                overview: "A website for Myss Clinic by Dr.Anna — a dermatology clinic in Ho Chi Minh City offering medical-standard skin treatment, anti-aging, and aesthetic services. The site needed to balance two voices that don't usually share a page: clinical authority (doctor-led treatment, medical protocols) and consumer warmth (skincare, relaxation, transformation). The work focused on a layout and visual system that lets both read clearly without one undermining the other.",
+                contextParagraph1: "",
+                contextParagraph2: "",
+                contextBullets: [],
+                processIntro: "",
+                processSteps: [],
+                results: [],
+                reflection: [
+                    "The biggest takeaway from this project: in dermatology, trust and beauty have to share the same surface, but they can't compete for it. Visitors come for medical reassurance and stay for the aesthetic promise — or vice versa. Designing for that meant treating doctor credentials, treatment protocols, and clinical photography with the same care as brand visuals and customer testimonials, instead of letting either side dominate the page."
+                ],
+                hideSectionIds: ["cs-context", "cs-process"],
+                entryNumberOrder: ["cs-overview", "cs-screens", "cs-reflection"],
+                keyScreensIntro: "",
+                keyScreenFigures: [
+                    {
+                        src: "img/Project4-myss-landingpage.jpg",
+                        alt: "Myss Clinic website — key screens",
+                        caption: "Myss Clinic — website",
+                        wide: true
+                    }
+                ]
+            }
+        },
+        {
+            slug: "md1-world",
+            title: "MD1 World",
+            industry: "Charity",
+            heroTagLine2: "UI/UX",
+            tags: ["UX/UI Design"],
+            categories: ["branding", "leadgen"],
+            cardImage: "img/Project7-md1world-web.jpg",
+            cardAlt: "MD1 World case study",
+            heroImage: "img/Project7-md1world-web.jpg",
+            heroAlt: "MD1 World — donor website",
+            year: "2025",
+            role: "UI/UX Designer",
+            client: "Confidential client",
+            deliverables: "Research",
+            serviceTypes: ["Web Design"],
+            detail: {
+                product: "Donor-facing charity website",
+                channels: "Web · Donations · Medical fundraising",
+                overview: "MD1 World connects donors with children needing medical treatment they otherwise couldn't afford. The website's two jobs: tell each child's story with dignity, and make donating simple enough that emotional intent doesn't get lost in friction.",
+                contextParagraph1: "",
+                contextParagraph2: "",
+                contextBullets: [],
+                processIntro: "",
+                processSteps: [],
+                results: [],
+                reflection: [
+                    "The biggest takeaway: charity design lives between emotion and trust. Stories pull donors in, but trust is what makes them act — clear allocation of funds, transparent updates, and a donation flow that respects both the donor and the child. Designing for that meant giving equal weight to the storytelling and the credibility signals, instead of leaning on either alone."
+                ],
+                hideSectionIds: ["cs-context", "cs-process"],
+                entryNumberOrder: ["cs-overview", "cs-screens", "cs-reflection"],
+                keyScreensIntro: "",
+                keyScreenFigures: [
+                    {
+                        src: "img/Project7-md1world-web.jpg",
+                        alt: "MD1 World — key screens from the donor website",
+                        caption: "MD1 World — donor website",
+                        wide: true
+                    }
+                ]
+            }
+        },
+        {
+            slug: "tamvie-health",
+            title: "TamVie",
+            industry: "Healthcare",
+            heroTagLine2: "UI/UX",
+            tags: ["Web App", "Healthcare", "Telemedicine", "UI/UX"],
+            categories: ["leadgen", "app"],
+            serviceTypes: ["Mobile App", "Web Design"],
+            cardImage: "img/Project9-tamvie-webapp.jpg",
+            cardAlt: "TamVie case study",
+            heroImage: "img/Project9-tamvie-webapp.jpg",
+            heroAlt: "TamVie — telemedicine and health content platform",
+            year: "2025",
+            role: "UI/UX Designer",
+            client: "TamVie",
+            deliverables: "Research · IA · Wireframes · UI System · Prototype",
+            detail: {
+                product: "Telemedicine, health content & wearable data platform",
+                channels: "Web app · iOS · Android · Healthcare",
+                overview: "Most telemedicine products are transactional — book a doctor, talk once, close the tab. TamVie was designed against that model: a platform where patients follow doctors over time, learn from health content, share data from wearables, and consult when needed. The brief was to merge three usually-separate patterns — telehealth booking, health content feed, and device-data visualization — into one coherent product without making any one of them feel grafted on.",
+                contextParagraph1: "Three frictions shaped the brief, surfaced from stakeholder input and competitor analysis:",
+                contextParagraph2: "Two primary users with different needs share the same product: The patient — wants accessible, trustworthy health information, easy connection to doctors, and one place to see their own health data. The doctor — wants to reach more patients, manage limited time efficiently, and use device data to make better decisions during short consultations.",
+                contextBullets: [
+                    "Telemedicine is transactional. Existing platforms treat consultation as a one-shot purchase. Patients have no reason to return between visits, and doctors have no surface to stay present in patients' lives.",
+                    "Health content is fragmented and untrusted. Patients pull health advice from Facebook posts, blog SEO, and forwarded messages — sources that are personalized in algorithm but not in credibility.",
+                    "Wearable data sits unused. Many patients own devices measuring blood pressure, glucose, heart rate. That data rarely reaches the doctor in a usable form; when it does, it's a screenshot."
+                ],
+                hideContextFigure: true,
+                processIntro: "I worked across research, IA, wireframes, UI system, and prototype. Three decisions shaped the product:",
+                processSteps: [
+                    {
+                        title: "Made the feed the home, not a doctor directory.",
+                        body: "The default telehealth pattern opens on a doctor list. TamVie opens on a content feed from the doctors a patient follows. The shift turns the platform from a search tool used when sick into a place patients return to between visits — and turns doctor presence into an ongoing brand, not a transactional listing."
+                    },
+                    {
+                        title: "Integrated device data into the consultation context, not a separate tab.",
+                        body: "For doctors, patient health metrics surface alongside the consultation flow — recent readings, trends, and anomalies visible in the same view as appointment notes. Designing it as adjacent context rather than a settings-level tab made it usable in short consultations where switching screens isn't an option."
+                    },
+                    {
+                        title: "Designed the doctor profile as a content hub, not a booking page.",
+                        body: "Most telehealth platforms reduce doctors to a card with credentials and a \"Book now\" button. TamVie's doctor profile shows their content history, follower count, specialties, and consultation availability in one place. The profile doubles as a credibility anchor and a long-term touchpoint — patients can follow a doctor before they need one."
+                    }
+                ],
+                results: [],
+                reflection: [
+                    "In healthcare, importing a pattern from another industry can hurt as much as help. Feed mechanics work for content discovery, but the like-comment-share grammar of social media translates badly when the subject is medical advice. Designing TamVie meant borrowing what worked (following, personalized feed, saved library) and rejecting what didn't (open commenting, virality optimization, anonymous engagement). The hardest decisions weren't about adding features — they were about which familiar patterns to deliberately not import.",
+                    "If I did this again, I'd push earlier for a clearer separation between \"doctors I follow for content\" and \"doctors I'd book a consultation with.\" In early designs the two blurred — patients followed doctors as content creators but felt awkward booking them as physicians, and vice versa. Splitting that affordance later cost a redesign cycle that could have been avoided with a sharper IA from the start."
+                ],
+                keyScreensTitle: "Key Surfaces",
+                keyScreensIntro: "",
+                keyScreenBullets: [
+                    "Feed (home) — content from followed doctors and personalized recommendations",
+                    "Recommendations — suggested doctors and content tuned to patient interests and metrics",
+                    "Following & Saved — managed library of doctors followed and content saved for later",
+                    "Doctor profile — credentials, content history, availability, consultation booking",
+                    "Patient health dashboard — device-measured metrics with trend visualization",
+                    "Consultation booking — schedule, payment, pre-visit context capture",
+                    "Active consultation — video session with patient metrics visible in context",
+                    "Doctor's patient view — appointment list, patient history, device data, notes"
+                ]
+            }
+        },
+        {
+            slug: "elearning-platform",
+            title: "E-learning Platform",
+            industry: "Education",
+            heroTagLine2: "UI/UX",
+            tags: ["Education"],
+            categories: ["app", "leadgen"],
+            serviceTypes: ["Web Design"],
+            cardImage: "img/Project14-Elearning-landingpage.jpg",
+            cardAlt: "E-learning Platform case study",
+            heroImage: "img/Project14-Elearning-landingpage.jpg",
+            heroAlt: "E-learning Platform — courses and progress",
+            year: "2024",
+            role: "UI/UX Designer",
+            client: "Confidential client",
+            deliverables: "UX/UI Design · Web",
+            detail: {
+                product: "Structured e-learning platform for students",
+                channels: "Web · Education · Courses · Progress tracking",
+                overview: "An e-learning platform delivering structured courses for students — covering subject lessons, exercises, and progress tracking. The platform needed to balance two design priorities: make courses easy to discover and start, and keep students returning long enough to actually complete them.",
+                contextParagraph1: "",
+                contextParagraph2: "",
+                contextBullets: [],
+                processIntro: "",
+                processSteps: [],
+                results: [],
+                reflection: [
+                    "The biggest takeaway: e-learning sells the dream of starting, but design has to support the grind of continuing. It's easy to make signup feel exciting; it's much harder to make session number twelve feel worth showing up for. The decisions on this project leaned toward visible progress, small daily wins, and lesson structures short enough that finishing one always felt achievable — because in education, the design problem isn't enrollment, it's the second week."
+                ],
+                hideSectionIds: ["cs-context", "cs-process"],
+                entryNumberOrder: ["cs-overview", "cs-screens", "cs-reflection"],
+                keyScreensIntro: "",
+                keyScreenFigures: [
+                    {
+                        src: "img/Project14-Elearning-landingpage.jpg",
+                        alt: "E-learning Platform — key screens from the student experience",
+                        caption: "E-learning Platform — product screens",
+                        wide: true
+                    }
+                ]
+            }
+        },
+        {
+            slug: "aesthetic-clinic",
+            title: "Aesthetic Clinic",
+            industry: "Beauty",
+            industryGroup: "Beauty",
+            heroTagLine2: "UI/UX",
+            tags: ["Beauty", "Lead Gen"],
+            categories: ["branding", "leadgen"],
+            serviceTypes: ["Web Design"],
+            cardImage: "img/Project10-spa-landingpage.jpg",
+            cardAlt: "Aesthetic Clinic case study",
+            heroImage: "img/Project10-spa-landingpage.jpg",
+            heroAlt: "Aesthetic Clinic — marketing website",
+            year: "2023",
+            role: "UI/UX Designer",
+            client: "Confidential client",
+            deliverables: "UX/UI Design · Web",
+            detail: {
+                product: "Marketing & booking website for an aesthetic clinic",
+                channels: "Web · Beauty · Lead generation",
+                overview: "A website for an aesthetic clinic offering skin treatments, anti-aging, and facial aesthetic services. The site needed to present a wide treatment menu clearly, showcase results without overstating them, and make the path to booking simple — anchored on a calm, considered visual tone that matched the category.",
+                contextParagraph1: "",
+                contextParagraph2: "",
+                contextBullets: [],
+                processIntro: "",
+                processSteps: [],
+                results: [],
+                reflection: [
+                    "The biggest takeaway: in aesthetics, the design itself is part of the pitch. Visitors judge the clinic's taste and standards from the website before they ever walk in. A polished, restrained layout signals the same quality the clinic claims to deliver in person — and the inverse is also true. That changed how I approached small details (spacing, typography, photo treatment): they weren't decoration, they were credentials."
+                ],
+                hideSectionIds: ["cs-context", "cs-process"],
+                entryNumberOrder: ["cs-overview", "cs-screens", "cs-reflection"],
+                keyScreensIntro: "",
+                keyScreenFigures: [
+                    {
+                        src: "img/Project10-spa-landingpage.jpg",
+                        alt: "Aesthetic Clinic — key screens from the marketing website",
+                        caption: "Aesthetic Clinic — website",
+                        wide: true
+                    }
+                ]
+            }
+        },
         {
             slug: "ntb-industrial-park",
             title: "NTB Industrial Park",
@@ -369,12 +660,199 @@
                 ]
             }
         },
-        { slug: "uom-immigration", title: "UOM Immigration", industry: "Immigration Services", tags: ["Compliance", "Web Design"], categories: ["compliance", "leadgen"], serviceTypes: ["Web Design"], cardImage: "img/Project13-uom-web.jpg", cardAlt: "UOM Immigration case study", year: "2024" },
-        { slug: "voltorax", title: "Voltorax", industry: "Automotive", tags: ["Branding", "E-Commerce"], categories: ["branding", "ecommerce"], cardImage: "img/Project15-voltorax-web.jpg", cardAlt: "Voltorax case study", year: "2024" },
-        { slug: "saudi-evisa", title: "Saudi e-Visa", industry: "Travel / Visa", tags: ["Leadgen", "Branding"], categories: ["leadgen", "branding"], cardImage: "img/Project16-visa-landingpage.jpg", cardAlt: "Saudi e-Visa case study", year: "2024" },
-        { slug: "elearning-platform", title: "E-learning Platform", industry: "Education", tags: ["App", "Branding"], categories: ["app", "branding"], serviceTypes: ["Landing Page"], cardImage: "img/Project17-Elearning-landingpage.jpg", cardAlt: "E-learning Platform case study", year: "2024" },
-        { slug: "health-care-food", title: "Health care food", industry: "Organic Food", tags: ["E-Commerce", "Branding"], categories: ["ecommerce", "branding"], cardImage: "img/Project18-EcoHHB-web.jpg", cardAlt: "Health care food case study", year: "2024" },
-        { slug: "jnr-vietnam", title: "JNR Vietnam", industry: "Corporate", tags: ["Leadgen", "Compliance"], categories: ["leadgen", "compliance"], cardImage: "img/Project19-JNRVIETNAM-landingpage.jpg", cardAlt: "JNR Vietnam case study", year: "2024" },
+        {
+            slug: "uom-immigration",
+            title: "UOM Global",
+            industry: "Immigration Services",
+            heroTagLine2: "UI/UX",
+            tags: ["Website", "Immigration", "Lead Gen", "Multi-Language", "UI System"],
+            categories: ["compliance", "leadgen"],
+            serviceTypes: ["Web Design"],
+            cardImage: "img/Project13-uom-web.jpg",
+            cardAlt: "UOM Global case study",
+            heroImage: "img/Project13-uom-web.jpg",
+            heroAlt: "UOM Global — US visa advisory website",
+            year: "2025",
+            role: "UI/UX Designer",
+            client: "UOM Global",
+            deliverables: "IA · Wireframes · UI System · Prototype",
+            detail: {
+                product: "US visa advisory and lead-generation website",
+                channels: "Web · Immigration · Multi-language · Lead capture",
+                overview: "UOM Global helps clients choose, prepare, and apply for US visas — a process that takes 12–36 months and involves significant financial and personal stakes. The website serves three core jobs: explain visa categories clearly enough for non-experts, build trust through credentials and client outcomes, and capture qualified leads at multiple browsing depths.",
+                contextParagraph1: "Three frictions shaped the brief:",
+                contextParagraph2: "The primary user is a senior decision-maker — entrepreneur, executive, investor, or skilled worker — researching long before reaching out.",
+                contextBullets: [
+                    "Visa complexity. Five visa types (L1, EB-1C, EB-3, EB-5, F1) each carry different requirements, costs, and timelines. Visitors often don't know which path applies to them.",
+                    "Trust as the conversion driver. Clients commit significant money and life decisions to the process. Credentials, transparent process, and real client outcomes had to be visible early.",
+                    "Multi-language audience. The site serves Vietnamese, Hong Kong Chinese, and global English audiences — each with different reading habits and regional context."
+                ],
+                hideContextFigure: true,
+                processIntro: "Three structural decisions shaped how the site informs and converts:",
+                processSteps: [
+                    {
+                        title: "Structured visa pages around user goals, not visa codes",
+                        body: "The default immigration site groups pages by visa name (EB-5, L1, etc.). I designed each page to lead with the user's situation — investor, executive, skilled worker, student — and treat the visa code as the answer, not the headline."
+                    },
+                    {
+                        title: "Made trust visible across every page, not just \"About\"",
+                        body: "Client testimonials, partner law firm credentials, success indicators, and process transparency appear across the homepage, visa pages, and FAQ — not concentrated in one section. Visitors at any depth can verify credibility without backtracking."
+                    },
+                    {
+                        title: "Designed a clear five-step process visualization",
+                        body: "The \"journey with UOM\" section breaks the immigration path into five stages — consultation, strategy, paperwork, filing, post-visa support. Naming each stage makes a multi-year process feel finite and manageable, instead of opaque."
+                    }
+                ],
+                results: [],
+                reflection: [
+                    "The biggest takeaway: in high-stakes decisions, design has to slow people down before it speeds them up. Immigration isn't a category where conversion-rate thinking helps — pushing a visitor to \"book now\" before they understand which visa applies to them produces bad leads and bad outcomes. The structural decisions on this project leaned toward giving visitors the time and clarity to figure out what they actually need first, with conversion paths available the moment they're ready."
+                ],
+                keyScreensTitle: "Key Surfaces",
+                keyScreensIntro: "",
+                keyScreenBullets: [
+                    "Homepage — visa categories overview, journey stages, trust signals, lead form",
+                    "Visa detail pages — eligibility, benefits, timeline, cost, requirements per visa type",
+                    "About — company credentials, partner network, team",
+                    "FAQ — common questions grouped by visa type and stage",
+                    "Resources — articles, document library, guides",
+                    "Profile evaluation — short intake form for free eligibility assessment",
+                    "Appointment booking — consultation scheduling",
+                    "Contact — multi-channel intake with regional support"
+                ],
+                entryNumberOrder: ["cs-overview", "cs-context", "cs-process", "cs-screens", "cs-reflection"]
+            }
+        },
+        {
+            slug: "voltorax",
+            title: "VoltoraX",
+            industry: "Clean Energy / B2B",
+            industryGroup: "Business & Finance",
+            heroTagLine2: "UI/UX",
+            tags: ["Website", "B2B", "Clean Energy", "UI/UX"],
+            categories: ["branding", "leadgen"],
+            serviceTypes: ["Web Design"],
+            cardImage: "img/Project15-voltorax-web.jpg",
+            cardAlt: "VoltoraX case study",
+            heroImage: "img/Project15-voltorax-web.jpg",
+            heroAlt: "VoltoraX — clean energy and infrastructure website",
+            year: "2026",
+            role: "UI/UX Designer",
+            client: "VoltoraX (NTB Group)",
+            deliverables: "IA · UI System · Prototype",
+            detail: {
+                product: "B2B marketing website — clean electricity, infrastructure & service contracts",
+                channels: "Web · B2B · Clean energy · NTB ecosystem",
+                overview: "VoltoraX sells what businesses can't see — clean electricity, energy infrastructure, and long-term service contracts. The website's job is to turn that invisible product into something a procurement lead, plant manager, or sustainability officer can evaluate without needing an engineering briefing first. The site sits inside the broader NTB ecosystem, so it also needed to read as a credible extension of an established industrial brand.",
+                contextParagraph1: "The site needed to solve three things at once: make an intangible product visible through business outcomes (stable power, lower costs, ESG readiness), present a spread of services (solar, BESS, microgrid, Power-as-a-Service) without losing clarity, and surface long-term trust signals — track record, partners, ecosystem alignment — before a visitor reaches pricing. The primary user is a B2B decision-maker evaluating energy options against cost, reliability, and compliance criteria.",
+                contextParagraph2: "",
+                contextBullets: [],
+                hideContextFigure: true,
+                processIntro: "",
+                processSteps: [],
+                results: [],
+                reflection: [
+                    "The biggest takeaway so far: selling an invisible product means designing for legibility before persuasion. Energy buyers don't need to be excited — they need to understand. The decisions on this project lean toward clarity over flair: short copy, predictable structure, outcome-first framing. The hardest part isn't making the site look modern; it's making something fundamentally abstract feel concrete enough for a stranger to evaluate.",
+                    "This project is still in progress and hasn't gone live. The case study captures preliminary design intent rather than shipped work."
+                ],
+                hideSectionIds: ["cs-process"],
+                entryNumberOrder: ["cs-overview", "cs-context", "cs-screens", "cs-reflection"],
+                keyScreensIntro: "",
+                keyScreenFigures: [
+                    {
+                        src: "img/Project15-voltorax-web.jpg",
+                        alt: "VoltoraX — key screens from the B2B marketing website (work in progress)",
+                        caption: "VoltoraX — website (preliminary)",
+                        wide: true
+                    }
+                ]
+            }
+        },
+        {
+            slug: "saudi-evisa",
+            title: "Saudi Arabia eVisa",
+            industry: "Travel / Visa",
+            industryGroup: "Legal & Immigration",
+            heroTagLine2: "UI/UX",
+            tags: ["Travel/Visa", "Lead Gen"],
+            categories: ["leadgen", "branding"],
+            serviceTypes: ["Landing Page"],
+            cardImage: "img/Project16-visa-landingpage.jpg",
+            cardAlt: "Saudi Arabia eVisa case study",
+            heroImage: "img/Project16-visa-landingpage.jpg",
+            heroAlt: "Saudi Arabia eVisa — destination landing page",
+            year: "2024",
+            role: "UI/UX Designer",
+            client: "Confidential client",
+            deliverables: "UX/UI Design · Web",
+            detail: {
+                product: "e-visa destination page — GlobalVisaCorp gateway",
+                channels: "Web · Travel · Lead generation",
+                overview: "A destination page for Saudi Arabia e-visa applications within GlobalVisaCorp — the gateway for travelers applying online for tourism, Umrah, and business visits. The page needed to surface eligibility, fees, processing time, and requirements quickly, while presenting Saudi Arabia as a destination worth visiting — balancing transactional clarity with travel-page warmth.",
+                contextParagraph1: "",
+                contextParagraph2: "",
+                contextBullets: [],
+                processIntro: "",
+                processSteps: [],
+                results: [],
+                reflection: [
+                    "The biggest takeaway: visa pages live where transactional design meets travel inspiration. Most visa sites collapse to forms and fine print, losing the moment when a visitor is still deciding whether to apply. The decisions on this page leaned toward giving destination context (visual, evocative) the same weight as procedural detail (clear, scannable) — so the page works for both the visitor still imagining the trip and the one ready to start the application."
+                ],
+                hideSectionIds: ["cs-context", "cs-process"],
+                entryNumberOrder: ["cs-overview", "cs-screens", "cs-reflection"],
+                keyScreensIntro: "",
+                keyScreenFigures: [
+                    {
+                        src: "img/Project16-visa-landingpage.jpg",
+                        alt: "Saudi Arabia eVisa — key screens from the destination landing page",
+                        caption: "Saudi Arabia eVisa — landing page",
+                        wide: true
+                    }
+                ]
+            }
+        },
+        {
+            slug: "jnr-vietnam",
+            title: "JNR Vietnam",
+            industry: "Corporate / Exhibition",
+            industryGroup: "Business & Finance",
+            heroTagLine2: "UI/UX",
+            tags: ["Website", "B2B", "Exhibition"],
+            categories: ["leadgen", "branding"],
+            serviceTypes: ["Web Design"],
+            cardImage: "img/Project19-JNRVIETNAM-landingpage.jpg",
+            cardAlt: "JNR Vietnam case study",
+            heroImage: "img/Project19-JNRVIETNAM-landingpage.jpg",
+            heroAlt: "JNR Vietnam — exhibition and booth design portfolio website",
+            year: "2024",
+            role: "UI/UX Designer",
+            client: "JNR Vietnam",
+            deliverables: "UX/UI Design · Web",
+            detail: {
+                product: "B2B portfolio website — booths, events & interior projects",
+                channels: "Web · B2B · Exhibition · Events",
+                overview: "JNR Vietnam works in a category where the work itself is the proof — a well-built booth is the best portfolio piece. The website's job was to surface that portfolio quickly, communicate the company's range of services and trusted partner network, and make it easy for event organizers and brands to start a conversation.",
+                contextParagraph1: "",
+                contextParagraph2: "",
+                contextBullets: [],
+                processIntro: "",
+                processSteps: [],
+                results: [],
+                reflection: [
+                    "The biggest takeaway: for portfolio-driven businesses, the website is the showroom — and bad layout dilutes good work. Booth design, event setup, and interior projects rely on visuals to sell themselves; cramped grids, low-resolution thumbnails, or weak hierarchy hurt the work more than they help the brand. The decisions on this project leaned toward giving the imagery room to breathe and the partners visible weight — letting the work do most of the talking."
+                ],
+                hideSectionIds: ["cs-context", "cs-process"],
+                entryNumberOrder: ["cs-overview", "cs-screens", "cs-reflection"],
+                keyScreensIntro: "",
+                keyScreenFigures: [
+                    {
+                        src: "img/Project19-JNRVIETNAM-landingpage.jpg",
+                        alt: "JNR Vietnam — key screens from the portfolio website",
+                        caption: "JNR Vietnam — website",
+                        wide: true
+                    }
+                ]
+            }
+        },
         {
             slug: "manbu",
             title: "Manbu",
@@ -429,16 +907,6 @@
     ];
 
     async function loadProjects() {
-        try {
-            if (window.SUPABASE_CONTENT && typeof window.SUPABASE_CONTENT.fetchProjects === "function") {
-                var remoteProjects = await window.SUPABASE_CONTENT.fetchProjects();
-                if (Array.isArray(remoteProjects) && remoteProjects.length > 0) {
-                    return remoteProjects;
-                }
-            }
-        } catch (error) {
-            // Keep local fallback silently when Supabase is not ready.
-        }
         return projects;
     }
 
