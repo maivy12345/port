@@ -1,3 +1,7 @@
+/**
+ * Server-side Web3Forms proxy (optional).
+ * Free Web3Forms blocks Vercel/server IPs — use js/contact-form.js (browser) instead.
+ */
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 
 function isAllowedOrigin(origin) {

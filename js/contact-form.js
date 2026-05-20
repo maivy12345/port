@@ -1,7 +1,11 @@
 (function () {
     "use strict";
 
-    var API_URL = "/api/contact";
+    var WEB3FORMS_URL = "https://api.web3forms.com/submit";
+
+    function getAccessKey() {
+        return String(window.WEB3FORMS_ACCESS_KEY || "").trim();
+    }
 
     function getField(form, names) {
         for (var i = 0; i < names.length; i++) {
@@ -40,7 +44,8 @@
         honeypot.tabIndex = -1;
         honeypot.autocomplete = "off";
         honeypot.setAttribute("aria-hidden", "true");
-        honeypot.style.cssText = "position:absolute;left:-9999px;width:0;height:0;opacity:0;pointer-events:none;";
+        honeypot.style.cssText =
+            "position:absolute;left:-9999px;width:0;height:0;opacity:0;pointer-events:none;";
         form.appendChild(honeypot);
     }
 
@@ -50,13 +55,26 @@
         var typeEl = getField(form, ["type"]);
         var msgEl = getField(form, ["message"]);
         var botEl = form.querySelector('[name="botcheck"]');
+        var name = nameEl ? nameEl.value.trim() : "";
+        var email = emailEl ? emailEl.value.trim() : "";
+        var type = typeEl ? typeEl.value : "";
+        var message = msgEl ? msgEl.value.trim() : "";
+
+        if (botEl && botEl.value) {
+            return { botcheck: true };
+        }
+
+        var subject = "Portfolio contact";
+        if (type) subject += " – " + type;
 
         return {
-            name: nameEl ? nameEl.value.trim() : "",
-            email: emailEl ? emailEl.value.trim() : "",
-            type: typeEl ? typeEl.value : "",
-            message: msgEl ? msgEl.value.trim() : "",
-            botcheck: botEl ? botEl.value : ""
+            access_key: getAccessKey(),
+            subject: subject,
+            name: name,
+            email: email,
+            replyto: email,
+            work_type: type || undefined,
+            message: message || "(no message)"
         };
     }
 
@@ -80,6 +98,16 @@
                 return;
             }
 
+            var accessKey = getAccessKey();
+            if (!accessKey) {
+                setStatus(
+                    statusEl,
+                    "error",
+                    "Form chưa được cấu hình. Email trực tiếp: vy.nguyentrucmai@gmail.com"
+                );
+                return;
+            }
+
             var submitBtn = form.querySelector('[type="submit"]');
             var label = submitBtn ? submitBtn.innerHTML : "";
             if (submitBtn) {
@@ -88,13 +116,23 @@
             }
             setStatus(statusEl, null, "Đang gửi…");
 
-            fetch(API_URL, {
+            var payload = collectPayload(form);
+            if (payload.botcheck) {
+                setStatus(statusEl, "success", "Đã gửi thành công. Mình sẽ phản hồi trong vòng 24 giờ.");
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.removeAttribute("aria-busy");
+                }
+                return;
+            }
+
+            fetch(WEB3FORMS_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     Accept: "application/json"
                 },
-                body: JSON.stringify(collectPayload(form))
+                body: JSON.stringify(payload)
             })
                 .then(function (res) {
                     return res.json().then(function (data) {
@@ -102,7 +140,7 @@
                     });
                 })
                 .then(function (result) {
-                    if (result.ok && result.data.success) {
+                    if (result.ok && result.data && result.data.success) {
                         setStatus(
                             statusEl,
                             "success",
@@ -111,15 +149,19 @@
                         form.reset();
                         return;
                     }
-                    throw new Error(
-                        (result.data && result.data.message) || "Gửi thất bại"
-                    );
+                    var msg =
+                        (result.data && (result.data.message || result.data.body)) ||
+                        "Gửi thất bại";
+                    throw new Error(msg);
                 })
-                .catch(function () {
+                .catch(function (err) {
+                    var detail = err && err.message ? " " + err.message : "";
                     setStatus(
                         statusEl,
                         "error",
-                        "Không gửi được lúc này. Thử lại hoặc email trực tiếp: vy.nguyentrucmai@gmail.com"
+                        "Không gửi được lúc này." +
+                            detail +
+                            " Thử lại hoặc email: vy.nguyentrucmai@gmail.com"
                     );
                 })
                 .finally(function () {
