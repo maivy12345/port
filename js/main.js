@@ -19,15 +19,43 @@
 
     gsap.ticker.lagSmoothing(0);
 
-    // TOC hash links — smooth scroll via Lenis
-    document.addEventListener('click', function (e) {
-        var link = e.target.closest('.cs-toc__link[href^="#"]');
+    // In-page hash links — smooth scroll via Lenis (hero CTAs, header Contact, TOC, etc.)
+    function getHashScrollOffset() {
+        var headerEl = document.querySelector(".header");
+        return headerEl ? -(headerEl.getBoundingClientRect().height + 20) : -24;
+    }
+
+    function scrollToHashTarget(target) {
+        lenis.scrollTo(target, {
+            offset: getHashScrollOffset(),
+            duration: 1.35,
+            easing: function (t) {
+                return 1 - Math.pow(1 - t, 3);
+            }
+        });
+    }
+
+    document.addEventListener("click", function (e) {
+        var link = e.target.closest('a[href^="#"]');
         if (!link) return;
-        var hash = link.getAttribute('href');
+        var hash = link.getAttribute("href");
+        if (!hash || hash === "#") return;
         var target = document.querySelector(hash);
         if (!target) return;
         e.preventDefault();
-        lenis.scrollTo(target, { offset: -24 });
+        scrollToHashTarget(target);
+
+        var navEl = document.getElementById("nav");
+        var menuBtnEl = document.getElementById("menuBtn");
+        if (navEl && navEl.classList.contains("is-open")) {
+            navEl.classList.remove("is-open");
+            document.body.classList.remove("nav-open");
+            if (menuBtnEl) {
+                menuBtnEl.classList.remove("is-open");
+                menuBtnEl.setAttribute("aria-expanded", "false");
+            }
+            lenis.start();
+        }
     });
 
     // 2. Hero title: split words and animate word-by-word
@@ -350,29 +378,39 @@
     onScroll();
 
     if (menuBtn && nav) {
-        menuBtn.addEventListener("click", function () {
-            var open = nav.classList.toggle("is-open");
+        function setMobileNavOpen(open) {
+            nav.classList.toggle("is-open", open);
             menuBtn.classList.toggle("is-open", open);
             menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-            if(open) {
+            document.body.classList.toggle("nav-open", open);
+            if (open) {
                 lenis.stop();
             } else {
                 lenis.start();
             }
+        }
+
+        menuBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            setMobileNavOpen(!nav.classList.contains("is-open"));
         });
 
         nav.querySelectorAll("a").forEach(function (link) {
-            link.addEventListener("click", function (e) {
-                const target = document.querySelector(this.getAttribute("href"));
-                if(target) {
-                    e.preventDefault();
-                    lenis.scrollTo(target);
-                }
-                nav.classList.remove("is-open");
-                menuBtn.classList.remove("is-open");
-                menuBtn.setAttribute("aria-expanded", "false");
-                lenis.start();
+            link.addEventListener("click", function () {
+                setMobileNavOpen(false);
             });
+        });
+
+        document.addEventListener("click", function (e) {
+            if (!nav.classList.contains("is-open")) return;
+            if (nav.contains(e.target) || menuBtn.contains(e.target)) return;
+            setMobileNavOpen(false);
+        });
+
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && nav.classList.contains("is-open")) {
+                setMobileNavOpen(false);
+            }
         });
     }
 
