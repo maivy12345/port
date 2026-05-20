@@ -118,7 +118,7 @@
 
             var payload = collectPayload(form);
             if (payload.botcheck) {
-                setStatus(statusEl, "success", "Đã gửi thành công. Mình sẽ phản hồi trong vòng 24 giờ.");
+                setStatus(statusEl, "success", "Message sent successfully. I'll get back to you within 24 hours.");
                 if (submitBtn) {
                     submitBtn.disabled = false;
                     submitBtn.removeAttribute("aria-busy");
@@ -144,7 +144,7 @@
                         setStatus(
                             statusEl,
                             "success",
-                            "Đã gửi thành công. Mình sẽ phản hồi trong vòng 24 giờ."
+                            "Message sent successfully. I'll get back to you within 24 hours."
                         );
                         form.reset();
                         return;
