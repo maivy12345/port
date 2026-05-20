@@ -2251,6 +2251,7 @@ img {
 
 /* Individual Panel â€” sticky stacked */
 .proj-item {
+    display: block;
     position: sticky;
     top: 0;
     width: 100%;
@@ -2262,6 +2263,8 @@ img {
     transform-origin: center top;
     transition: box-shadow 0.4s var(--ease);
     margin-bottom: 30px;
+    text-decoration: none;
+    color: inherit;
 }
 
 /* Color variants */
@@ -2361,36 +2364,44 @@ img {
     opacity: 0.85;
 }
 
-/* Visual â€” fills the right portion of the card, touching all edges */
+/* Visual — full card height, image not cropped */
 .proj-item__visual {
     position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
-    width: clamp(300px, 50%, 580px);
+    height: 100%;
+    width: clamp(340px, 54%, 680px);
+    max-width: 68%;
     z-index: 1;
     pointer-events: none;
     overflow: hidden;
     border-radius: 0 20px 20px 0;
-    transition: width 0.5s var(--ease);
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+    transition: max-width 0.5s var(--ease);
 }
 
 .proj-item:hover .proj-item__visual {
-    width: clamp(320px, 53%, 610px);
+    max-width: 70%;
 }
 
 .proj-item__visual img {
-    width: 100%;
     height: 100%;
-    object-fit: contain; /* Prevent cropping */
+    width: auto;
+    max-width: none;
+    object-fit: contain;
     object-position: right center;
     display: block;
+    flex-shrink: 0;
+    padding: 0;
+    transform: translateX(10px);
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    padding: 2rem; /* Give the contained image some breathing room */
 }
 
 .proj-item:hover .proj-item__visual img {
-    transform: scale(1.05);
+    transform: translateX(10px) scale(1.02);
 }
 
 /* Arrow button â€” top-right, overlaying the image */
@@ -2405,7 +2416,7 @@ img {
     align-items: center;
     justify-content: center;
     z-index: 3;
-    text-decoration: none;
+    pointer-events: none;
     transition:
         transform 0.4s var(--ease),
         background 0.4s var(--ease),
@@ -2426,20 +2437,20 @@ img {
     color: #111111;
 }
 
-/* Hover â€” scale, rotate, accent glow */
-.proj-item__arrow:hover {
+/* Hover â€” scale, rotate, accent glow (whole card is the link) */
+.proj-item:hover .proj-item__arrow {
     transform: scale(1.2) rotate(45deg);
 }
 
-.proj-item--cream .proj-item__arrow:hover,
-.proj-item--warm .proj-item__arrow:hover,
-.proj-item--lime .proj-item__arrow:hover {
+.proj-item--cream:hover .proj-item__arrow,
+.proj-item--warm:hover .proj-item__arrow,
+.proj-item--lime:hover .proj-item__arrow {
     background: var(--accent);
     color: #111111;
     box-shadow: 0 8px 28px rgba(255, 157, 222, 0.45);
 }
 
-.proj-item--dark .proj-item__arrow:hover {
+.proj-item--dark:hover .proj-item__arrow {
     background: var(--accent);
     color: #111111;
     box-shadow: 0 8px 28px rgba(255, 157, 222, 0.45);
@@ -2449,7 +2460,7 @@ img {
     transition: transform 0.4s var(--ease);
 }
 
-.proj-item__arrow:hover svg {
+.proj-item:hover .proj-item__arrow svg {
     transform: translate(1px, -1px);
 }
 
@@ -3282,12 +3293,30 @@ img {
     color: rgba(255,255,255,0.28);
 }
 
+/* Filled / selected — pink border like Work type select */
+.cta-form input:not(:placeholder-shown),
+.cta-form textarea:not(:placeholder-shown),
+.cta-form select:valid {
+    border-color: rgba(255, 157, 222, 0.55);
+    background: rgba(255, 157, 222, 0.05);
+    color: var(--text);
+}
+
 .cta-form input:focus,
 .cta-form select:focus,
 .cta-form textarea:focus {
     outline: none;
-    border-color: rgba(255,157,222,0.5);
-    background: rgba(255,157,222,0.05);
+    border-color: var(--accent);
+    background: rgba(255, 157, 222, 0.08);
+}
+
+.cta-form input:-webkit-autofill,
+.cta-form input:-webkit-autofill:hover,
+.cta-form input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--text);
+    -webkit-box-shadow: 0 0 0 1000px rgba(255, 157, 222, 0.05) inset;
+    border-color: rgba(255, 157, 222, 0.55);
+    transition: background-color 9999s ease-out 0s;
 }
 
 .cta-form__select-wrap {
@@ -3318,6 +3347,21 @@ img {
 .cta-form textarea {
     resize: vertical;
     min-height: 120px;
+}
+
+.cta-form__status {
+    margin: 0.25rem 0 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    min-height: 1.35em;
+}
+
+.cta-form__status--success {
+    color: #7dffb8;
+}
+
+.cta-form__status--error {
+    color: #ff9dde;
 }
 
 .cta-form__submit {
