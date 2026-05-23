@@ -587,15 +587,12 @@
                 ],
                 keyScreensTitle: "Key Surfaces",
                 keyScreensIntro: "",
-                keyScreenBullets: [
-                    "Feed (home) — content from followed doctors and personalized recommendations",
-                    "Recommendations — suggested doctors and content tuned to patient interests and metrics",
-                    "Following & Saved — managed library of doctors followed and content saved for later",
-                    "Doctor profile — credentials, content history, availability, consultation booking",
-                    "Patient health dashboard — device-measured metrics with trend visualization",
-                    "Consultation booking — schedule, payment, pre-visit context capture",
-                    "Active consultation — video session with patient metrics visible in context",
-                    "Doctor's patient view — appointment list, patient history, device data, notes"
+                keyScreensTitle: "Key Screens",
+                keyScreensIntro: "Selected screens across the patient app, doctor app, and core features.",
+                keyScreenFigures: [
+                    { src: "img/tamvie detail 1.webp", alt: "Tamvie — patient app home screen and key benefits", caption: "Patient app — home & key benefits", wide: true, full: true },
+                    { src: "img/tamvie detail 2.webp", alt: "Tamvie — doctor app login, dashboard, appointment detail and scheduling", caption: "Doctor app — login, dashboard & scheduling", wide: true, full: true },
+                    { src: "img/tamvie detail 3.webp", alt: "Tamvie — health record and advanced features", caption: "Patient app — health records & advanced features", wide: true, full: true }
                 ]
             }
         },
