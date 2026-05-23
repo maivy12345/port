@@ -134,22 +134,26 @@
                     "The biggest takeaway: corporate websites for multi-industry groups have to feel coherent without flattening the differences. Every business line needs its own breathing room, but the brand has to stay one brand across all of them. The decisions here leaned toward a unified visual rhythm with enough flexibility for each sector to read distinctly — so the company comes across as broad but not generic, and ambitious while still grounded in a clear set of values."
                 ],
                 keyScreensTitle: "Key Surfaces",
-                keyScreensIntro: "",
+                keyScreensIntro: "Selected screens across the web platform and mobile app.",
                 keyScreenFigures: [
                     {
-                        src: "img/Project18-EcoHHB-web.webp",
-                        alt: "Eco-HHB — key screens from the corporate website",
-                        caption: "Eco-HHB — website",
-                        wide: true
+                        src: "img/ecohhb detail 1.png",
+                        alt: "Eco-HHB — user profile page on MacBook",
+                        caption: "Web — user profile & account management",
+                        wide: true, full: true
+                    },
+                    {
+                        src: "img/ecohhb detail 2.png",
+                        alt: "Eco-HHB — mobile app screens",
+                        caption: "Mobile app — shopping & cart experience",
+                        wide: true, full: true
+                    },
+                    {
+                        src: "img/ecohhb detail 3.png",
+                        alt: "Eco-HHB — homepage product listing on MacBook",
+                        caption: "Web — homepage & product listing",
+                        wide: true, full: true
                     }
-                ],
-                keyScreenBullets: [
-                    "Homepage — mission, business lines overview, partner network, testimonials",
-                    "About — vision, mission, founder story",
-                    "Business lines — retail, agriculture, distribution, real estate, transport, import-export",
-                    "News & press — articles, interviews, press mentions",
-                    "Partnership — cooperation opportunities",
-                    "Contact — multi-channel intake"
                 ],
                 entryNumberOrder: ["cs-overview", "cs-context", "cs-process", "cs-screens", "cs-reflection"]
             }
