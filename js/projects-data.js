@@ -1032,7 +1032,11 @@
                 keyScreensTitle: "Key Screens",
                 keyScreensIntro: "",
                 keyScreenFigures: [
-                    { src: "img/Project17-scdc-website.webp", alt: "SCDC — Smart Consulting Design & Construction website", caption: "", wide: true, full: true }
+                    { src: "img/scdc detail 1.webp", alt: "SCDC — Key Screen 1", caption: "", wide: true, full: true },
+                    { src: "img/scdc detail 2.webp", alt: "SCDC — Key Screen 2", caption: "", wide: true, full: true },
+                    { src: "img/scdc detail 3.webp", alt: "SCDC — Key Screen 3", caption: "", wide: true, full: true },
+                    { src: "img/scdc detail 4.webp", alt: "SCDC — Key Screen 4", caption: "", wide: true, full: true },
+                    { src: "img/scdc detail 5.webp", alt: "SCDC — Key Screen 5", caption: "", wide: true, full: true }
                 ],
                 entryNumberOrder: ["cs-overview", "cs-context", "cs-process", "cs-screens", "cs-reflection"]
             }
