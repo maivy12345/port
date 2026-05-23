@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
     "use strict";
 
     var projects = [
@@ -63,9 +63,9 @@
             tags: ["Website", "Corporate", "Sustainability"],
             categories: ["branding", "leadgen"],
             serviceTypes: ["Web Design"],
-            cardImage: "img/Project18-EcoHHB-web.jpg",
+            cardImage: "img/Project18-EcoHHB-web.webp",
             cardAlt: "Eco-HHB case study",
-            heroImage: "img/Project18-EcoHHB-web.jpg",
+            heroImage: "img/Project18-EcoHHB-web.webp",
             heroAlt: "Eco-HHB — corporate and sustainability website",
             year: "2024",
             role: "UI/UX Designer",
@@ -102,7 +102,7 @@
                 keyScreensIntro: "",
                 keyScreenFigures: [
                     {
-                        src: "img/Project18-EcoHHB-web.jpg",
+                        src: "img/Project18-EcoHHB-web.webp",
                         alt: "Eco-HHB — key screens from the corporate website",
                         caption: "Eco-HHB — website",
                         wide: true
@@ -176,9 +176,9 @@
             industry: "Professional Services",
             tags: ["Website", "UX Audit", "UI Design", "Lead Gen"],
             categories: ["compliance"],
-            cardImage: "img/Project2-OCC-Web.jpg",
+            cardImage: "img/Project2-OCC-Web.webp",
             cardAlt: "Offshore CompanyCorp case study",
-            heroImage: "img/Project2-OCC-Web.jpg",
+            heroImage: "img/Project2-OCC-Web.webp",
             heroAlt: "Offshore CompanyCorp - incorporation platform",
             year: "2025",
             role: "UX Auditor & UI Designer",
@@ -337,9 +337,9 @@
             industry: "Travel Tech",
             tags: ["Mobile App", "Travel", "UI/UX"],
             categories: ["app", "branding"],
-            cardImage: "img/Project3-Airnoma-App.jpg",
+            cardImage: "img/Project3-Airnoma-App.webp",
             cardAlt: "Airnoma case study",
-            heroImage: "img/Project3-Airnoma-App.jpg",
+            heroImage: "img/Project3-Airnoma-App.webp",
             heroAlt: "Airnoma - travel eSIM mobile app",
             year: "2026",
             role: "UI/UX Designer (Contributor)",
@@ -535,9 +535,9 @@
             tags: ["Education"],
             categories: ["app", "leadgen"],
             serviceTypes: ["Web Design"],
-            cardImage: "img/Project14-Elearning-landingpage.jpg",
+            cardImage: "img/Project14-Elearning-landingpage.webp",
             cardAlt: "E-learning Platform case study",
-            heroImage: "img/Project14-Elearning-landingpage.jpg",
+            heroImage: "img/Project14-Elearning-landingpage.webp",
             heroAlt: "E-learning Platform — courses and progress",
             year: "2024",
             role: "UI/UX Designer",
@@ -561,7 +561,7 @@
                 keyScreensIntro: "",
                 keyScreenFigures: [
                     {
-                        src: "img/Project14-Elearning-landingpage.jpg",
+                        src: "img/Project14-Elearning-landingpage.webp",
                         alt: "E-learning Platform — key screens from the student experience",
                         caption: "E-learning Platform — product screens",
                         wide: true
@@ -619,9 +619,9 @@
             tags: ["Website", "B2B", "Multi-Language", "UX/UI"],
             categories: ["branding", "leadgen"],
             serviceTypes: ["Web Design"],
-            cardImage: "img/Project6-ntbindustrialpark-web.jpg",
+            cardImage: "img/Project6-ntbindustrialpark-web.webp",
             cardAlt: "NTB Industrial Park case study",
-            heroImage: "img/Project6-ntbindustrialpark-web.jpg",
+            heroImage: "img/Project6-ntbindustrialpark-web.webp",
             heroAlt: "NTB Industrial Park - investor-facing website",
             year: "2025",
             role: "UX/UI Designer",
