@@ -578,12 +578,16 @@
 .cs-figure--wide .cs-figure__frame img {
     aspect-ratio: var(--portfolio-thumb-aspect);
 }
+.cs-figure--full .cs-figure__frame {
+    overflow: visible;
+}
 .cs-figure--full .cs-figure__frame img,
 .cs-figure--wide.cs-figure--full .cs-figure__frame img {
     aspect-ratio: unset !important;
     height: auto !important;
-    object-fit: fill !important;
+    object-fit: unset !important;
     object-position: unset !important;
+    max-height: none !important;
 }
 .cs-figure figcaption {
     font-size: 0.82rem;
