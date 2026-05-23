@@ -37,7 +37,8 @@
         "uom-immigration": "Legal & Immigration",
         "saudi-evisa": "Legal & Immigration",
         "elearning-platform": "Education",
-        "zodiac": "Other"
+        "zodiac": "Other",
+        "scdc": "Business & Finance"
     };
 
     function normalizeIndustry(industry) {

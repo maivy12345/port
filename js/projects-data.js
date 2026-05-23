@@ -983,6 +983,61 @@
             }
         },
         {
+            slug: "scdc",
+            title: "SCDC",
+            industry: "Industrial / Construction",
+            industryGroup: "Business & Finance",
+            heroTagLine2: "UI/UX",
+            tags: ["Website", "B2B", "Industrial", "Clean Energy"],
+            categories: ["branding", "leadgen"],
+            serviceTypes: ["Web Design"],
+            cardImage: "img/Project17-scdc-website.webp",
+            cardAlt: "SCDC website case study",
+            heroImage: "img/Project17-scdc-website.webp",
+            heroAlt: "SCDC — Smart Consulting Design & Construction website",
+            year: "2026",
+            role: "UI/UX Designer",
+            client: "SCDC (NTB Group)",
+            deliverables: "IA · Design System",
+            detail: {
+                product: "Website for Smart Consulting · Design & Construction — part of the NTB ecosystem",
+                channels: "Web · B2B · Industrial",
+                overview: "SCDC sits between strategy and execution in the NTB ecosystem — consulting on industrial setup, designing and constructing factories, and integrating clean energy infrastructure. The website's job was to communicate that integrated offering to manufacturers and FDI investors who often shop these services separately, and make starting a conversation simple.",
+                contextParagraph1: "Three frictions shaped the brief: a multi-service offering (consulting, design, construction, energy) that risked feeling unfocused, an audience used to evaluating each service in isolation, and a positioning challenge — how SCDC connects to NTB and VoltoraX without confusing visitors about which company does what.",
+                contextParagraph2: "The primary user is a B2B decision-maker evaluating factory leasing or industrial setup options.",
+                contextBullets: [
+                    "Multi-service offering — consulting, design, construction, and energy risked feeling unfocused without a clear entry point",
+                    "Audience used to siloed evaluation — B2B buyers typically shop each service separately, not as an integrated package",
+                    "Ecosystem positioning — connecting SCDC to NTB Industrial Park and VoltoraX without confusing each brand's scope"
+                ],
+                processIntro: "Three decisions shaped the work:",
+                processSteps: [
+                    {
+                        title: "Anchored the site on factory leasing as the entry service",
+                        body: "Of the four offerings, factory leasing is the most concrete — easy to evaluate, easy to scope. I led the IA with leasing as the primary path, with consulting, design/construction, and energy surfacing as connected upgrades rather than standalone alternatives."
+                    },
+                    {
+                        title: "Made ecosystem connection visible without confusing scope",
+                        body: "SCDC's link to NTB Industrial Park and VoltoraX is part of its value, but spelling out three brands risks overwhelming visitors. I positioned SCDC as the build/setup partner within NTB, with VoltoraX referenced as the energy layer — keeping the relationship clear without flattening each brand."
+                    },
+                    {
+                        title: "Designed service pages as a journey, not a catalog",
+                        body: "Consulting → Design → Construction → Energy reads as a sequence in a customer's mind. The service pages echo that flow, so visitors moving through them feel like they're tracing the timeline of their own project, not browsing a feature list."
+                    }
+                ],
+                results: [],
+                reflection: [
+                    "The biggest takeaway: integrated offerings only feel integrated if the design tells you how the pieces connect. Listing four services on a homepage doesn't make them feel like one solution — it makes them feel like four. The decisions on this project leaned toward sequencing and connection over coverage: showing how the services line up into a buyer's actual project journey, instead of presenting them as a menu to pick from."
+                ],
+                keyScreensTitle: "Key Screens",
+                keyScreensIntro: "",
+                keyScreenFigures: [
+                    { src: "img/Project17-scdc-website.webp", alt: "SCDC — Smart Consulting Design & Construction website", caption: "", wide: true, full: true }
+                ],
+                entryNumberOrder: ["cs-overview", "cs-context", "cs-process", "cs-screens", "cs-reflection"]
+            }
+        },
+        {
             slug: "zodiac",
             title: "Zodiac",
             industry: "Other",
