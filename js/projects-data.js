@@ -1018,8 +1018,7 @@
                 keyScreenFigures: [
                     { src: "img/zodiac detail 1.webp", alt: "Zodiac — UI design overview with sign descriptions and daily readings", caption: "", wide: true, full: true },
                     { src: "img/zodiac detail 2.webp", alt: "Zodiac — horoscope listing and personalized reading pages", caption: "", wide: true, full: true },
-                    { src: "img/zodiac detail 3.webp", alt: "Zodiac — homepage and article layout", caption: "", wide: true, full: true },
-                    { src: "img/zodiac detail 4.webp", alt: "Zodiac — zodiac signs and astrology pages", caption: "", wide: true, full: true }
+                    { src: "img/zodiac detail 3.webp", alt: "Zodiac — homepage and article layout", caption: "", wide: true, full: true }
                 ]
             }
         }
