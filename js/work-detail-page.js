@@ -205,11 +205,7 @@
                 }
                 frame.appendChild(img);
                 figure.appendChild(frame);
-                if (fig.caption) {
-                    var cap = document.createElement("figcaption");
-                    cap.textContent = fig.caption;
-                    figure.appendChild(cap);
-                }
+                // captions hidden per design decision
                 screensSection.appendChild(figure);
             });
             if (Array.isArray(detail.keyScreenBullets) && detail.keyScreenBullets.length) {
