@@ -333,7 +333,14 @@
                 reflection: [
                     "A portal isn't a website — it's a relationship interface. Marketing sites convert in seconds; apps retain across sessions; portals operate over years. That timescale changes the design brief: the portal can't shout, can't be silent, and must know its own limits.",
                     "If I did this again, I'd design the closure flow first. Closure stress-tests every assumption upstream — whether the document vault holds what's needed, whether the compliance log shows full history. Starting there would have surfaced systemic gaps earlier instead of at the final step."
-                ]
+                ],
+                keyScreensTitle: "Key Screens",
+                keyScreensIntro: "Selected screens across the client portal — company management, documents, orders, and support.",
+                keyScreenFigures: [
+                    { src: "img/portal detail 1.webp", alt: "One IBC Portal — company management, documents, payments and support center", caption: "Company management · Documents · Payments · Support", wide: true, full: true },
+                    { src: "img/portal detail 2.webp", alt: "One IBC Portal — order detail and service processing on MacBook and mobile", caption: "Order detail & service processing — web and mobile", wide: true, full: true }
+                ],
+                entryNumberOrder: ["cs-overview", "cs-context", "cs-process", "cs-screens", "cs-reflection"]
             }
         },
         {
