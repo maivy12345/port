@@ -206,7 +206,18 @@
                 reflection: [
                     "The biggest lesson from this project: multi-country isn't a feature, it's an architecture choice. Early on I almost designed a generic incorporation flow and treated each country as a content variant on top. That direction would have failed quietly — small mismatches (a stage that doesn't exist in Hong Kong, a document only Vietnam requires) compound into a product that feels broken in every market. Pulling the country logic into the architecture from the start, rather than patching it in later, was the most consequential decision I made.",
                     "If I did this again, I'd push for more founder interviews across at least two countries before committing to the IA. One founder plus internal expertise was enough to surface the right problems, but I had to lean heavily on the operations team to validate cross-country differences. A second or third founder voice — ideally from a different market — would have caught assumptions I didn't know I was making."
-                ]
+                ],
+                keyScreensTitle: "Key Screens",
+                keyScreensIntro: "Selected screens across the onboarding, home, and client portal experience.",
+                keyScreenFigures: [
+                    { src: "img/oneibcapp detail 1.webp", alt: "One IBC App — splash screen and onboarding jurisdiction selection", caption: "Splash screen & onboarding — jurisdiction selection", wide: true, full: true },
+                    { src: "img/oneibcapp detail 2.webp", alt: "One IBC App — home screen and services overview", caption: "Home — services overview & quick access", wide: true, full: true },
+                    { src: "img/oneibcapp detail 3.webp", alt: "One IBC App — App Store listing and client portal dashboard", caption: "App Store listing & portal dashboard", wide: true, full: true },
+                    { src: "img/oneibcapp detail 4.webp", alt: "One IBC App — About Us and Fee Details screens", caption: "About Us & Fee Details", wide: true, full: true },
+                    { src: "img/oneibcapp detail 5.webp", alt: "One IBC App — home app and client portal overview", caption: "Home App & Client Portal overview", wide: true, full: true },
+                    { src: "img/oneibcapp detail 6.webp", alt: "One IBC App — dashboard and document management", caption: "Dashboard & document management", wide: true, full: true }
+                ],
+                entryNumberOrder: ["cs-overview", "cs-context", "cs-process", "cs-screens", "cs-reflection"]
             }
         },
         {
