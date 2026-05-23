@@ -392,7 +392,13 @@
                 reflection: [
                     "Agency websites win on clarity, not flair. The audience isn't browsing for inspiration; they're auditioning a vendor. Every visual decision has to defend itself against a simple question: does this help the buyer trust us faster? That reframed how I weighted design choices — depth of trust signal over hero animation, scannable service rhythm over editorial layout, persistent contact options over a single beautiful CTA.",
                     "The clearest limit of this project was research. I designed from stakeholder briefs and competitor analysis without speaking to actual buyers. The decisions held up against the brief, but I'm aware buyer language and search behavior in this category are specific in ways internal teams sometimes generalize. If I did this again, I'd ask for at least three buyer interviews before locking the service template."
-                ]
+                ],
+                keyScreensTitle: "Key Screens",
+                keyScreensIntro: "Selected screens from the BIN Media website.",
+                keyScreenFigures: [
+                    { src: "img/Project8-binmedia-web.webp", alt: "BIN Media — digital advertising agency website", caption: "BIN Media — digital advertising agency website", wide: true, full: true }
+                ],
+                entryNumberOrder: ["cs-overview", "cs-context", "cs-process", "cs-screens", "cs-reflection"]
             }
         },
         {
