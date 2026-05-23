@@ -985,10 +985,10 @@
         {
             slug: "zodiac",
             title: "Zodiac",
-            industry: "Personal Project",
+            industry: "Other",
             heroTagLine2: "UI/UX",
             tags: ["Personal", "Web", "UI/UX", "Visual Design"],
-            categories: ["branding"],
+            categories: ["other"],
             serviceTypes: ["Web Design"],
             cardImage: "img/project20-zodiac-website.jpg",
             cardAlt: "Zodiac website concept",

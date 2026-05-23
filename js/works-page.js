@@ -36,7 +36,8 @@
         "voltorax": "Business & Finance",
         "uom-immigration": "Legal & Immigration",
         "saudi-evisa": "Legal & Immigration",
-        "elearning-platform": "Education"
+        "elearning-platform": "Education",
+        "zodiac": "Other"
     };
 
     function normalizeIndustry(industry) {
