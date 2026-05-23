@@ -969,7 +969,17 @@
                 reflection: [
                     "The biggest takeaway from this project: HR software loses to consumer apps because it doesn't have to compete. Employees can't choose to install or uninstall their company's HR app, so the bar for design quality stays low. Manbu was an exercise in designing as if the bar mattered — even for a tool people are obligated to use.",
                     "This was an academic concept, not a production product. The decisions weren't tested against real engineering constraints, real user behavior at scale, or the politics of enterprise procurement. I include it in my portfolio as evidence of design thinking and execution at university level, not as a case of shipped impact."
-                ]
+                ],
+                keyScreensTitle: "Key Screens",
+                keyScreensIntro: "Selected screens across the Manbu app — core features, Apple Watch, pop-ups, dark mode, and UI overview.",
+                keyScreenFigures: [
+                    { src: "img/manbu detail 1.webp", alt: "Manbu — app billboard featuring attendance, tasks, meetings and payroll screens", caption: "Core features — attendance, tasks, meetings & payroll", wide: true, full: true },
+                    { src: "img/manbu detail 2.webp", alt: "Manbu — Apple Watch integration showing inbox and calendar", caption: "Apple Watch — inbox & calendar", wide: true, full: true },
+                    { src: "img/manbu detail 3.webp", alt: "Manbu — pop-up notification and success states with mascot", caption: "Pop-up states & mascot moments", wide: true, full: true },
+                    { src: "img/manbu detail 4.webp", alt: "Manbu — dark mode screens across attendance, QR payment, tasks and calendar", caption: "Dark mode — full feature coverage", wide: true, full: true },
+                    { src: "img/manbu detail 5.webp", alt: "Manbu — light mode UI overview across all key screens", caption: "Light mode — UI overview", wide: true, full: true }
+                ],
+                entryNumberOrder: ["cs-overview", "cs-context", "cs-process", "cs-screens", "cs-reflection"]
             }
         }
     ];
