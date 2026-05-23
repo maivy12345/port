@@ -782,17 +782,10 @@
                 reflection: [
                     "The biggest takeaway: in high-stakes decisions, design has to slow people down before it speeds them up. Immigration isn't a category where conversion-rate thinking helps — pushing a visitor to \"book now\" before they understand which visa applies to them produces bad leads and bad outcomes. The structural decisions on this project leaned toward giving visitors the time and clarity to figure out what they actually need first, with conversion paths available the moment they're ready."
                 ],
-                keyScreensTitle: "Key Surfaces",
-                keyScreensIntro: "",
-                keyScreenBullets: [
-                    "Homepage — visa categories overview, journey stages, trust signals, lead form",
-                    "Visa detail pages — eligibility, benefits, timeline, cost, requirements per visa type",
-                    "About — company credentials, partner network, team",
-                    "FAQ — common questions grouped by visa type and stage",
-                    "Resources — articles, document library, guides",
-                    "Profile evaluation — short intake form for free eligibility assessment",
-                    "Appointment booking — consultation scheduling",
-                    "Contact — multi-channel intake with regional support"
+                keyScreensTitle: "Key Screens",
+                keyScreensIntro: "Selected screens from the UOM Global immigration platform — resources, application tracking, and payment.",
+                keyScreenFigures: [
+                    { src: "img/uom detail 1.webp", alt: "UOM Global — forms library, FAQs, application tracking on mobile and payment confirmation on web", caption: "Forms & resources · Application tracking · Payment confirmation", wide: true, full: true }
                 ],
                 entryNumberOrder: ["cs-overview", "cs-context", "cs-process", "cs-screens", "cs-reflection"]
             }
