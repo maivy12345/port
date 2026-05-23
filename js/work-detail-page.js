@@ -201,7 +201,7 @@
                 img.decoding = "async";
                 if (fig.full) {
                     img.style.cssText = "width:100%;height:auto;display:block;aspect-ratio:unset;object-fit:unset;border-radius:16px;";
-                    frame.style.cssText = "overflow:visible;border-radius:0;border:1px solid var(--border);box-shadow:0 12px 40px rgba(0,0,0,0.28);";
+                    frame.style.cssText = "overflow:visible;border-radius:16px;border:1px solid var(--border);box-shadow:0 12px 40px rgba(0,0,0,0.28);";
                 }
                 frame.appendChild(img);
                 figure.appendChild(frame);
