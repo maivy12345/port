@@ -448,7 +448,13 @@
                 results: [],
                 reflection: [
                     "The clearest takeaway from this project: travel apps live or die on the install moment. Everything before the install is browsing; everything after is reassurance. Designing the install flow with that weight in mind — not as a transactional confirmation step but as the moment the product proves itself — shaped the small details I worked on."
-                ]
+                ],
+                keyScreensTitle: "Key Screens",
+                keyScreensIntro: "Selected screens from the Airnoma eSIM app — onboarding and plan management.",
+                keyScreenFigures: [
+                    { src: "img/airnoma detail 1.webp", alt: "Airnoma — onboarding flow and eSIM plan management screens", caption: "Onboarding flow & eSIM plan management", wide: true, full: true }
+                ],
+                entryNumberOrder: ["cs-overview", "cs-context", "cs-process", "cs-screens", "cs-reflection"]
             }
         },
         {
