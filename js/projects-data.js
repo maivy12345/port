@@ -28,6 +28,7 @@
                     "No caregiver coordination — parents and family members managing multiple bookings had no central view; appointments lived in scattered messages",
                     "Duplicate records and unreliable sync — patients created multiple profiles; data sync between Medpro and hospitals was inconsistent"
                 ],
+                hideContextFigure: true,
                 processIntro: "Four decisions shaped the product:",
                 processSteps: [
                     {
