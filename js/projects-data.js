@@ -133,7 +133,7 @@
                 reflection: [
                     "The biggest takeaway: corporate websites for multi-industry groups have to feel coherent without flattening the differences. Every business line needs its own breathing room, but the brand has to stay one brand across all of them. The decisions here leaned toward a unified visual rhythm with enough flexibility for each sector to read distinctly — so the company comes across as broad but not generic, and ambitious while still grounded in a clear set of values."
                 ],
-                keyScreensTitle: "Key Surfaces",
+                keyScreensTitle: "Key Screens",
                 keyScreensIntro: "Selected screens across the web platform and mobile app.",
                 keyScreenFigures: [
                     {
