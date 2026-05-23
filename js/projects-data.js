@@ -726,7 +726,13 @@
                 reflection: [
                     "B2B isn't less design — it's different design. The audience doesn't want delight; they want specificity. They return multiple times before converting, and the second visit is where trust is built or lost. That shaped how I approached hierarchy: surface-level clarity for skim, depth on click for due diligence.",
                     "The clearest limit of this project was research. I designed from stakeholder input, domain reading, and competitor analysis — without talking to actual investors. The framing held up, but I'm aware investor language is precise in ways internal briefs sometimes aren't. If I did this again, I'd push for at least three FDI conversations before locking the IA."
-                ]
+                ],
+                keyScreensTitle: "Key Screens",
+                keyScreensIntro: "Selected screens from the NTB Industrial Park website.",
+                keyScreenFigures: [
+                    { src: "img/ntb detail 1.webp", alt: "NTB Industrial Park — factory ideal use cases and why choose us sections", caption: "Factory solutions & why choose NTB", wide: true, full: true }
+                ],
+                entryNumberOrder: ["cs-overview", "cs-context", "cs-process", "cs-screens", "cs-reflection"]
             }
         },
         {
