@@ -578,6 +578,11 @@
 .cs-figure--wide .cs-figure__frame img {
     aspect-ratio: var(--portfolio-thumb-aspect);
 }
+.cs-figure--full .cs-figure__frame img {
+    aspect-ratio: unset;
+    object-fit: contain;
+    background: transparent;
+}
 .cs-figure figcaption {
     font-size: 0.82rem;
     color: var(--text-muted);

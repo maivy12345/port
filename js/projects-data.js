@@ -55,28 +55,31 @@
                         src: "img/medpro detail 1.png",
                         alt: "Medpro web portal — partner cooperation page",
                         caption: "Web portal — partner cooperation landing",
-                        wide: true
+                        wide: true, full: true
                     },
                     {
                         src: "img/medpro detail 2.png",
                         alt: "Medpro mobile app — login and payment screens",
-                        caption: "Mobile app — login & payment flow"
+                        caption: "Mobile app — login & payment flow",
+                        full: true
                     },
                     {
                         src: "img/medpro detail 3.png",
                         alt: "Medpro mobile app — booking flows",
-                        caption: "Mobile app — facility & doctor booking"
+                        caption: "Mobile app — facility & doctor booking",
+                        full: true
                     },
                     {
                         src: "img/medpro detail 4.png",
                         alt: "Medpro web — health checkup & telemedicine",
-                        caption: "Web — health checkup package & telemedicine"
+                        caption: "Web — health checkup package & telemedicine",
+                        full: true
                     },
                     {
                         src: "img/medpro detail 5.png",
                         alt: "Medpro web — healthcare facility details & listing",
                         caption: "Web — facility details & listing pages",
-                        wide: true
+                        wide: true, full: true
                     }
                 ],
                 reflection: [

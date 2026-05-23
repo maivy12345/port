@@ -191,7 +191,7 @@
             });
             detail.keyScreenFigures.forEach(function (fig) {
                 var figure = document.createElement("figure");
-                figure.className = "cs-figure" + (fig.wide ? " cs-figure--wide" : "");
+                figure.className = "cs-figure" + (fig.wide ? " cs-figure--wide" : "") + (fig.full ? " cs-figure--full" : "");
                 var frame = document.createElement("div");
                 frame.className = "cs-figure__frame";
                 var img = document.createElement("img");
