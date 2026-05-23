@@ -797,7 +797,6 @@
 /* â”€â”€ Adjacent case studies (Previous | Next) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cs-adjacent {
     padding: clamp(3.25rem, 7vw, 5.25rem) 0;
-    border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     background: transparent;
 }
