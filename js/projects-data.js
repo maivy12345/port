@@ -981,6 +981,47 @@
                 ],
                 entryNumberOrder: ["cs-overview", "cs-context", "cs-process", "cs-screens", "cs-reflection"]
             }
+        },
+        {
+            slug: "zodiac",
+            title: "Zodiac",
+            industry: "Personal Project",
+            heroTagLine2: "UI/UX",
+            tags: ["Personal", "Web", "UI/UX", "Visual Design"],
+            categories: ["branding"],
+            serviceTypes: ["Web Design"],
+            cardImage: "img/project20-zodiac-website.webp",
+            cardAlt: "Zodiac website concept",
+            heroImage: "img/project20-zodiac-website.webp",
+            heroAlt: "Zodiac — astrology website concept",
+            year: "2024",
+            role: "UI/UX Designer",
+            client: "Personal project",
+            deliverables: "UI · Prototype",
+            detail: {
+                product: "Astrology Website Concept",
+                channels: "Web · Visual Design",
+                overview: "A personal project exploring the visual language of zodiac signs — a self-initiated website concept featuring sign descriptions, daily readings, compatibility, and birth chart layouts. The project wasn't built for a client; it was a space to play with celestial imagery, typography, and mood in ways client work rarely allows.",
+                contextParagraph1: "",
+                contextParagraph2: "",
+                contextBullets: [],
+                processIntro: "",
+                processSteps: [],
+                results: [],
+                reflection: [
+                    "The biggest takeaway: personal projects are where the visual range gets built. Client work usually demands restraint — brand systems, accessibility, conversion-driven layouts. A zodiac concept lets the design lean into atmosphere, ornament, and feeling without justifying every choice against a KPI. I include it in my portfolio not as evidence of shipped impact, but as evidence of taste and willingness to explore — the kind of work that keeps a designer's instincts sharp between client briefs."
+                ],
+                hideSectionIds: ["cs-context", "cs-process"],
+                entryNumberOrder: ["cs-overview", "cs-screens", "cs-reflection"],
+                keyScreensTitle: "Key Screens",
+                keyScreensIntro: "",
+                keyScreenFigures: [
+                    { src: "img/zodiac detail 1.webp", alt: "Zodiac — UI design overview with sign descriptions and daily readings", caption: "", wide: true, full: true },
+                    { src: "img/zodiac detail 2.webp", alt: "Zodiac — horoscope listing and personalized reading pages", caption: "", wide: true, full: true },
+                    { src: "img/zodiac detail 3.webp", alt: "Zodiac — homepage and article layout", caption: "", wide: true, full: true },
+                    { src: "img/zodiac detail 4.webp", alt: "Zodiac — zodiac signs and astrology pages", caption: "", wide: true, full: true }
+                ]
+            }
         }
     ];
 
