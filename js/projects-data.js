@@ -488,14 +488,10 @@
                 ],
                 hideSectionIds: ["cs-context", "cs-process"],
                 entryNumberOrder: ["cs-overview", "cs-screens", "cs-reflection"],
+                keyScreensTitle: "Key Screens",
                 keyScreensIntro: "",
                 keyScreenFigures: [
-                    {
-                        src: "img/Project4-myss-landingpage.webp",
-                        alt: "Myss Clinic website — key screens",
-                        caption: "Myss Clinic — website",
-                        wide: true
-                    }
+                    { src: "img/Project4-myss-landingpage.webp", alt: "Myss Clinic website", caption: "Myss Clinic — dermatology clinic website", wide: true, full: true }
                 ]
             }
         },
