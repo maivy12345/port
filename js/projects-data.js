@@ -275,7 +275,14 @@
                 reflection: [
                     "The biggest shift in how I think after this project: trust isn't a section on the page — it's a quality of the whole experience. I came in expecting pricing to be the conversion blocker. Auditing it closely, I saw that even users who saw transparent pricing dropped off if they hadn't seen credibility cues first. Pricing was the symptom; trust was the system.",
                     "If I did this again, I'd talk to real founders earlier. Most of my early findings came from heuristic review and stakeholder interviews. The ones that held up strongest in implementation were the ones I later validated against actual user behavior. Two months felt long — until I realized I'd spent six weeks auditing and only two weeks listening."
-                ]
+                ],
+                keyScreensTitle: "Key Screens",
+                keyScreensIntro: "Selected screens from the redesigned incorporation and partnership pages.",
+                keyScreenFigures: [
+                    { src: "img/occweb detail 1.webp", alt: "Offshore CompanyCorp — Delaware incorporation landing page", caption: "Delaware incorporation — landing page", wide: true, full: true },
+                    { src: "img/occweb detail 2.webp", alt: "Offshore CompanyCorp — strategic partnerships page", caption: "Strategic partnerships page", wide: true, full: true }
+                ],
+                entryNumberOrder: ["cs-overview", "cs-context", "cs-process", "cs-screens", "cs-reflection"]
             }
         },
         {
