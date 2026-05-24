@@ -25,13 +25,13 @@
         var emailEl = getField(form, ["email"]);
         var typeEl = getField(form, ["type"]);
 
-        if (nameEl && !nameEl.value.trim()) return "Vui lòng nhập tên / công ty.";
-        if (emailEl && !emailEl.value.trim()) return "Vui lòng nhập email.";
+        if (nameEl && !nameEl.value.trim()) return "Please enter your name / company.";
+        if (emailEl && !emailEl.value.trim()) return "Please enter your email.";
         if (emailEl && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) {
-            return "Email không hợp lệ.";
+            return "Invalid email address.";
         }
         if (typeEl && typeEl.hasAttribute("required") && !typeEl.value) {
-            return "Vui lòng chọn loại công việc.";
+            return "Please select a work type.";
         }
         return null;
     }
@@ -103,7 +103,7 @@
                 setStatus(
                     statusEl,
                     "error",
-                    "Form chưa được cấu hình. Email trực tiếp: vy.nguyentrucmai@gmail.com"
+                    "Form not configured. Email directly: vy.nguyentrucmai@gmail.com"
                 );
                 return;
             }
@@ -114,7 +114,7 @@
                 submitBtn.disabled = true;
                 submitBtn.setAttribute("aria-busy", "true");
             }
-            setStatus(statusEl, null, "Đang gửi…");
+            setStatus(statusEl, null, "Sending...");
 
             var payload = collectPayload(form);
             if (payload.botcheck) {
@@ -151,7 +151,7 @@
                     }
                     var msg =
                         (result.data && (result.data.message || result.data.body)) ||
-                        "Gửi thất bại";
+                        "Failed to send";
                     throw new Error(msg);
                 })
                 .catch(function (err) {
@@ -159,9 +159,9 @@
                     setStatus(
                         statusEl,
                         "error",
-                        "Không gửi được lúc này." +
+                        "Couldn't send right now." +
                             detail +
-                            " Thử lại hoặc email: vy.nguyentrucmai@gmail.com"
+                            " Try again or email: vy.nguyentrucmai@gmail.com"
                     );
                 })
                 .finally(function () {
