@@ -6,7 +6,7 @@
   },
   "headers": [
     {
-      "source": "/img/(.*\\.pdf)",
+      "source": "/img/(.*).pdf",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
       ]
